@@ -163,11 +163,12 @@
         window.addEventListener("scroll", reveal, { passive: true });
         reveal();
 
+        // 🚀 안개 효과 제거! 선명하게 끝납니다!
         var heroVideo = document.getElementById('hero-video');
         heroVideo.addEventListener('ended', function() {
-            this.style.transition = 'opacity 2s ease-out, filter 2s ease-out';
-            this.style.opacity = '0.3'; 
-            this.style.filter = 'blur(4px)'; 
+            this.style.transition = 'filter 2s ease-out';
+            // opacity(투명도)와 blur(흐림)를 아예 삭제했습니다.
+            this.style.filter = 'brightness(0.8)'; // 영화처럼 전체적으로 살짝만 어두워지며 멋지게 멈춥니다.
         });
     </script>
 </body>

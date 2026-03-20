@@ -3,27 +3,19 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>ORBIT OS | The Intelligent Core of Modern Hospitality</title>
+    <title>ORBIT PMS | Next-Gen Property Management</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <style>
-        /* 🚀 1. 상단 메뉴 클릭 시 스무스하게 스크롤되는 엘리베이터 엔진 장착! */
         html { scroll-behavior: smooth; }
-        
         body { font-family: 'Inter', sans-serif; }
         .signature-gradient { background: linear-gradient(135deg, #cbd5e1 0%, #6b38d4 50%, #4b41e1 100%); }
         .signature-text-gradient { background: linear-gradient(135deg, #94a3b8 0%, #6b38d4 50%, #4b41e1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .glass-nav { backdrop-filter: blur(20px); border-bottom: 1px solid rgba(199, 196, 215, 0.1); }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .neon-purple-shadow { box-shadow: 0 0 20px rgba(107, 56, 212, 0.4); }
-        
-        .reveal { 
-            opacity: 0; 
-            transform: translateY(30px); 
-            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1); 
-            will-change: opacity, transform; 
-        }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1); will-change: opacity, transform; }
         .reveal.active { opacity: 1; transform: translateY(0); }
     </style>
 </head>
@@ -31,20 +23,18 @@
     <nav class="fixed top-0 w-full z-50 glass-nav bg-white/90">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-10">
-                <a href="#" class="flex items-center gap-3 transition-transform duration-300 hover:scale-105 active:scale-95 group">
+                <a href="index.html" class="flex items-center gap-3 transition-transform duration-300 hover:scale-105 active:scale-95 group">
                      <img src="image_6.png.jpg" alt="ORBIT Logo" class="h-10 md:h-12 w-auto object-contain group-hover:brightness-110" onerror="this.src='https://via.placeholder.com/150x50/ffffff/6b38d4?text=ORBIT'">
                 </a>
-                
                 <div class="hidden md:flex items-center gap-8">
-                    <a href="#pms-section" class="text-sm font-bold text-gray-500 hover:text-[#6b38d4] transition-colors tracking-wide">Hotel PMS</a>
-                    <a href="#pos-section" class="text-sm font-bold text-gray-500 hover:text-[#6b38d4] transition-colors tracking-wide">Restaurant POS</a>
+                    <a href="index.html" class="text-sm font-bold text-[#6b38d4] tracking-wide">Hotel PMS</a>
+                    <a href="restaurant.html" class="text-sm font-bold text-gray-500 hover:text-[#6b38d4] transition-colors tracking-wide">Restaurant POS</a>
                     <a href="#analytics-section" class="text-sm font-bold text-gray-500 hover:text-[#6b38d4] transition-colors tracking-wide">Analytics</a>
-                    <a href="#pricing-section" class="text-sm font-bold text-gray-500 hover:text-[#6b38d4] transition-colors tracking-wide">Pricing</a>
                 </div>
             </div>
             <div class="flex items-center gap-6">
                 <button onclick="window.location.href='./login.html'" class="font-inter text-sm font-bold tracking-tight text-slate-600 hover:text-indigo-600 transition-colors">Sign In</button>
-                <button onclick="window.location.href='https://visionary-monstera-f0b44c.netlify.app'" class="signature-gradient text-white px-6 py-2.5 rounded-2xl text-sm font-bold shadow-lg shadow-[#6b38d4]/30 hover:shadow-[#6b38d4]/50 hover:-translate-y-0.5 active:scale-95 transition-all">Enter ORBIT</button>
+                <button onclick="window.location.href='https://visionary-monstera-f0b44c.netlify.app'" class="signature-gradient text-white px-6 py-2.5 rounded-2xl text-sm font-bold shadow-lg hover:-translate-y-0.5 transition-all">Enter ORBIT</button>
             </div>
         </div>
     </nav>
@@ -53,10 +43,10 @@
         <section class="max-w-7xl mx-auto px-6 pt-16 pb-24 text-center reveal">
             <h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter mb-8 leading-[0.9]">
                 The Intelligent Core of <br/>
-                <span class="signature-text-gradient">Modern Hospitality</span>
+                <span class="signature-text-gradient">Modern Hotels</span>
             </h1>
             <p class="max-w-2xl mx-auto text-gray-600 text-lg md:text-xl leading-relaxed mb-12 font-medium">
-                Unify property management, point of sale, and back-office operations. ORBIT delivers flawless API integration and zero-latency synchronization for modern booking platforms.
+                Flawless API integration for booking platforms. Eliminate overbookings and automate your property from front desk to housekeeping inventory.
             </p>
             
             <div class="relative w-full aspect-[21/9] rounded-2xl bg-black/5 shadow-2xl overflow-hidden flex items-center justify-center border border-gray-100 group neon-purple-shadow">
@@ -69,11 +59,11 @@
         <section class="max-w-5xl mx-auto px-6 mb-24 reveal">
             <div class="flex justify-center border-b border-gray-200 overflow-x-auto no-scrollbar">
                 <div class="flex gap-12 whitespace-nowrap">
-                    <button onclick="document.getElementById('pms-section').scrollIntoView({behavior: 'smooth'})" class="flex items-center gap-3 pb-6 border-b-2 border-[#4b41e1] transition-all">
+                    <button class="flex items-center gap-3 pb-6 border-b-2 border-[#4b41e1] transition-all cursor-default">
                         <span class="material-symbols-outlined text-[#4b41e1]">hotel_class</span>
                         <span class="font-bold text-gray-900">ORBIT PMS</span>
                     </button>
-                    <button onclick="document.getElementById('pos-section').scrollIntoView({behavior: 'smooth'})" class="flex items-center gap-3 pb-6 border-b-2 border-transparent text-gray-500 hover:text-black transition-all">
+                    <button onclick="window.location.href='restaurant.html'" class="flex items-center gap-3 pb-6 border-b-2 border-transparent text-gray-500 hover:text-black transition-all">
                         <span class="material-symbols-outlined">restaurant_menu</span>
                         <span class="font-bold">JJ's POS</span>
                     </button>
@@ -82,114 +72,49 @@
         </section>
 
         <section class="max-w-7xl mx-auto px-6 space-y-32 mb-32">
-            
-            <div id="pms-section" class="flex flex-col md:flex-row items-center gap-16 reveal scroll-mt-32">
+            <div class="flex flex-col md:flex-row items-center gap-16 reveal">
                 <div class="flex-1 order-2 md:order-1">
                     <span class="text-[#4b41e1] font-bold tracking-widest text-xs uppercase mb-4 block">Zero-Latency Sync</span>
-                    <h2 class="text-4xl font-bold mb-6 leading-tight">Next-Gen Property <br/>Management</h2>
+                    <h2 class="text-4xl font-bold mb-6 leading-tight">Flawless OTA <br/>Integration</h2>
                     <p class="text-gray-600 leading-relaxed mb-8">
-                        Designed with an ultra-fast, cloud-native architecture. ORBIT PMS seamlessly connects with external booking platforms and aggregators via Open API, ensuring real-time room availability and eliminating overbooking risks.
+                        Designed with an ultra-fast, cloud-native architecture. ORBIT PMS perfectly synchronizes with external booking apps and platform aggregators in real-time, completely eliminating overbooking risks.
                     </p>
                     <ul class="space-y-4">
-                        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-[#4b41e1] text-xl">api</span><span class="font-bold text-gray-800">Flawless OTA & Channel Integration</span></li>
-                        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-[#4b41e1] text-xl">speed</span><span class="font-bold text-gray-800">Intuitive UI for Rapid Staff Onboarding</span></li>
+                        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-[#4b41e1] text-xl">api</span><span class="font-bold text-gray-800">Open API Architecture</span></li>
+                        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-[#4b41e1] text-xl">view_timeline</span><span class="font-bold text-gray-800">Visual Drag & Drop Room Rack</span></li>
                     </ul>
                 </div>
                 <div class="flex-1 order-1 md:order-2 bg-white p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden relative group">
-                    <div class="absolute inset-0 bg-[#6b38d4]/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 rounded-3xl pointer-events-none"></div>
                     <img class="w-full aspect-video object-cover rounded-2xl transition-transform hover:scale-105 duration-700 relative z-0" src="hotel-pms-mockup.jpg" alt="Hotel PMS Dashboard" loading="lazy">
                 </div>
             </div>
             
-            <div id="pos-section" class="flex flex-col md:flex-row items-center gap-16 reveal scroll-mt-32">
+            <div class="flex flex-col md:flex-row items-center gap-16 reveal">
                 <div class="flex-1 bg-white p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden relative group">
-                    <div class="absolute inset-0 bg-[#6b38d4]/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 rounded-3xl pointer-events-none"></div>
-                    <img class="w-full aspect-video object-cover rounded-2xl transition-transform hover:scale-105 duration-700 relative z-0" src="restaurant-pos-mockup.jpg" alt="Restaurant POS System" loading="lazy">
+                    <img class="w-full aspect-video object-cover rounded-2xl transition-transform hover:scale-105 duration-700 relative z-0" src="dashboard-analytics.jpg" alt="Inventory Analytics" loading="lazy">
                 </div>
                 <div class="flex-1">
-                    <span class="text-[#4b41e1] font-bold tracking-widest text-xs uppercase mb-4 block">Culinary Precision</span>
-                    <h2 class="text-4xl font-bold mb-6 leading-tight">Integrated F&B <br/>Ecosystem</h2>
+                    <span class="text-[#4b41e1] font-bold tracking-widest text-xs uppercase mb-4 block">Total Asset Control</span>
+                    <h2 class="text-4xl font-bold mb-6 leading-tight">Integrated Inventory & <br/>Housekeeping</h2>
                     <p class="text-gray-600 leading-relaxed mb-8">
-                        Unify your front-of-house, kitchen operations, and external delivery networks. JJ's POS delivers lightning-fast order entry and dynamic API endpoints for third-party platform partners.
+                        Beyond just rooms. Our PMS tracks every amenity and minibar item. When housekeeping marks a room clean, stocks are automatically deducted. Never sell a package on a partner platform without the actual inventory to back it up.
                     </p>
                     <div class="grid grid-cols-2 gap-4">
-                        <div class="p-4 bg-gray-50 rounded-2xl border border-gray-100 hover:border-[#6b38d4]/30 transition-colors">
-                            <span class="material-symbols-outlined text-[#4b41e1] mb-2">sync_alt</span>
-                            <p class="text-xs font-bold uppercase tracking-wide text-gray-800">Partner Sync</p>
+                        <div class="p-4 bg-gray-50 rounded-2xl border border-gray-100">
+                            <span class="material-symbols-outlined text-[#4b41e1] mb-2">inventory_2</span>
+                            <p class="text-xs font-bold uppercase tracking-wide text-gray-800">Live Amenity Stock</p>
                         </div>
-                        <div class="p-4 bg-gray-50 rounded-2xl border border-gray-100 hover:border-[#6b38d4]/30 transition-colors">
-                            <span class="material-symbols-outlined text-[#4b41e1] mb-2">bolt</span>
-                            <p class="text-xs font-bold uppercase tracking-wide text-gray-800">Rapid Service</p>
+                        <div class="p-4 bg-gray-50 rounded-2xl border border-gray-100">
+                            <span class="material-symbols-outlined text-[#4b41e1] mb-2">cleaning_services</span>
+                            <p class="text-xs font-bold uppercase tracking-wide text-gray-800">Auto-Dispatch</p>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div id="analytics-section" class="flex flex-col md:flex-row items-center gap-16 reveal scroll-mt-32">
-                <div class="flex-1 order-2 md:order-1">
-                    <span class="text-[#4b41e1] font-bold tracking-widest text-xs uppercase mb-4 block">Absolute Visibility</span>
-                    <h2 class="text-4xl font-bold mb-6 leading-tight">Enterprise Command <br/>Center</h2>
-                    <p class="text-gray-600 leading-relaxed mb-8">
-                        Provide property owners and platform aggregators with crystal-clear insights. Monitor multi-channel revenue, commission structures, and daily rates in real-time.
-                    </p>
-                    <button class="bg-[#1b1c1c] text-white px-8 py-3.5 rounded-2xl font-bold hover:bg-gray-800 transition-all active:scale-95 shadow-lg">Open Analytics Demo</button>
-                </div>
-                <div class="flex-1 order-1 md:order-2 bg-white p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden relative group">
-                    <div class="absolute inset-0 bg-[#6b38d4]/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 rounded-3xl pointer-events-none"></div>
-                    <img class="w-full aspect-video object-cover rounded-2xl transition-transform hover:scale-105 duration-700 relative z-0" src="dashboard-analytics.jpg" alt="Dashboard Analytics" loading="lazy">
-                </div>
-            </div>
         </section>
 
-        <section id="pricing-section" class="max-w-7xl mx-auto px-6 mb-32 reveal scroll-mt-32">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-extrabold mb-4">Scale Without Limits</h2>
-                <p class="text-gray-500 font-medium text-lg">Transparent architecture for properties and platform partners.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-                <div class="bg-white p-10 rounded-[2.5rem] border border-gray-200 shadow-sm hover:shadow-xl transition-shadow duration-300">
-                    <h3 class="text-sm font-bold text-gray-500 mb-2">Restaurant Core</h3>
-                    <p class="text-xs text-gray-400 mb-6 leading-relaxed">Perfect for independent dining venues and cafes.</p>
-                    <h4 class="text-4xl font-black mb-8">Custom</h4>
-                    <ul class="space-y-4 mb-10 text-sm font-bold text-gray-700">
-                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-green-500 text-xl">check_circle</span> Full JJ's POS Access</li>
-                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-green-500 text-xl">check_circle</span> Kitchen Display System</li>
-                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-green-500 text-xl">check_circle</span> Standard Reporting</li>
-                    </ul>
-                    <button class="w-full py-4 rounded-2xl border-2 border-gray-200 text-gray-700 font-bold hover:border-[#6b38d4] hover:text-[#6b38d4] transition-all">Request Quote</button>
-                </div>
-                
-                <div class="bg-white p-10 rounded-[2.5rem] border-2 border-[#6b38d4] shadow-2xl relative transform md:-translate-y-4">
-                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#6b38d4] text-white px-5 py-1.5 rounded-full text-xs font-black tracking-widest uppercase shadow-md">Most Popular</div>
-                    <h3 class="text-sm font-bold text-[#6b38d4] mb-2">Unified Hospitality</h3>
-                    <p class="text-xs text-gray-500 mb-6 leading-relaxed">The complete digital suite for hotels with F&B outlets.</p>
-                    <div class="flex items-baseline gap-1 mb-8">
-                        <h4 class="text-5xl font-black text-gray-900">₱ 9,999</h4><span class="text-gray-400 font-bold">/ mo</span>
-                    </div>
-                    <ul class="space-y-4 mb-10 text-sm font-bold text-gray-800">
-                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-[#6b38d4] text-xl">check_circle</span> Unlimited User Profiles</li>
-                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-[#6b38d4] text-xl">check_circle</span> Deep PMS & POS Sync</li>
-                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-[#6b38d4] text-xl">check_circle</span> Advanced API Access</li>
-                    </ul>
-                    <button class="w-full py-4 rounded-2xl signature-gradient text-white font-bold shadow-lg hover:shadow-xl hover:shadow-[#6b38d4]/40 hover:-translate-y-1 transition-all">Deploy Now</button>
-                </div>
-                
-                <div class="bg-white p-10 rounded-[2.5rem] border border-gray-200 shadow-sm hover:shadow-xl transition-shadow duration-300">
-                    <h3 class="text-sm font-bold text-gray-500 mb-2">Enterprise Solutions</h3>
-                    <p class="text-xs text-gray-400 mb-6 leading-relaxed">Built for hotel groups and platform aggregators.</p>
-                    <h4 class="text-4xl font-black mb-8">Contact Us</h4>
-                    <ul class="space-y-4 mb-10 text-sm font-bold text-gray-700">
-                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-gray-400 text-xl">check_circle</span> Multi-Property Dashboard</li>
-                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-gray-400 text-xl">check_circle</span> Open API Architecture</li>
-                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-gray-400 text-xl">check_circle</span> Dedicated Success Manager</li>
-                    </ul>
-                    <button class="w-full py-4 rounded-2xl border-2 border-gray-200 text-gray-700 font-bold hover:border-[#6b38d4] hover:text-[#6b38d4] transition-all">Talk to Sales</button>
-                </div>
-            </div>
-        </section>
-        
         <footer class="bg-white w-full py-12 px-6 border-t border-gray-200">
-            <div class="max-w-7xl mx-auto mt-12 pt-8 text-center border-t border-gray-100">
+            <div class="max-w-7xl mx-auto text-center">
                 <p class="text-[11px] text-gray-400 font-bold tracking-[0.2em] uppercase">© 2026 ORBIT Operating System. All Rights Reserved.</p>
             </div>
         </footer>
@@ -201,17 +126,12 @@
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 50; 
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
+                if (elementTop < windowHeight - 50) reveals[i].classList.add("active");
             }
         }
         window.addEventListener("scroll", reveal, { passive: true });
         reveal();
-
-        var heroVideo = document.getElementById('hero-video');
-        heroVideo.addEventListener('ended', function() {
+        document.getElementById('hero-video').addEventListener('ended', function() {
             this.style.transition = 'filter 2s ease-out';
             this.style.filter = 'brightness(0.8)'; 
         });

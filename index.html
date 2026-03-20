@@ -15,8 +15,13 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .neon-purple-shadow { box-shadow: 0 0 20px rgba(107, 56, 212, 0.4); }
         
-        /* 🚀 스크롤 애니메이션 엔진 CSS */
-        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        /* 🚀 스크롤 애니메이션: GPU를 사용하도록 최적화하여 버벅임을 줄입니다 */
+        .reveal { 
+            opacity: 0; 
+            transform: translateY(30px); 
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1); 
+            will-change: opacity, transform; 
+        }
         .reveal.active { opacity: 1; transform: translateY(0); }
     </style>
 </head>
@@ -25,7 +30,7 @@
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-10">
                 <div class="flex items-center gap-3">
-                     <img src="image_6.png.jpg" alt="ORBIT Logo" class="h-10 md:h-12 w-auto object-contain" onerror="this.src='https://via.placeholder.com/150x50/ffffff/6b38d4?text=ORBIT'">
+                     <img src="image_6.png.jpg" alt="ORBIT Logo" class="h-16 md:h-20 w-auto object-contain transform scale-125 origin-left" onerror="this.src='https://via.placeholder.com/150x50/ffffff/6b38d4?text=ORBIT'">
                 </div>
             </div>
             <div class="flex items-center gap-6">
@@ -75,127 +80,6 @@
                     <p class="text-gray-600 leading-relaxed mb-8">
                         Automate the guest journey from booking to checkout. Our PMS provides a single source of truth for occupancy, guest preferences, and revenue leakage prevention.
                     </p>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-[#4b41e1] text-xl">check_circle</span><span class="font-medium">Smart Room Allocation Engine</span></li>
-                        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-[#4b41e1] text-xl">check_circle</span><span class="font-medium">Automated Housekeeping Workflows</span></li>
-                    </ul>
                 </div>
                 <div class="flex-1 order-1 md:order-2 bg-white p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden">
-                    <img class="w-full aspect-video object-cover rounded-2xl transition-transform hover:scale-105 duration-700" src="hotel-pms-mockup.jpg" alt="Hotel PMS Mockup" loading="lazy" onerror="this.src='https://via.placeholder.com/800x450/f3f4f6/6b38d4?text=Checking+Image+File+Name...'">
-                </div>
-            </div>
-            
-            <div class="flex flex-col md:flex-row items-center gap-16 reveal">
-                <div class="flex-1 bg-white p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden">
-                    <img class="w-full aspect-video object-cover rounded-2xl transition-transform hover:scale-105 duration-700" src="restaurant-pos-mockup.png" alt="Restaurant POS Mockup" loading="lazy" onerror="this.src='https://via.placeholder.com/800x450/f3f4f6/6b38d4?text=Checking+Image+File+Name...'">
-                </div>
-                <div class="flex-1">
-                    <span class="text-[#4b41e1] font-bold tracking-widest text-xs uppercase mb-4 block">Culinary Operations</span>
-                    <h2 class="text-4xl font-bold mb-6 leading-tight">Restaurant Ecosystem</h2>
-                    <p class="text-gray-600 leading-relaxed mb-8">
-                        Bridge the gap between front-of-house and kitchen operations. Integrated inventory, KDS, and tableside ordering that feels like second nature to your staff.
-                    </p>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="p-4 bg-gray-50 rounded-xl border border-gray-100">
-                            <span class="material-symbols-outlined text-[#4b41e1] mb-2">kitchen</span>
-                            <p class="text-xs font-bold uppercase tracking-wide">Live Inventory</p>
-                        </div>
-                        <div class="p-4 bg-gray-50 rounded-xl border border-gray-100">
-                            <span class="material-symbols-outlined text-[#4b41e1] mb-2">receipt_long</span>
-                            <p class="text-xs font-bold uppercase tracking-wide">Dynamic Billing</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flex flex-col md:flex-row items-center gap-16 reveal">
-                <div class="flex-1 order-2 md:order-1">
-                    <span class="text-[#4b41e1] font-bold tracking-widest text-xs uppercase mb-4 block">Command Center</span>
-                    <h2 class="text-4xl font-bold mb-6 leading-tight">Real-time Dashboard</h2>
-                    <p class="text-gray-600 leading-relaxed mb-8">
-                        Data-driven decisions shouldn't be difficult. Monitor your global revenue, average daily rates, and staff performance in a single, beautiful viewport.
-                    </p>
-                    <button class="bg-[#1b1c1c] text-white px-8 py-3 rounded-2xl font-bold hover:bg-gray-800 transition-all active:scale-95">Explore Analytics</button>
-                </div>
-                <div class="flex-1 order-1 md:order-2 bg-white p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden">
-                    <img class="w-full aspect-video object-cover rounded-2xl transition-transform hover:scale-105 duration-700" src="dashboard-analytics.png" alt="Dashboard Analytics" loading="lazy" onerror="this.src='https://via.placeholder.com/800x450/f3f4f6/6b38d4?text=Checking+Image+File+Name...'">
-                </div>
-            </div>
-        </section>
-
-        <section class="max-w-7xl mx-auto px-6 mb-32 reveal">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-extrabold mb-4">Investment for Scale</h2>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-                <div class="bg-white p-10 rounded-[2rem] border border-gray-200 shadow-sm">
-                    <h3 class="text-sm font-bold text-gray-500 mb-2">Restaurant Only (JJ's POS)</h3>
-                    <p class="text-xs text-gray-400 mb-6">Full F&B POS and KDS features for a single outlet.</p>
-                    <h4 class="text-3xl font-extrabold mb-8">Custom Quote</h4>
-                    <ul class="space-y-3 mb-10 text-sm font-medium text-gray-600">
-                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-lg">check</span> JJ POS API Integration</li>
-                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-lg">check</span> Inventory Engine</li>
-                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-lg">check</span> AQWIRE Billing Gateway</li>
-                    </ul>
-                    <button class="w-full py-3 rounded-xl border-2 border-gray-200 text-gray-600 font-bold hover:border-[#6b38d4] hover:text-[#6b38d4] transition-all">Contact for Quote</button>
-                </div>
-                <div class="bg-white p-10 rounded-[2rem] border-2 border-[#6b38d4] shadow-2xl relative transform md:-translate-y-4">
-                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#6b38d4] text-white px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase">Most Popular</div>
-                    <h3 class="text-sm font-bold text-[#6b38d4] mb-2">Hotel & Restaurant All-in-One</h3>
-                    <p class="text-xs text-gray-500 mb-6">The complete digital transformation suite for unified operations.</p>
-                    <div class="flex items-baseline gap-1 mb-8">
-                        <h4 class="text-4xl font-black">₱ 9,999</h4><span class="text-gray-400 font-medium">/ mo</span>
-                    </div>
-                    <ul class="space-y-3 mb-10 text-sm font-medium text-gray-700">
-                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[#6b38d4] text-lg">check_circle</span> Unlimited Staff Profiles</li>
-                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[#6b38d4] text-lg">check_circle</span> PMS & POS Sync</li>
-                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[#6b38d4] text-lg">check_circle</span> Revenue Management</li>
-                    </ul>
-                    <button class="w-full py-3 rounded-xl signature-gradient text-white font-bold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">Get Started Now</button>
-                </div>
-                <div class="bg-white p-10 rounded-[2rem] border border-gray-200 shadow-sm">
-                    <h3 class="text-sm font-bold text-gray-500 mb-2">Enterprise & Custom PMS</h3>
-                    <p class="text-xs text-gray-400 mb-6">For multi-property groups and chains.</p>
-                    <h4 class="text-3xl font-extrabold mb-8">Contact Sales</h4>
-                    <ul class="space-y-3 mb-10 text-sm font-medium text-gray-600">
-                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-lg">check</span> Global Multi-Tenancy</li>
-                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-lg">check</span> Custom API Endpoints</li>
-                        <li class="flex items-center gap-2"><span class="material-symbols-outlined text-green-500 text-lg">check</span> Headless Data Analytics</li>
-                    </ul>
-                    <button class="w-full py-3 rounded-xl border-2 border-gray-200 text-gray-600 font-bold hover:border-[#6b38d4] hover:text-[#6b38d4] transition-all">Speak to an Expert</button>
-                </div>
-            </div>
-        </section>
-        
-        <footer class="bg-white w-full py-12 px-6 border-t border-gray-200">
-            <div class="max-w-7xl mx-auto mt-12 pt-8 text-center border-t border-gray-100">
-                <p class="text-[10px] text-slate-400 font-medium tracking-[0.2em] uppercase">© 2026 Orbit OS. All Rights Reserved.</p>
-            </div>
-        </footer>
-    </main>
-
-    <script>
-        // 1. 부드러운 스크롤 애니메이션 엔진
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100; // 화면에 100px 보일 때 작동
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-        window.addEventListener("scroll", reveal);
-        reveal(); // 처음 로딩 시에도 체크
-
-        // 2. 비디오 종료 시 시네마틱 페이드 아웃 효과
-        document.getElementById('hero-video').addEventListener('ended', function() {
-            this.style.transition = 'all 2s ease'; // 2초에 걸쳐 부드럽게
-            this.style.filter = 'brightness(0.5) blur(3px)'; // 어두워지며 블러 처리
-            this.style.transform = 'scale(1.02)'; // 살짝 확대된 채로 멈춤
-        });
-    </script>
-</body>
-</html>
+                    <img class="w-full aspect-video object-cover rounded-2xl transition-transform hover:scale-105 duration-700" src="hotel-pms-mockup.jpg"

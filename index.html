@@ -1,4 +1,158 @@
-<section class="max-w-7xl mx-auto px-6 mb-32 reveal scroll-mt-32">
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>ORBIT PMS | API-First Hospitality ERP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; }
+        .signature-gradient { background: linear-gradient(135deg, #cbd5e1 0%, #6b38d4 50%, #4b41e1 100%); }
+        .signature-text-gradient { background: linear-gradient(135deg, #94a3b8 0%, #6b38d4 50%, #4b41e1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glass-nav { backdrop-filter: blur(20px); border-bottom: 1px solid rgba(199, 196, 215, 0.1); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .neon-purple-shadow { box-shadow: 0 0 20px rgba(107, 56, 212, 0.4); }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1); will-change: opacity, transform; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body id="top" class="bg-[#fbf9f8] text-[#1b1c1c] selection:bg-[#4b41e1]/20">
+    <nav class="fixed top-0 w-full z-50 glass-nav bg-white/90">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-10">
+                <a href="#top" class="flex items-center gap-3 transition-transform duration-300 hover:scale-105 active:scale-95 group">
+                     <img src="image_6.png.jpg" alt="ORBIT Logo" class="h-10 md:h-12 w-auto object-contain group-hover:brightness-110" onerror="this.src='https://via.placeholder.com/150x50/ffffff/6b38d4?text=ORBIT'">
+                </a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#top" class="text-sm font-bold text-[#6b38d4] tracking-wide">Hotel PMS</a>
+                    <a href="restaurant.html" class="text-sm font-bold text-gray-500 hover:text-[#6b38d4] transition-colors tracking-wide">Restaurant POS</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-6">
+                <button onclick="window.location.href='./login.html'" class="font-inter text-sm font-bold tracking-tight text-slate-600 hover:text-indigo-600 transition-colors">Sign In</button>
+                <button onclick="window.location.href='https://visionary-monstera-f0b44c.netlify.app'" class="signature-gradient text-white px-6 py-2.5 rounded-2xl text-sm font-bold shadow-lg hover:-translate-y-0.5 transition-all">Enter ORBIT</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-24">
+        <section class="max-w-7xl mx-auto px-6 pt-16 pb-24 text-center reveal">
+            <h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter mb-8 leading-[0.9]">
+                The API-First <br/>
+                <span class="signature-text-gradient">Hospitality ERP</span>
+            </h1>
+            <p class="max-w-2xl mx-auto text-gray-600 text-lg md:text-xl leading-relaxed mb-12 font-medium">
+                Cloud-native speeds, headless architecture, and absolute synchronization. ORBIT guarantees zero overbookings and frictionless integration for platform partners.
+            </p>
+            <div class="relative w-full aspect-[21/9] rounded-2xl bg-black/5 shadow-2xl overflow-hidden flex items-center justify-center border border-gray-100 group neon-purple-shadow">
+                <video id="hero-video" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" autoplay loop muted playsinline>
+                    <source src="hotel-pms-video.mp4" type="video/mp4"/>
+                </video>
+            </div>
+        </section>
+
+        <section class="max-w-5xl mx-auto px-6 mb-24 reveal">
+            <div class="flex justify-center border-b border-gray-200 overflow-x-auto no-scrollbar">
+                <div class="flex gap-12 whitespace-nowrap">
+                    <button class="flex items-center gap-3 pb-6 border-b-2 border-[#4b41e1] transition-all cursor-default">
+                        <span class="material-symbols-outlined text-[#4b41e1]">hotel_class</span>
+                        <span class="font-bold text-gray-900">ORBIT PMS</span>
+                    </button>
+                    <button onclick="window.location.href='restaurant.html'" class="flex items-center gap-3 pb-6 border-b-2 border-transparent text-gray-500 hover:text-black transition-all">
+                        <span class="material-symbols-outlined">restaurant_menu</span>
+                        <span class="font-bold">JJ's POS</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-7xl mx-auto px-6 space-y-32 mb-32">
+            
+            <div class="flex flex-col md:flex-row items-center gap-16 reveal">
+                <div class="flex-1 order-2 md:order-1">
+                    <span class="text-[#4b41e1] font-bold tracking-widest text-xs uppercase mb-4 block">Zero-Training UI</span>
+                    <h2 class="text-4xl font-bold mb-6 leading-tight">No Manuals Needed. <br/>Just Drag & Drop.</h2>
+                    <p class="text-gray-600 leading-relaxed mb-8">
+                        오늘 입사한 신입 직원도 바로 쓸 수 있습니다. 엑셀처럼 답답한 화면은 잊으세요. 연보라색의 트렌디한 타임라인 위에서 블록을 옮기듯 쉽게 예약과 객실을 관리하세요.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-[#4b41e1] text-xl">view_timeline</span><span class="font-bold text-gray-800">Visual Tape Chart</span></li>
+                        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-[#4b41e1] text-xl">touch_app</span><span class="font-bold text-gray-800">Intuitive Drag & Drop</span></li>
+                    </ul>
+                </div>
+                <div class="flex-1 order-1 md:order-2 bg-white p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden relative group">
+                    <img class="w-full aspect-video object-cover rounded-2xl transition-transform hover:scale-105 duration-700 relative z-0" src="section1-ui-mockup.jpg" alt="Hotel PMS Dashboard UI" loading="lazy" onerror="this.src='https://via.placeholder.com/800x450/f8f9fa/6b38d4?text=UI+Dashboard+Mockup'">
+                </div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center gap-16 reveal">
+                <div class="flex-1 bg-white p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden relative group">
+                    <img class="w-full aspect-video object-cover rounded-2xl transition-transform hover:scale-105 duration-700 relative z-0" src="section2-api-mockup.jpg" alt="Cloud Integration Graph" loading="lazy" onerror="this.src='https://via.placeholder.com/800x450/f8f9fa/6b38d4?text=Cloud+Speed+Mockup'">
+                </div>
+                <div class="flex-1">
+                    <span class="text-[#4b41e1] font-bold tracking-widest text-xs uppercase mb-4 block">Work Anywhere</span>
+                    <h2 class="text-4xl font-bold mb-6 leading-tight">Cloud-Native. <br/>Lightning Fast.</h2>
+                    <p class="text-gray-600 leading-relaxed mb-8">
+                        설치형 프로그램이 아닙니다. 로비의 데스크탑, 매니저의 아이패드, 오너의 스마트폰 어디서든 웹으로 접속하세요. 클릭하는 순간 새로고침 없이 0.1초 만에 반응합니다.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-4 bg-gray-50 rounded-2xl border border-gray-100 hover:border-[#6b38d4]/30 transition-colors">
+                            <span class="material-symbols-outlined text-[#4b41e1] mb-2">cloud_sync</span>
+                            <p class="text-xs font-bold uppercase tracking-wide text-gray-800">No Installation</p>
+                        </div>
+                        <div class="p-4 bg-gray-50 rounded-2xl border border-gray-100 hover:border-[#6b38d4]/30 transition-colors">
+                            <span class="material-symbols-outlined text-[#4b41e1] mb-2">speed</span>
+                            <p class="text-xs font-bold uppercase tracking-wide text-gray-800">0.1s Response</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center gap-16 reveal">
+                <div class="flex-1 order-2 md:order-1">
+                    <span class="text-[#4b41e1] font-bold tracking-widest text-xs uppercase mb-4 block">Frictionless Guest Exp</span>
+                    <h2 class="text-4xl font-bold mb-6 leading-tight">Browse, Click, Enjoy. <br/>Smart TV Ordering</h2>
+                    <p class="text-gray-600 leading-relaxed mb-8">
+                        객실의 스마트 TV가 가장 똑똑한 메뉴판이자 매출 기계가 됩니다. 손님이 침대에 누워 TV 리모컨으로 메뉴를 보다가 클릭 한 번으로 룸서비스를 주문합니다. 전화 통화 없이 주문이 주방으로 직행하여 객실 매출을 극대화합니다.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-[#4b41e1] text-xl">tv</span><span class="font-bold text-gray-800">In-Room Digital Menu</span></li>
+                        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-[#4b41e1] text-xl">payments</span><span class="font-bold text-gray-800">Maximize Room Revenue</span></li>
+                    </ul>
+                </div>
+                <div class="flex-1 order-1 md:order-2 bg-white p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden relative group">
+                    <img class="w-full aspect-video object-cover rounded-2xl transition-transform hover:scale-105 duration-700 relative z-0" src="section5-tv-order.jpg" alt="Smart TV Remote Ordering" loading="lazy" onerror="this.src='https://via.placeholder.com/800x450/f8f9fa/6b38d4?text=TV+Remote+Order+Mockup'">
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center gap-16 reveal">
+                <div class="flex-1 bg-white p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden relative group">
+                    <img class="w-full aspect-video object-cover rounded-2xl transition-transform hover:scale-105 duration-700 relative z-0" src="section4-revenue-mockup.jpg" alt="Revenue & Audit Dashboard" loading="lazy" onerror="this.src='https://via.placeholder.com/800x450/f8f9fa/6b38d4?text=Night+Audit+Mockup'">
+                </div>
+                <div class="flex-1">
+                    <span class="text-[#4b41e1] font-bold tracking-widest text-xs uppercase mb-4 block">Real-Time Financial Control</span>
+                    <h2 class="text-4xl font-bold mb-6 leading-tight">Close Your Day <br/>in One Click.</h2>
+                    <p class="text-gray-600 leading-relaxed mb-8">
+                        매일 밤 영수증을 맞추며 야근할 필요 없습니다. 청소 지시부터 일일 매출(RevPAR) 정산까지 모든 것이 자동화됩니다. 오너는 퇴근길에 스마트폰으로 오늘의 매출을 확인만 하세요.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-4 bg-gray-50 rounded-2xl border border-gray-100 hover:border-[#6b38d4]/30 transition-colors">
+                            <span class="material-symbols-outlined text-[#4b41e1] mb-2">account_balance</span>
+                            <p class="text-xs font-bold uppercase tracking-wide text-gray-800">Automated Audit</p>
+                        </div>
+                        <div class="p-4 bg-gray-50 rounded-2xl border border-gray-100 hover:border-[#6b38d4]/30 transition-colors">
+                            <span class="material-symbols-outlined text-[#4b41e1] mb-2">trending_up</span>
+                            <p class="text-xs font-bold uppercase tracking-wide text-gray-800">Live RevPAR Data</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-7xl mx-auto px-6 mb-32 reveal scroll-mt-32">
             <div class="bg-[#1b1c1c] rounded-[2.5rem] p-10 md:p-16 relative overflow-hidden shadow-2xl border border-gray-800">
                 <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-[#6b38d4] rounded-full blur-[120px] opacity-30"></div>
                 <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-blue-600 rounded-full blur-[100px] opacity-20"></div>
@@ -7,7 +161,7 @@
                     <div class="flex-1">
                         
                         <div class="flex items-center gap-5 mb-5 border-b border-gray-800 pb-5">
-                            <img src="aqwire payments logo vertical.jpg" alt="Aqwire Payments Official Logo" class="h-16 md:h-20 w-auto object-contain" onerror="this.src='https://via.placeholder.com/80x100/1b1c1c/ffffff?text=AQWIRE+Payments'">
+                            <img src="aqwire payments logo vertical.jpg" alt="Aqwire Payments Official Logo" class="h-16 md:h-24 w-auto object-contain rounded-lg" onerror="this.src='https://via.placeholder.com/80x100/1b1c1c/ffffff?text=AQWIRE'">
                             <span class="text-[#cbd5e1] font-bold tracking-widest text-xs uppercase flex items-center gap-2">
                                 <span class="material-symbols-outlined text-[16px] text-[#6b38d4]">verified</span> Official Payment Partner
                             </span>
@@ -17,18 +171,18 @@
                             Say Yes to Every Guest.<br/>Powered by <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#6b38d4] to-[#4facfe]">AQWIRE Payments</span>
                         </h2>
                         <p class="text-gray-400 leading-relaxed mb-8 text-lg font-medium">
-                            ORBIT OS is natively integrated with Aqwire Payments, the pioneer of Philippine FinTech trusted by over 100,000 global users. Whether it's online hotel bookings or table-side restaurant payments, accept 150+ global currencies, international credit cards, and all major local E-Wallets instantly.
+                            ORBIT OS is natively integrated with Aqwire Payments, the pioneer of Philippine FinTech[cite: 59]. Whether it's online hotel bookings or table-side restaurant payments, accept 150+ global currencies[cite: 58], international credit cards, and all major local E-Wallets instantly.
                         </p>
                         
                         <div class="mb-8">
                             <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">Accepted Worldwide & Locally</p>
                             <div class="flex flex-wrap gap-2">
                                 <span class="px-3 py-1.5 rounded-lg bg-white/10 text-white text-xs font-bold border border-white/10">VISA / Mastercard</span>
-                                <span class="px-3 py-1.5 rounded-lg bg-white/10 text-white text-xs font-bold border border-white/10">JCB / Amex / UnionPay</span>
-                                <span class="px-3 py-1.5 rounded-lg bg-white/10 text-blue-400 text-xs font-bold border border-blue-400/30">GCash</span>
-                                <span class="px-3 py-1.5 rounded-lg bg-white/10 text-green-400 text-xs font-bold border border-green-400/30">Maya</span>
-                                <span class="px-3 py-1.5 rounded-lg bg-white/10 text-red-400 text-xs font-bold border border-red-400/30">QRPh</span>
-                                <span class="px-3 py-1.5 rounded-lg bg-white/10 text-white text-xs font-bold border border-white/10">BDO / BPI / UB</span>
+                                <span class="px-3 py-1.5 rounded-lg bg-white/10 text-white text-xs font-bold border border-white/10">JCB / Amex</span>
+                                <span class="px-3 py-1.5 rounded-lg bg-[#0052E0]/20 text-[#0052E0] text-xs font-bold border border-[#0052E0]/50">GCash</span>
+                                <span class="px-3 py-1.5 rounded-lg bg-[#00B14F]/20 text-[#00B14F] text-xs font-bold border border-[#00B14F]/50">Maya</span>
+                                <span class="px-3 py-1.5 rounded-lg bg-[#E31837]/20 text-[#E31837] text-xs font-bold border border-[#E31837]/50">QRPh</span>
+                                <span class="px-3 py-1.5 rounded-lg bg-white/10 text-white text-xs font-bold border border-white/10">BDO / BPI</span>
                             </div>
                         </div>
 
@@ -37,14 +191,14 @@
                                 <span class="material-symbols-outlined text-[#6b38d4] text-xl">public</span>
                                 <div>
                                     <span class="font-bold text-gray-200 block">150+ Currencies Supported</span>
-                                    <span class="text-sm text-gray-500">Cross-border settlements with absolute security.</span>
+                                    <span class="text-sm text-gray-500">Cross-border settlements with absolute security[cite: 58].</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3">
                                 <span class="material-symbols-outlined text-[#6b38d4] text-xl">point_of_sale</span>
                                 <div>
                                     <span class="font-bold text-gray-200 block">All-in-One PTS Terminal</span>
-                                    <span class="text-sm text-gray-500">Tap cards or scan QR codes in a single hardware device.</span>
+                                    <span class="text-sm text-gray-500">Tap cards or scan QR codes in a single hardware device[cite: 37, 233, 235].</span>
                                 </div>
                             </li>
                         </ul>
@@ -73,7 +227,7 @@
                                 </div>
                                 <div class="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
                                     <div class="flex items-center gap-2">
-                                        <img src="aqwire payments logo vertical.jpg" alt="Aqwire Payments" class="h-8 object-contain" onerror="this.src='https://via.placeholder.com/80x40/1b1c1c/ffffff?text=AQWIRE+Payments'">
+                                        <img src="aqwire payments logo vertical.jpg" alt="Aqwire Payments" class="h-10 object-contain rounded" onerror="this.src='https://via.placeholder.com/80x40/1b1c1c/ffffff?text=AQWIRE'">
                                     </div>
                                     <span class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Trusted by 100k+ Users</span>
                                 </div>
@@ -84,3 +238,72 @@
                 </div>
             </div>
         </section>
+
+        <section id="pricing-section" class="max-w-7xl mx-auto px-6 mb-32 reveal scroll-mt-32">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-extrabold mb-4">Scale Without Limits</h2>
+                <p class="text-gray-500 font-medium text-lg">Transparent architecture for properties and platform partners.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                <div class="bg-white p-10 rounded-[2.5rem] border border-gray-200 shadow-sm hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-sm font-bold text-gray-500 mb-2">PMS Core</h3>
+                    <p class="text-xs text-gray-400 mb-6 leading-relaxed">Perfect for independent boutique hotels.</p>
+                    <h4 class="text-4xl font-black mb-8">Custom</h4>
+                    <ul class="space-y-4 mb-10 text-sm font-bold text-gray-700">
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-green-500 text-xl">check_circle</span> Visual Tape Chart</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-green-500 text-xl">check_circle</span> Basic API Access</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-green-500 text-xl">check_circle</span> AQWIRE Integration</li>
+                    </ul>
+                    <button class="w-full py-4 rounded-2xl border-2 border-gray-200 text-gray-700 font-bold hover:border-[#6b38d4] hover:text-[#6b38d4] transition-all">Request Quote</button>
+                </div>
+                
+                <div class="bg-white p-10 rounded-[2.5rem] border-2 border-[#6b38d4] shadow-2xl relative transform md:-translate-y-4">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#6b38d4] text-white px-5 py-1.5 rounded-full text-xs font-black tracking-widest uppercase shadow-md">Most Popular</div>
+                    <h3 class="text-sm font-bold text-[#6b38d4] mb-2">Unified Hospitality ERP</h3>
+                    <p class="text-xs text-gray-500 mb-6 leading-relaxed">The complete digital suite for hotels with F&B outlets.</p>
+                    <div class="flex items-baseline gap-1 mb-8">
+                        <h4 class="text-5xl font-black text-gray-900">₱ 9,999</h4><span class="text-gray-400 font-bold">/ mo</span>
+                    </div>
+                    <ul class="space-y-4 mb-10 text-sm font-bold text-gray-800">
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-[#6b38d4] text-xl">check_circle</span> Smart TV Ordering</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-[#6b38d4] text-xl">check_circle</span> Deep PMS & POS Sync</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-[#6b38d4] text-xl">check_circle</span> Automated Night Audit</li>
+                    </ul>
+                    <button class="w-full py-4 rounded-2xl signature-gradient text-white font-bold shadow-lg hover:shadow-xl hover:shadow-[#6b38d4]/40 hover:-translate-y-1 transition-all">Deploy Now</button>
+                </div>
+                
+                <div class="bg-white p-10 rounded-[2.5rem] border border-gray-200 shadow-sm hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-sm font-bold text-gray-500 mb-2">Enterprise Solutions</h3>
+                    <p class="text-xs text-gray-400 mb-6 leading-relaxed">Built for hotel groups and platform aggregators.</p>
+                    <h4 class="text-4xl font-black mb-8">Contact Us</h4>
+                    <ul class="space-y-4 mb-10 text-sm font-bold text-gray-700">
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-gray-400 text-xl">check_circle</span> Multi-Property Dashboard</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-gray-400 text-xl">check_circle</span> Dedicated API Architecture</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-gray-400 text-xl">check_circle</span> Dedicated Success Manager</li>
+                    </ul>
+                    <button class="w-full py-4 rounded-2xl border-2 border-gray-200 text-gray-700 font-bold hover:border-[#6b38d4] hover:text-[#6b38d4] transition-all">Talk to Sales</button>
+                </div>
+            </div>
+        </section>
+        
+        <footer class="bg-white w-full py-12 px-6 border-t border-gray-200">
+            <div class="max-w-7xl mx-auto text-center">
+                <p class="text-[11px] text-gray-400 font-bold tracking-[0.2em] uppercase">© 2026 ORBIT Operating System. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 50) reveals[i].classList.add("active");
+            }
+        }
+        window.addEventListener("scroll", reveal, { passive: true });
+        reveal();
+    </script>
+</body>
+</html>

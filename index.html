@@ -322,5 +322,79 @@
         window.addEventListener("scroll", reveal, { passive: true });
         reveal();
     </script>
-</body>
+<div id="demoModal" class="fixed inset-0 z-[100] hidden opacity-0 transition-opacity duration-300">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeDemoModal()"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-white rounded-3xl shadow-2xl p-8 transform scale-95 transition-transform duration-300" id="demoModalContent">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-black text-gray-900">Request a Demo</h3>
+                <button onclick="closeDemoModal()" class="text-gray-400 hover:text-red-500 transition-colors">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <p class="text-sm text-gray-500 mb-6">Discover how ORBIT can transform your hotel operations. Leave your details and our team will contact you shortly.</p>
+            <form class="space-y-4" onsubmit="event.preventDefault(); alert('Thank you! Demo request submitted.'); closeDemoModal();">
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wide mb-1">Hotel Name</label>
+                    <input type="text" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#6b38d4] focus:ring-2 focus:ring-[#6b38d4]/20 outline-none transition-all" placeholder="e.g. Solaire Resort" required>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wide mb-1">Your Name</label>
+                    <input type="text" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#6b38d4] focus:ring-2 focus:ring-[#6b38d4]/20 outline-none transition-all" placeholder="John Doe" required>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wide mb-1">Email Address</label>
+                    <input type="email" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#6b38d4] focus:ring-2 focus:ring-[#6b38d4]/20 outline-none transition-all" placeholder="john@hotel.com" required>
+                </div>
+                <button type="submit" class="w-full mt-4 py-3.5 rounded-xl signature-gradient text-white font-bold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
+                    Submit Request
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openDemoModal() {
+            const modal = document.getElementById('demoModal');
+            const content = document.getElementById('demoModalContent');
+            modal.classList.remove('hidden');
+            // Trigger reflow
+            void modal.offsetWidth;
+            modal.classList.remove('opacity-0');
+            content.classList.remove('scale-95');
+        }
+        
+        function closeDemoModal() {
+            const modal = document.getElementById('demoModal');
+            const content = document.getElementById('demoModalContent');
+            modal.classList.add('opacity-0');
+            content.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // 기존의 죽은 링크들을 데모 모달로 연결하는 스크립트 (덮어쓰기 효과)
+        document.addEventListener("DOMContentLoaded", function() {
+            // Enter ORBIT 버튼들
+            const enterButtons = document.querySelectorAll("button[onclick*='visionary-monstera']");
+            enterButtons.forEach(btn => {
+                btn.removeAttribute('onclick');
+                btn.addEventListener('click', openDemoModal);
+                btn.innerText = "Request Demo";
+            });
+
+            // 요금제의 구매/문의 버튼들
+            const pricingButtons = document.querySelectorAll("#pricing-section button");
+            pricingButtons.forEach(btn => {
+                btn.removeAttribute('onclick');
+                btn.addEventListener('click', openDemoModal);
+            });
+
+            // Sign In 버튼은 실제 Vercel 앱 로그인으로 연결
+            const signInButtons = document.querySelectorAll("button[onclick*='./login.html']");
+            signInButtons.forEach(btn => {
+                btn.setAttribute('onclick', "window.location.href='https://hotel-pms-frontend-swww.vercel.app/'");
+            });
+        });
+    </script></body>
 </html>

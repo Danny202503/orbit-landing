@@ -17,9 +17,13 @@
         .neon-purple-shadow { box-shadow: 0 0 20px rgba(107, 56, 212, 0.4); }
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1); will-change: opacity, transform; }
         .reveal.active { opacity: 1; transform: translateY(0); }
+        /* 드롭다운 애니메이션 */
+        .dropdown-menu { display: none; opacity: 0; transition: opacity 0.2s ease-in-out; }
+        .group:hover .dropdown-menu { display: block; opacity: 1; }
     </style>
 </head>
 <body id="top" class="bg-[#fbf9f8] text-[#1b1c1c] selection:bg-[#4b41e1]/20">
+    
     <nav class="fixed top-0 w-full z-50 glass-nav bg-white/90">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-10">
@@ -31,9 +35,28 @@
                     <a href="restaurant.html" class="text-sm font-bold text-gray-500 hover:text-[#6b38d4] transition-colors tracking-wide">Restaurant POS</a>
                 </div>
             </div>
-            <div class="flex items-center gap-6">
-                <button onclick="window.location.href='./login.html'" class="font-inter text-sm font-bold tracking-tight text-slate-600 hover:text-indigo-600 transition-colors">Sign In</button>
-                <button onclick="window.location.href='https://visionary-monstera-f0b44c.netlify.app'" class="signature-gradient text-white px-6 py-2.5 rounded-2xl text-sm font-bold shadow-lg hover:-translate-y-0.5 transition-all">Enter ORBIT</button>
+            
+            <div class="flex items-center gap-4 md:gap-6">
+                <div class="relative group cursor-pointer py-2">
+                    <div class="flex items-center gap-1.5 text-sm font-bold text-gray-600 hover:text-[#6b38d4] transition-colors">
+                        <span>🇺🇸</span><span>EN</span><span class="material-symbols-outlined text-[16px]">expand_more</span>
+                    </div>
+                    <div class="dropdown-menu absolute right-0 mt-2 w-28 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50">
+                        <ul class="py-2 flex flex-col">
+                            <li class="px-4 py-2 hover:bg-gray-50 text-sm font-bold text-[#6b38d4] flex items-center gap-2 transition-colors"><span>🇺🇸</span> EN</li>
+                            <li class="px-4 py-2 hover:bg-gray-50 text-sm font-medium text-gray-600 flex items-center gap-2 transition-colors"><span>🇵🇭</span> TL</li>
+                            <li class="px-4 py-2 hover:bg-gray-50 text-sm font-medium text-gray-600 flex items-center gap-2 transition-colors"><span>🇰🇷</span> KOR</li>
+                            <li class="px-4 py-2 hover:bg-gray-50 text-sm font-medium text-gray-600 flex items-center gap-2 transition-colors"><span>🇯🇵</span> JPN</li>
+                            <li class="px-4 py-2 hover:bg-gray-50 text-sm font-medium text-gray-600 flex items-center gap-2 transition-colors"><span>🇪🇸</span> ESP</li>
+                            <li class="px-4 py-2 hover:bg-gray-50 text-sm font-medium text-gray-600 flex items-center gap-2 transition-colors"><span>🇩🇪</span> GER</li>
+                            <li class="px-4 py-2 hover:bg-gray-50 text-sm font-medium text-gray-600 flex items-center gap-2 transition-colors"><span>🇵🇹</span> POR</li>
+                            <li class="px-4 py-2 hover:bg-gray-50 text-sm font-medium text-gray-600 flex items-center gap-2 transition-colors"><span>🇫🇷</span> FRA</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="hidden sm:block w-px h-5 bg-gray-200"></div>
+                <button onclick="window.location.href='./login.html'" class="hidden sm:block font-inter text-sm font-bold tracking-tight text-slate-600 hover:text-indigo-600 transition-colors">Sign In</button>
+                <button onclick="window.location.href='https://visionary-monstera-f0b44c.netlify.app'" class="signature-gradient text-white px-5 py-2 md:px-6 md:py-2.5 rounded-2xl text-sm font-bold shadow-lg hover:-translate-y-0.5 transition-all whitespace-nowrap">Enter ORBIT</button>
             </div>
         </div>
     </nav>
@@ -73,39 +96,39 @@
             
             <div class="flex flex-col md:flex-row items-center gap-16 reveal">
                 <div class="flex-1 order-2 md:order-1">
-                    <span class="text-[#4b41e1] font-bold tracking-widest text-xs uppercase mb-4 block">Zero-Training UI</span>
-                    <h2 class="text-4xl font-bold mb-6 leading-tight">No Manuals Needed. <br/>Just Drag & Drop.</h2>
+                    <span class="text-[#4b41e1] font-bold tracking-widest text-xs uppercase mb-4 block">Zero-Training Front Desk</span>
+                    <h2 class="text-4xl font-bold mb-6 leading-tight">Smart Room Board. <br/>Absolute Visibility.</h2>
                     <p class="text-gray-600 leading-relaxed mb-8">
-                        오늘 입사한 신입 직원도 바로 쓸 수 있습니다. 엑셀처럼 답답한 화면은 잊으세요. 연보라색의 트렌디한 타임라인 위에서 블록을 옮기듯 쉽게 예약과 객실을 관리하세요.
+                        오늘 입사한 신입 직원도 30분이면 마스터합니다. 복잡한 엑셀 차트는 잊으세요. ORBIT의 혁신적인 '스마트 룸 카드(Smart Room Card)' UI는 객실 상태(Vacant, Occupied)를 한눈에 파악하고 직관적으로 관리할 수 있게 해줍니다. 프론트 데스크의 실수 확률을 0%로 만듭니다.
                     </p>
                     <ul class="space-y-4">
-                        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-[#4b41e1] text-xl">view_timeline</span><span class="font-bold text-gray-800">Visual Tape Chart</span></li>
-                        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-[#4b41e1] text-xl">touch_app</span><span class="font-bold text-gray-800">Intuitive Drag & Drop</span></li>
+                        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-[#4b41e1] text-xl">view_module</span><span class="font-bold text-gray-800">Intuitive Card-Based UI</span></li>
+                        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-[#4b41e1] text-xl">speed</span><span class="font-bold text-gray-800">0.1s React Cloud Engine</span></li>
                     </ul>
                 </div>
                 <div class="flex-1 order-1 md:order-2 bg-white p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden relative group">
-                    <img class="w-full aspect-video object-cover rounded-2xl transition-transform hover:scale-105 duration-700 relative z-0" src="section1-ui-mockup.jpg" alt="Hotel PMS Dashboard UI" loading="lazy" onerror="this.src='https://via.placeholder.com/800x450/f8f9fa/6b38d4?text=UI+Dashboard+Mockup'">
+                    <img class="w-full aspect-video object-cover rounded-2xl transition-transform hover:scale-105 duration-700 relative z-0" src="section1-smartboard.jpg" alt="Smart Room Board" loading="lazy" onerror="this.src='https://via.placeholder.com/800x450/f8f9fa/6b38d4?text=Smart+Room+Board+(Upload+section1-smartboard.jpg)'">
                 </div>
             </div>
             
             <div class="flex flex-col md:flex-row items-center gap-16 reveal">
                 <div class="flex-1 bg-white p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden relative group">
-                    <img class="w-full aspect-video object-cover rounded-2xl transition-transform hover:scale-105 duration-700 relative z-0" src="section2-api-mockup.jpg" alt="Cloud Integration Graph" loading="lazy" onerror="this.src='https://via.placeholder.com/800x450/f8f9fa/6b38d4?text=Cloud+Speed+Mockup'">
+                    <img class="w-full aspect-video object-cover rounded-2xl transition-transform hover:scale-105 duration-700 relative z-0" src="section2-otasync.jpg" alt="Live OTA Sync" loading="lazy" onerror="this.src='https://via.placeholder.com/800x450/f8f9fa/6b38d4?text=Live+OTA+Sync+(Upload+section2-otasync.jpg)'">
                 </div>
                 <div class="flex-1">
-                    <span class="text-[#4b41e1] font-bold tracking-widest text-xs uppercase mb-4 block">Work Anywhere</span>
-                    <h2 class="text-4xl font-bold mb-6 leading-tight">Cloud-Native. <br/>Lightning Fast.</h2>
+                    <span class="text-[#4b41e1] font-bold tracking-widest text-xs uppercase mb-4 block">Headless Architecture</span>
+                    <h2 class="text-4xl font-bold mb-6 leading-tight">Live OTA Sync. <br/>Zero Overbookings.</h2>
                     <p class="text-gray-600 leading-relaxed mb-8">
-                        설치형 프로그램이 아닙니다. 로비의 데스크탑, 매니저의 아이패드, 오너의 스마트폰 어디서든 웹으로 접속하세요. 클릭하는 순간 새로고침 없이 0.1초 만에 반응합니다.
+                        외부 예약 채널(Agoda, Booking.com)과 완벽하게 동기화됩니다. 고객이 예약하는 순간, 프론트 데스크 화면에 즉각적인 'Live OTA Reservation' 알림 팝업이 뜹니다. 더 이상 오버부킹으로 인한 고객 클레임과 환불 스트레스를 겪지 마세요.
                     </p>
                     <div class="grid grid-cols-2 gap-4">
                         <div class="p-4 bg-gray-50 rounded-2xl border border-gray-100 hover:border-[#6b38d4]/30 transition-colors">
-                            <span class="material-symbols-outlined text-[#4b41e1] mb-2">cloud_sync</span>
-                            <p class="text-xs font-bold uppercase tracking-wide text-gray-800">No Installation</p>
+                            <span class="material-symbols-outlined text-[#4b41e1] mb-2">sync</span>
+                            <p class="text-xs font-bold uppercase tracking-wide text-gray-800">Real-Time Alerts</p>
                         </div>
                         <div class="p-4 bg-gray-50 rounded-2xl border border-gray-100 hover:border-[#6b38d4]/30 transition-colors">
-                            <span class="material-symbols-outlined text-[#4b41e1] mb-2">speed</span>
-                            <p class="text-xs font-bold uppercase tracking-wide text-gray-800">0.1s Response</p>
+                            <span class="material-symbols-outlined text-[#4b41e1] mb-2">gpp_good</span>
+                            <p class="text-xs font-bold uppercase tracking-wide text-gray-800">Prevent Overbooking</p>
                         </div>
                     </div>
                 </div>
@@ -114,38 +137,38 @@
             <div class="flex flex-col md:flex-row items-center gap-16 reveal">
                 <div class="flex-1 order-2 md:order-1">
                     <span class="text-[#4b41e1] font-bold tracking-widest text-xs uppercase mb-4 block">Frictionless Guest Exp</span>
-                    <h2 class="text-4xl font-bold mb-6 leading-tight">Browse, Click, Enjoy. <br/>Smart TV Ordering</h2>
+                    <h2 class="text-4xl font-bold mb-6 leading-tight">Your Room TV is <br/>the Smartest POS.</h2>
                     <p class="text-gray-600 leading-relaxed mb-8">
-                        객실의 스마트 TV가 가장 똑똑한 메뉴판이자 매출 기계가 됩니다. 손님이 침대에 누워 TV 리모컨으로 메뉴를 보다가 클릭 한 번으로 룸서비스를 주문합니다. 전화 통화 없이 주문이 주방으로 직행하여 객실 매출을 극대화합니다.
+                        객실의 스마트 TV가 다국어(EN, KR, JP, CN)를 지원하는 완벽한 디지털 서비스 허브가 됩니다. 손님이 침대에 누워 리모컨으로 룸서비스(In-Room Dining)를 주문하고 스파(Spa)를 예약합니다. 주문은 호텔 POS로 직행하여 인건비 없이 객실 매출을 극대화합니다.
                     </p>
                     <ul class="space-y-4">
-                        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-[#4b41e1] text-xl">tv</span><span class="font-bold text-gray-800">In-Room Digital Menu</span></li>
-                        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-[#4b41e1] text-xl">payments</span><span class="font-bold text-gray-800">Maximize Room Revenue</span></li>
+                        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-[#4b41e1] text-xl">tv</span><span class="font-bold text-gray-800">Multi-Language TV UI</span></li>
+                        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-[#4b41e1] text-xl">point_of_sale</span><span class="font-bold text-gray-800">Direct POS Routing</span></li>
                     </ul>
                 </div>
                 <div class="flex-1 order-1 md:order-2 bg-white p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden relative group">
-                    <img class="w-full aspect-video object-cover rounded-2xl transition-transform hover:scale-105 duration-700 relative z-0" src="section5-tv-order.jpg" alt="Smart TV Remote Ordering" loading="lazy" onerror="this.src='https://via.placeholder.com/800x450/f8f9fa/6b38d4?text=TV+Remote+Order+Mockup'">
+                    <img class="w-full aspect-video object-cover rounded-2xl transition-transform hover:scale-105 duration-700 relative z-0" src="section3-smarttv.jpg" alt="Smart TV Ordering" loading="lazy" onerror="this.src='https://via.placeholder.com/800x450/f8f9fa/6b38d4?text=Smart+TV+Order+(Upload+section3-smarttv.jpg)'">
                 </div>
             </div>
 
             <div class="flex flex-col md:flex-row items-center gap-16 reveal">
                 <div class="flex-1 bg-white p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden relative group">
-                    <img class="w-full aspect-video object-cover rounded-2xl transition-transform hover:scale-105 duration-700 relative z-0" src="section4-revenue-mockup.jpg" alt="Revenue & Audit Dashboard" loading="lazy" onerror="this.src='https://via.placeholder.com/800x450/f8f9fa/6b38d4?text=Night+Audit+Mockup'">
+                    <img class="w-full aspect-video object-cover rounded-2xl transition-transform hover:scale-105 duration-700 relative z-0" src="section4-finance.jpg" alt="Financial Control Dashboard" loading="lazy" onerror="this.src='https://via.placeholder.com/800x450/f8f9fa/6b38d4?text=Finance+Dashboard+(Upload+section4-finance.jpg)'">
                 </div>
                 <div class="flex-1">
-                    <span class="text-[#4b41e1] font-bold tracking-widest text-xs uppercase mb-4 block">Real-Time Financial Control</span>
+                    <span class="text-[#4b41e1] font-bold tracking-widest text-xs uppercase mb-4 block">Total Financial Control</span>
                     <h2 class="text-4xl font-bold mb-6 leading-tight">Close Your Day <br/>in One Click.</h2>
                     <p class="text-gray-600 leading-relaxed mb-8">
-                        매일 밤 영수증을 맞추며 야근할 필요 없습니다. 청소 지시부터 일일 매출(RevPAR) 정산까지 모든 것이 자동화됩니다. 오너는 퇴근길에 스마트폰으로 오늘의 매출을 확인만 하세요.
+                        매일 밤 영수증을 대조하며 야근할 필요가 없습니다. ORBIT의 강력한 백오피스(CFO Dashboard)는 세금(VAT), 서비스 차지 설정부터 일일 영수증 프리뷰, 자동 마감 정산(Night Audit)까지 완벽하게 통제합니다. 오너의 완벽한 재무 가시성을 보장합니다.
                     </p>
                     <div class="grid grid-cols-2 gap-4">
                         <div class="p-4 bg-gray-50 rounded-2xl border border-gray-100 hover:border-[#6b38d4]/30 transition-colors">
-                            <span class="material-symbols-outlined text-[#4b41e1] mb-2">account_balance</span>
-                            <p class="text-xs font-bold uppercase tracking-wide text-gray-800">Automated Audit</p>
+                            <span class="material-symbols-outlined text-[#4b41e1] mb-2">receipt_long</span>
+                            <p class="text-xs font-bold uppercase tracking-wide text-gray-800">Dynamic Receipt Preview</p>
                         </div>
                         <div class="p-4 bg-gray-50 rounded-2xl border border-gray-100 hover:border-[#6b38d4]/30 transition-colors">
-                            <span class="material-symbols-outlined text-[#4b41e1] mb-2">trending_up</span>
-                            <p class="text-xs font-bold uppercase tracking-wide text-gray-800">Live RevPAR Data</p>
+                            <span class="material-symbols-outlined text-[#4b41e1] mb-2">account_balance</span>
+                            <p class="text-xs font-bold uppercase tracking-wide text-gray-800">Automated Audit</p>
                         </div>
                     </div>
                 </div>
@@ -159,21 +182,18 @@
 
                 <div class="relative z-10 flex flex-col lg:flex-row items-center gap-16">
                     <div class="flex-1">
-                        
                         <div class="flex items-center gap-5 mb-5 border-b border-gray-800 pb-5">
                             <img src="aqwire payments logo vertical.jpg" alt="Aqwire Payments Official Logo" class="h-16 md:h-24 w-auto object-contain rounded-lg" onerror="this.src='https://via.placeholder.com/80x100/1b1c1c/ffffff?text=AQWIRE'">
                             <span class="text-[#cbd5e1] font-bold tracking-widest text-xs uppercase flex items-center gap-2">
                                 <span class="material-symbols-outlined text-[16px] text-[#6b38d4]">verified</span> Official Payment Partner
                             </span>
                         </div>
-                        
                         <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
                             Say Yes to Every Guest.<br/>Powered by <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#6b38d4] to-[#4facfe]">AQWIRE Payments</span>
                         </h2>
                         <p class="text-gray-400 leading-relaxed mb-8 text-lg font-medium">
-                            ORBIT OS is natively integrated with Aqwire Payments, the pioneer of Philippine FinTech[cite: 59]. Whether it's online hotel bookings or table-side restaurant payments, accept 150+ global currencies[cite: 58], international credit cards, and all major local E-Wallets instantly.
+                            ORBIT OS is natively integrated with Aqwire Payments, the pioneer of Philippine FinTech. Whether it's online hotel bookings or table-side restaurant payments, accept 150+ global currencies, international credit cards, and all major local E-Wallets instantly.
                         </p>
-                        
                         <div class="mb-8">
                             <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">Accepted Worldwide & Locally</p>
                             <div class="flex flex-wrap gap-2">
@@ -185,20 +205,19 @@
                                 <span class="px-3 py-1.5 rounded-lg bg-white/10 text-white text-xs font-bold border border-white/10">BDO / BPI</span>
                             </div>
                         </div>
-
                         <ul class="space-y-4">
                             <li class="flex items-start gap-3">
                                 <span class="material-symbols-outlined text-[#6b38d4] text-xl">public</span>
                                 <div>
                                     <span class="font-bold text-gray-200 block">150+ Currencies Supported</span>
-                                    <span class="text-sm text-gray-500">Cross-border settlements with absolute security[cite: 58].</span>
+                                    <span class="text-sm text-gray-500">Cross-border settlements with absolute security.</span>
                                 </div>
                             </li>
                             <li class="flex items-start gap-3">
                                 <span class="material-symbols-outlined text-[#6b38d4] text-xl">point_of_sale</span>
                                 <div>
                                     <span class="font-bold text-gray-200 block">All-in-One PTS Terminal</span>
-                                    <span class="text-sm text-gray-500">Tap cards or scan QR codes in a single hardware device[cite: 37, 233, 235].</span>
+                                    <span class="text-sm text-gray-500">Tap cards or scan QR codes in a single hardware device.</span>
                                 </div>
                             </li>
                         </ul>

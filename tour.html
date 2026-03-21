@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Inside ORBIT | Product Tour</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: #0f1115; color: #ffffff; }
+        .glass-nav { backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .signature-gradient { background: linear-gradient(135deg, #cbd5e1 0%, #6b38d4 50%, #4b41e1 100%); }
+        .text-gradient { background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); will-change: opacity, transform; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body id="top" class="selection:bg-[#6b38d4]/30">
+
+    <nav class="fixed top-0 w-full z-50 glass-nav bg-[#0f1115]/80">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 transition-transform duration-300 hover:scale-105 group">
+                <span class="text-xl font-black tracking-widest text-white">ORBIT<span class="text-[#6b38d4]">.</span></span>
+            </a>
+            <div class="flex items-center gap-6">
+                <a href="index.html" class="text-sm font-bold text-gray-400 hover:text-white transition-colors">Back to Home</a>
+                <button onclick="openDemoModal()" class="signature-gradient text-white px-6 py-2.5 rounded-2xl text-sm font-bold shadow-lg hover:-translate-y-0.5 transition-all">Request Demo</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-24">
+        <section class="max-w-4xl mx-auto px-6 text-center mb-32 reveal">
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+                Inside the <br><span class="text-gradient">Perfect System.</span>
+            </h1>
+            <p class="text-xl text-gray-400 font-medium leading-relaxed">
+                A deep dive into the meticulously crafted UI of ORBIT ERP. <br>Built for the world's most luxurious 5-star properties.
+            </p>
+        </section>
+
+        <section class="max-w-7xl mx-auto px-6 mb-40">
+            <div class="text-center mb-16 reveal">
+                <span class="text-[#a855f7] font-bold tracking-widest text-xs uppercase mb-4 block">Chapter 01</span>
+                <h2 class="text-4xl md:text-5xl font-bold">The Front Desk Revolution</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16 reveal">
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-4 overflow-hidden">
+                    <img src="smartboard.jpeg" alt="Smart Room Board" class="w-full rounded-2xl shadow-2xl" onerror="this.src='https://via.placeholder.com/800x450/1b1c1c/6b38d4?text=Card+View+UI'">
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Smart Room Board (Card View)</h3>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        We completely eliminated the outdated, clunky 'Tetris-style' charts. Instead, we introduced the highly intuitive <strong>Card-Based UI</strong>. Rooms 501, 502, and beyond are displayed as large, clear cards showing immediate status (Vacant, Occupied). 
+                    </p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center reveal">
+                <div class="order-2 md:order-1">
+                    <h3 class="text-2xl font-bold mb-4">Live OTA Sync & Popups</h3>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        This is the true power of our Cloud-Native SPA architecture. The exact moment an external OTA booking (like Agoda) is confirmed, a sleek <strong>Live OTA Reservations</strong> popup appears dead-center on the screen. Absolute synchronization with zero refresh required.
+                    </p>
+                </div>
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-4 overflow-hidden order-1 md:order-2">
+                    <img src="otasync.jpeg" alt="OTA Sync Popup" class="w-full rounded-2xl shadow-2xl" onerror="this.src='https://via.placeholder.com/800x450/1b1c1c/6b38d4?text=OTA+Popup+UI'">
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-7xl mx-auto px-6 mb-40">
+            <div class="text-center mb-16 reveal">
+                <span class="text-[#a855f7] font-bold tracking-widest text-xs uppercase mb-4 block">Chapter 02</span>
+                <h2 class="text-4xl md:text-5xl font-bold">The Ultimate CFO Dashboard</h2>
+            </div>
+            
+            <div class="bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12 mb-16 text-center reveal">
+                 <h3 class="text-2xl font-bold mb-4">Dynamic Receipt Preview</h3>
+                 <p class="text-gray-400 leading-relaxed max-w-2xl mx-auto mb-10">
+                    Input your VAT and Service Charge settings on the left, and watch the exact POS receipt render in real-time on the right. An obsessive attention to detail for hotel finance teams.
+                 </p>
+                 <img src="finance.jpeg" alt="Receipt Settings" class="w-full max-w-4xl mx-auto rounded-xl shadow-2xl border border-white/10" onerror="this.src='https://via.placeholder.com/1000x500/1b1c1c/6b38d4?text=Receipt+Live+Preview'">
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start reveal">
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-6">
+                    <h4 class="text-xl font-bold mb-3">TV-to-POS Routing</h4>
+                    <p class="text-sm text-gray-400 mb-6">Map your 'In-Room Dining' TV button directly to specific Restaurant POS terminals and manage operating hours effortlessly.</p>
+                    <img src="screencapture-hotel-pms-frontend-swww-vercel-app-admin-2026-03-22-01_47_58.png" alt="TV Routing" class="w-full rounded-lg" onerror="this.src='https://via.placeholder.com/600x400/1b1c1c/6b38d4?text=TV+Routing+Settings'">
+                </div>
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-6">
+                    <h4 class="text-xl font-bold mb-3">Built-in Website Builder</h4>
+                    <p class="text-sm text-gray-400 mb-6">A complete premium website builder embedded inside your PMS. Drag, drop, and publish beautiful hotel landing pages instantly.</p>
+                    <img src="screencapture-hotel-pms-frontend-swww-vercel-app-admin-2026-03-22-01_42_52.jpg" alt="Website Builder" class="w-full rounded-lg object-cover h-64" onerror="this.src='https://via.placeholder.com/600x400/1b1c1c/6b38d4?text=Website+Builder'">
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-7xl mx-auto px-6 mb-40">
+            <div class="text-center mb-16 reveal">
+                <span class="text-[#a855f7] font-bold tracking-widest text-xs uppercase mb-4 block">Chapter 03</span>
+                <h2 class="text-4xl md:text-5xl font-bold">Frictionless Guest Ecosystem</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal">
+                <div class="md:col-span-1 bg-white/5 border border-white/10 rounded-3xl p-6 flex flex-col items-center text-center">
+                    <h3 class="text-xl font-bold mb-3">Mobile QR Check-in</h3>
+                    <p class="text-sm text-gray-400 mb-8">Supporting Chinese (CN) and Japanese (JP) out of the box. Scan and go.</p>
+                    <img src="screencapture-hotel-pms-frontend-swww-vercel-app-self-checkin-2026-03-22-01_54_05.jpg" alt="QR Checkin" class="w-48 rounded-2xl shadow-lg border border-white/10" onerror="this.src='https://via.placeholder.com/300x500/1b1c1c/6b38d4?text=QR+Code'">
+                </div>
+                <div class="md:col-span-2 bg-white/5 border border-white/10 rounded-3xl p-6">
+                    <h3 class="text-xl font-bold mb-3 text-center">The Ultimate In-Room Hub</h3>
+                    <p class="text-sm text-gray-400 mb-8 text-center">In-Room Dining, Spa Bookings, Local Guides, and Morning Calls—all wrapped in a stunning UI right on the guest's TV.</p>
+                    <img src="smarttv.jpeg" alt="Smart TV Interface" class="w-full rounded-xl shadow-2xl" onerror="this.src='https://via.placeholder.com/800x400/1b1c1c/6b38d4?text=Smart+TV+UI'">
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-7xl mx-auto px-6 mb-32">
+            <div class="text-center mb-16 reveal">
+                <span class="text-[#a855f7] font-bold tracking-widest text-xs uppercase mb-4 block">Chapter 04</span>
+                <h2 class="text-4xl md:text-5xl font-bold">Absolute Synchronization</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
+                <div class="bg-[#e65100]/10 border border-[#e65100]/30 rounded-3xl p-8 text-center flex flex-col justify-center items-center min-h-[300px]">
+                     <span class="text-4xl mb-4">✨</span>
+                     <h3 class="text-2xl font-bold mb-2">Housekeeping KDS</h3>
+                     <p class="text-gray-400 mb-6">"All rooms are clean!" Beautiful, gamified confirmation interfaces for your staff.</p>
+                     <img src="screencapture-hotel-pms-frontend-swww-vercel-app-housekeeping-2026-03-22-01_54_30.png" alt="Housekeeping" class="w-full rounded-lg opacity-80" onerror="this.src='https://via.placeholder.com/600x300/e65100/ffffff?text=All+Rooms+Clean'">
+                </div>
+                <div class="bg-blue-900/20 border border-blue-500/30 rounded-3xl p-8 text-center flex flex-col justify-center items-center min-h-[300px]">
+                     <span class="text-4xl mb-4">👨‍🍳</span>
+                     <h3 class="text-2xl font-bold mb-2">Kitchen Display System</h3>
+                     <p class="text-gray-400 mb-6">"Waiting for orders..." Directly synced with TV orders and Restaurant POS.</p>
+                     <img src="screencapture-hotel-pms-frontend-swww-vercel-app-kitchen-1-2026-03-22-01_59_28.png" alt="Main Kitchen" class="w-full rounded-lg opacity-80" onerror="this.src='https://via.placeholder.com/600x300/0f172a/ffffff?text=Waiting+for+orders'">
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-4xl mx-auto px-6 text-center reveal border-t border-white/10 pt-24 mt-24">
+            <h2 class="text-4xl font-extrabold mb-6">Ready to upgrade?</h2>
+            <p class="text-xl text-gray-400 mb-10">Experience the difference of an API-first, fully synchronized Hospitality ERP.</p>
+            <button onclick="openDemoModal()" class="text-lg px-10 py-4 rounded-2xl signature-gradient text-white font-bold shadow-[0_0_40px_rgba(107,56,212,0.5)] hover:-translate-y-1 transition-all">
+                Request a Full Demo
+            </button>
+        </section>
+    </main>
+
+    <div id="demoModal" class="fixed inset-0 z-[100] hidden opacity-0 transition-opacity duration-300">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-md" onclick="closeDemoModal()"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-white rounded-3xl shadow-2xl p-8 transform scale-95 transition-transform duration-300" id="demoModalContent">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-black text-gray-900">Request a Demo</h3>
+                <button onclick="closeDemoModal()" class="text-gray-400 hover:text-red-500 transition-colors"><span class="material-symbols-outlined">close</span></button>
+            </div>
+            <p class="text-sm text-gray-500 mb-6">Discover how ORBIT can transform your hotel operations.</p>
+            <form class="space-y-4" onsubmit="event.preventDefault(); alert('Thank you! Demo request submitted.'); closeDemoModal();">
+                <div><label class="block text-xs font-bold text-gray-700 uppercase tracking-wide mb-1">Hotel Name</label><input type="text" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#6b38d4] focus:ring-2 focus:ring-[#6b38d4]/20 outline-none transition-all text-black" required></div>
+                <div><label class="block text-xs font-bold text-gray-700 uppercase tracking-wide mb-1">Your Name</label><input type="text" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#6b38d4] focus:ring-2 focus:ring-[#6b38d4]/20 outline-none transition-all text-black" required></div>
+                <div><label class="block text-xs font-bold text-gray-700 uppercase tracking-wide mb-1">Email Address</label><input type="email" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#6b38d4] focus:ring-2 focus:ring-[#6b38d4]/20 outline-none transition-all text-black" required></div>
+                <button type="submit" class="w-full mt-4 py-3.5 rounded-xl signature-gradient text-white font-bold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openDemoModal() { const m = document.getElementById('demoModal'), c = document.getElementById('demoModalContent'); m.classList.remove('hidden'); void m.offsetWidth; m.classList.remove('opacity-0'); c.classList.remove('scale-95'); }
+        function closeDemoModal() { const m = document.getElementById('demoModal'), c = document.getElementById('demoModalContent'); m.classList.add('opacity-0'); c.classList.add('scale-95'); setTimeout(() => m.classList.add('hidden'), 300); }
+        function reveal() { var reveals = document.querySelectorAll(".reveal"); for (var i = 0; i < reveals.length; i++) { var windowHeight = window.innerHeight; var elementTop = reveals[i].getBoundingClientRect().top; if (elementTop < windowHeight - 50) reveals[i].classList.add("active"); } }
+        window.addEventListener("scroll", reveal, { passive: true }); reveal();
+    </script>
+</body>
+</html>

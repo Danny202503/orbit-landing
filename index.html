@@ -6,6 +6,7 @@
     <title>ORBIT PMS | API-First Hospitality ERP</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css"/>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <style>
         html { scroll-behavior: smooth; }
@@ -38,23 +39,24 @@
             
             <div class="flex items-center gap-4 md:gap-6">
                 <div class="relative group cursor-pointer py-2">
-                    <div class="flex items-center gap-1.5 text-sm font-bold text-gray-600 hover:text-[#6b38d4] transition-colors">
-                        <span>🇺🇸</span><span>EN</span><span class="material-symbols-outlined text-[16px]">expand_more</span>
+                    <div class="flex items-center gap-2 text-sm font-bold text-gray-600 hover:text-[#6b38d4] transition-colors">
+                        <span id="current-lang-flag" class="fi fi-us rounded-sm text-lg"></span>
+                        <span id="current-lang-text">EN</span>
+                        <span class="material-symbols-outlined text-[16px]">expand_more</span>
                     </div>
-                    <div class="dropdown-menu absolute right-0 mt-2 w-28 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50">
+                    <div class="dropdown-menu absolute right-0 mt-2 w-32 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50">
                         <ul class="py-2 flex flex-col">
-                            <li class="px-4 py-2 hover:bg-gray-50 text-sm font-bold text-[#6b38d4] flex items-center gap-2 transition-colors"><span>🇺🇸</span> EN</li>
-                            <li class="px-4 py-2 hover:bg-gray-50 text-sm font-medium text-gray-600 flex items-center gap-2 transition-colors"><span>🇵🇭</span> TL</li>
-                            <li class="px-4 py-2 hover:bg-gray-50 text-sm font-medium text-gray-600 flex items-center gap-2 transition-colors"><span>🇰🇷</span> KOR</li>
-                            <li class="px-4 py-2 hover:bg-gray-50 text-sm font-medium text-gray-600 flex items-center gap-2 transition-colors"><span>🇯🇵</span> JPN</li>
-                            <li class="px-4 py-2 hover:bg-gray-50 text-sm font-medium text-gray-600 flex items-center gap-2 transition-colors"><span>🇪🇸</span> ESP</li>
-                            <li class="px-4 py-2 hover:bg-gray-50 text-sm font-medium text-gray-600 flex items-center gap-2 transition-colors"><span>🇩🇪</span> GER</li>
+                            <li onclick="changeLanguage('EN', 'fi-us')" class="px-4 py-2 hover:bg-gray-50 text-sm font-bold text-[#6b38d4] flex items-center gap-3 transition-colors"><span class="fi fi-us rounded-sm"></span> English</li>
+                            <li onclick="changeLanguage('TL', 'fi-ph')" class="px-4 py-2 hover:bg-gray-50 text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors"><span class="fi fi-ph rounded-sm"></span> Tagalog</li>
+                            <li onclick="changeLanguage('KOR', 'fi-kr')" class="px-4 py-2 hover:bg-gray-50 text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors"><span class="fi fi-kr rounded-sm"></span> 한국어</li>
+                            <li onclick="changeLanguage('JPN', 'fi-jp')" class="px-4 py-2 hover:bg-gray-50 text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors"><span class="fi fi-jp rounded-sm"></span> 日本語</li>
+                            <li onclick="changeLanguage('ESP', 'fi-es')" class="px-4 py-2 hover:bg-gray-50 text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors"><span class="fi fi-es rounded-sm"></span> Español</li>
                         </ul>
                     </div>
                 </div>
                 <div class="hidden sm:block w-px h-5 bg-gray-200"></div>
-                <button onclick="window.location.href='./login.html'" class="hidden sm:block font-inter text-sm font-bold tracking-tight text-slate-600 hover:text-indigo-600 transition-colors">Sign In</button>
-                <button onclick="window.location.href='https://visionary-monstera-f0b44c.netlify.app'" class="signature-gradient text-white px-5 py-2 md:px-6 md:py-2.5 rounded-2xl text-sm font-bold shadow-lg hover:-translate-y-0.5 transition-all whitespace-nowrap">Enter ORBIT</button>
+                <button onclick="window.location.href='https://hotel-pms-frontend-swww.vercel.app/'" class="hidden sm:block font-inter text-sm font-bold tracking-tight text-slate-600 hover:text-indigo-600 transition-colors">Sign In</button>
+                <button onclick="openDemoModal()" class="signature-gradient text-white px-5 py-2 md:px-6 md:py-2.5 rounded-2xl text-sm font-bold shadow-lg hover:-translate-y-0.5 transition-all whitespace-nowrap">Request Demo</button>
             </div>
         </div>
     </nav>
@@ -271,7 +273,7 @@
                         <li class="flex items-center gap-3"><span class="material-symbols-outlined text-green-500 text-xl">check_circle</span> Basic API Access</li>
                         <li class="flex items-center gap-3"><span class="material-symbols-outlined text-green-500 text-xl">check_circle</span> AQWIRE Integration</li>
                     </ul>
-                    <button class="w-full py-4 rounded-2xl border-2 border-gray-200 text-gray-700 font-bold hover:border-[#6b38d4] hover:text-[#6b38d4] transition-all">Request Quote</button>
+                    <button onclick="openDemoModal()" class="w-full py-4 rounded-2xl border-2 border-gray-200 text-gray-700 font-bold hover:border-[#6b38d4] hover:text-[#6b38d4] transition-all">Request Quote</button>
                 </div>
                 
                 <div class="bg-white p-10 rounded-[2.5rem] border-2 border-[#6b38d4] shadow-2xl relative transform md:-translate-y-4">
@@ -286,7 +288,7 @@
                         <li class="flex items-center gap-3"><span class="material-symbols-outlined text-[#6b38d4] text-xl">check_circle</span> Deep PMS & POS Sync</li>
                         <li class="flex items-center gap-3"><span class="material-symbols-outlined text-[#6b38d4] text-xl">check_circle</span> Automated Night Audit</li>
                     </ul>
-                    <button class="w-full py-4 rounded-2xl signature-gradient text-white font-bold shadow-lg hover:shadow-xl hover:shadow-[#6b38d4]/40 hover:-translate-y-1 transition-all">Deploy Now</button>
+                    <button onclick="openDemoModal()" class="w-full py-4 rounded-2xl signature-gradient text-white font-bold shadow-lg hover:shadow-xl hover:shadow-[#6b38d4]/40 hover:-translate-y-1 transition-all">Deploy Now</button>
                 </div>
                 
                 <div class="bg-white p-10 rounded-[2.5rem] border border-gray-200 shadow-sm hover:shadow-xl transition-shadow duration-300">
@@ -298,7 +300,7 @@
                         <li class="flex items-center gap-3"><span class="material-symbols-outlined text-gray-400 text-xl">check_circle</span> Dedicated API Architecture</li>
                         <li class="flex items-center gap-3"><span class="material-symbols-outlined text-gray-400 text-xl">check_circle</span> Dedicated Success Manager</li>
                     </ul>
-                    <button class="w-full py-4 rounded-2xl border-2 border-gray-200 text-gray-700 font-bold hover:border-[#6b38d4] hover:text-[#6b38d4] transition-all">Talk to Sales</button>
+                    <button onclick="openDemoModal()" class="w-full py-4 rounded-2xl border-2 border-gray-200 text-gray-700 font-bold hover:border-[#6b38d4] hover:text-[#6b38d4] transition-all">Talk to Sales</button>
                 </div>
             </div>
         </section>
@@ -310,19 +312,7 @@
         </footer>
     </main>
 
-    <script>
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                if (elementTop < windowHeight - 50) reveals[i].classList.add("active");
-            }
-        }
-        window.addEventListener("scroll", reveal, { passive: true });
-        reveal();
-    </script>
-<div id="demoModal" class="fixed inset-0 z-[100] hidden opacity-0 transition-opacity duration-300">
+    <div id="demoModal" class="fixed inset-0 z-[100] hidden opacity-0 transition-opacity duration-300">
         <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeDemoModal()"></div>
         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-white rounded-3xl shadow-2xl p-8 transform scale-95 transition-transform duration-300" id="demoModalContent">
             <div class="flex justify-between items-center mb-6">
@@ -353,12 +343,26 @@
     </div>
 
     <script>
+        // 언어 변경 스크립트
+        function changeLanguage(langCode, flagClass) {
+            document.getElementById('current-lang-text').innerText = langCode;
+            document.getElementById('current-lang-flag').className = 'fi ' + flagClass + ' rounded-sm text-lg';
+            
+            const items = document.querySelectorAll('.dropdown-menu li');
+            items.forEach(item => {
+                item.classList.remove('text-[#6b38d4]', 'font-bold');
+                item.classList.add('text-gray-600', 'font-medium');
+            });
+            event.currentTarget.classList.remove('text-gray-600', 'font-medium');
+            event.currentTarget.classList.add('text-[#6b38d4]', 'font-bold');
+        }
+
+        // 데모 팝업 스크립트
         function openDemoModal() {
             const modal = document.getElementById('demoModal');
             const content = document.getElementById('demoModalContent');
             modal.classList.remove('hidden');
-            // Trigger reflow
-            void modal.offsetWidth;
+            void modal.offsetWidth; // Trigger reflow
             modal.classList.remove('opacity-0');
             content.classList.remove('scale-95');
         }
@@ -373,28 +377,17 @@
             }, 300);
         }
 
-        // 기존의 죽은 링크들을 데모 모달로 연결하는 스크립트 (덮어쓰기 효과)
-        document.addEventListener("DOMContentLoaded", function() {
-            // Enter ORBIT 버튼들
-            const enterButtons = document.querySelectorAll("button[onclick*='visionary-monstera']");
-            enterButtons.forEach(btn => {
-                btn.removeAttribute('onclick');
-                btn.addEventListener('click', openDemoModal);
-                btn.innerText = "Request Demo";
-            });
-
-            // 요금제의 구매/문의 버튼들
-            const pricingButtons = document.querySelectorAll("#pricing-section button");
-            pricingButtons.forEach(btn => {
-                btn.removeAttribute('onclick');
-                btn.addEventListener('click', openDemoModal);
-            });
-
-            // Sign In 버튼은 실제 Vercel 앱 로그인으로 연결
-            const signInButtons = document.querySelectorAll("button[onclick*='./login.html']");
-            signInButtons.forEach(btn => {
-                btn.setAttribute('onclick', "window.location.href='https://hotel-pms-frontend-swww.vercel.app/'");
-            });
-        });
-    </script></body>
+        // 스크롤 애니메이션 스크립트
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 50) reveals[i].classList.add("active");
+            }
+        }
+        window.addEventListener("scroll", reveal, { passive: true });
+        reveal();
+    </script>
+</body>
 </html>

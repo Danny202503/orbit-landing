@@ -74,7 +74,7 @@
                 Cloud-native speeds, headless architecture, and absolute synchronization. ORBIT guarantees zero overbookings and frictionless integration for platform partners.
             </p>
             <div class="relative w-full aspect-[21/9] rounded-2xl bg-black/5 shadow-2xl overflow-hidden flex items-center justify-center border border-gray-100 group neon-purple-shadow">
-                <video id="hero-video" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" autoplay loop muted playsinline>
+                <video class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" autoplay loop muted playsinline>
                     <source src="hotel-pms-video.mp4" type="video/mp4"/>
                 </video>
             </div>
@@ -276,7 +276,7 @@
                         <li class="flex items-center gap-3"><span class="material-symbols-outlined text-green-500 text-xl">check_circle</span> Basic API Access</li>
                         <li class="flex items-center gap-3"><span class="material-symbols-outlined text-green-500 text-xl">check_circle</span> AQWIRE Integration</li>
                     </ul>
-                    <button onclick="openDemoModal()" class="w-full py-4 rounded-2xl border-2 border-gray-200 text-gray-700 font-bold hover:border-[#6b38d4] hover:text-[#6b38d4] transition-all">Request Quote</button>
+                    <button onclick="window.location.href='demo.html'" class="w-full py-4 rounded-2xl border-2 border-gray-200 text-gray-700 font-bold hover:border-[#6b38d4] hover:text-[#6b38d4] transition-all">Request Quote</button>
                 </div>
                 
                 <div class="bg-white p-10 rounded-[2.5rem] border-2 border-[#6b38d4] shadow-2xl relative transform md:-translate-y-4">
@@ -291,7 +291,7 @@
                         <li class="flex items-center gap-3"><span class="material-symbols-outlined text-[#6b38d4] text-xl">check_circle</span> Deep PMS & POS Sync</li>
                         <li class="flex items-center gap-3"><span class="material-symbols-outlined text-[#6b38d4] text-xl">check_circle</span> Automated Night Audit</li>
                     </ul>
-                    <button onclick="openDemoModal()" class="w-full py-4 rounded-2xl signature-gradient text-white font-bold shadow-lg hover:shadow-xl hover:shadow-[#6b38d4]/40 hover:-translate-y-1 transition-all">Deploy Now</button>
+                    <button onclick="window.location.href='demo.html'" class="w-full py-4 rounded-2xl signature-gradient text-white font-bold shadow-lg hover:shadow-xl hover:shadow-[#6b38d4]/40 hover:-translate-y-1 transition-all">Deploy Now</button>
                 </div>
                 
                 <div class="bg-white p-10 rounded-[2.5rem] border border-gray-200 shadow-sm hover:shadow-xl transition-shadow duration-300">
@@ -303,7 +303,7 @@
                         <li class="flex items-center gap-3"><span class="material-symbols-outlined text-gray-400 text-xl">check_circle</span> Dedicated API Architecture</li>
                         <li class="flex items-center gap-3"><span class="material-symbols-outlined text-gray-400 text-xl">check_circle</span> Dedicated Success Manager</li>
                     </ul>
-                    <button onclick="openDemoModal()" class="w-full py-4 rounded-2xl border-2 border-gray-200 text-gray-700 font-bold hover:border-[#6b38d4] hover:text-[#6b38d4] transition-all">Talk to Sales</button>
+                    <button onclick="window.location.href='demo.html'" class="w-full py-4 rounded-2xl border-2 border-gray-200 text-gray-700 font-bold hover:border-[#6b38d4] hover:text-[#6b38d4] transition-all">Talk to Sales</button>
                 </div>
             </div>
         </section>
@@ -315,25 +315,6 @@
         </footer>
     </main>
 
-    <div id="demoModal" class="fixed inset-0 z-[100] hidden opacity-0 transition-opacity duration-300">
-        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeDemoModal()"></div>
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-white rounded-3xl shadow-2xl p-8 transform scale-95 transition-transform duration-300" id="demoModalContent">
-            <div class="flex justify-between items-center mb-6">
-                <h3 class="text-2xl font-black text-gray-900">Request a Demo</h3>
-                <button onclick="closeDemoModal()" class="text-gray-400 hover:text-red-500 transition-colors">
-                    <span class="material-symbols-outlined">close</span>
-                </button>
-            </div>
-            <p class="text-sm text-gray-500 mb-6">Discover how ORBIT can transform your hotel operations. Leave your details and our team will contact you shortly.</p>
-            <form class="space-y-4" onsubmit="event.preventDefault(); alert('Thank you! Demo request submitted.'); closeDemoModal();">
-                <div><input type="text" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#6b38d4] outline-none" placeholder="Hotel Name" required></div>
-                <div><input type="text" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#6b38d4] outline-none" placeholder="Your Name" required></div>
-                <div><input type="email" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#6b38d4] outline-none" placeholder="Email Address" required></div>
-                <button type="submit" class="w-full mt-4 py-3.5 rounded-xl signature-gradient text-white font-bold shadow-lg hover:shadow-xl transition-all">Submit Request</button>
-            </form>
-        </div>
-    </div>
-
     <script>
         function changeLanguage(langCode, flagClass) {
             document.getElementById('current-lang-text').innerText = langCode;
@@ -343,8 +324,6 @@
             event.currentTarget.classList.remove('text-gray-600', 'font-medium');
             event.currentTarget.classList.add('text-[#6b38d4]', 'font-bold');
         }
-        function openDemoModal() { const m = document.getElementById('demoModal'), c = document.getElementById('demoModalContent'); m.classList.remove('hidden'); void m.offsetWidth; m.classList.remove('opacity-0'); c.classList.remove('scale-95'); }
-        function closeDemoModal() { const m = document.getElementById('demoModal'), c = document.getElementById('demoModalContent'); m.classList.add('opacity-0'); c.classList.add('scale-95'); setTimeout(() => m.classList.add('hidden'), 300); }
         function reveal() { var reveals = document.querySelectorAll(".reveal"); for (var i = 0; i < reveals.length; i++) { var windowHeight = window.innerHeight; var elementTop = reveals[i].getBoundingClientRect().top; if (elementTop < windowHeight - 50) reveals[i].classList.add("active"); } }
         window.addEventListener("scroll", reveal, { passive: true }); reveal();
     </script>

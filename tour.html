@@ -41,7 +41,7 @@
                     <a href="restaurant.html" class="text-sm font-bold text-gray-400 hover:text-white transition-colors tracking-wide">Restaurant POS</a>
                 </div>
             </div>
-            <button onclick="openDemoModal()" class="signature-gradient text-white px-6 py-2.5 rounded-2xl text-sm font-bold shadow-lg hover:-translate-y-0.5 transition-all">Request Demo</button>
+            <button onclick="window.location.href='demo.html'" class="signature-gradient text-white px-6 py-2.5 rounded-2xl text-sm font-bold shadow-lg hover:-translate-y-0.5 transition-all">Request Demo</button>
         </div>
     </nav>
 
@@ -196,7 +196,7 @@
         <section class="max-w-4xl mx-auto px-6 text-center reveal pt-12 mt-24">
             <h2 class="text-4xl font-extrabold text-white mb-6">Experience ORBITOS Live.</h2>
             <p class="text-xl text-gray-400 mb-10">Stop managing software. Start managing hospitality.</p>
-            <button onclick="openDemoModal()" class="text-lg px-12 py-4 rounded-2xl signature-gradient text-white font-bold shadow-[0_0_60px_rgba(107,56,212,0.4)] hover:-translate-y-1 transition-all whitespace-nowrap">
+            <button onclick="window.location.href='demo.html'" class="text-lg px-12 py-4 rounded-2xl signature-gradient text-white font-bold shadow-[0_0_60px_rgba(107,56,212,0.4)] hover:-translate-y-1 transition-all whitespace-nowrap">
                 Request a Free Demo
             </button>
         </section>
@@ -215,38 +215,20 @@
         </button>
     </div>
 
-    <div id="demoModal" class="fixed inset-0 z-[100] hidden opacity-0 transition-opacity duration-300">
-        <div class="absolute inset-0 bg-black/80 backdrop-blur-md" onclick="closeDemoModal()"></div>
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-white rounded-3xl shadow-2xl p-8 transform scale-95 transition-transform duration-300" id="demoModalContent">
-            <div class="flex justify-between items-center mb-6">
-                <h3 class="text-2xl font-black text-gray-900">Request a Demo</h3>
-                <button onclick="closeDemoModal()" class="text-gray-400 hover:text-red-500 transition-colors"><span class="material-symbols-outlined">close</span></button>
-            </div>
-            <form class="space-y-4" onsubmit="event.preventDefault(); alert('Thank you! Demo request submitted.'); closeDemoModal();">
-                <div><input type="text" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#6b38d4] text-black" placeholder="Hotel Name" required></div>
-                <div><input type="text" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#6b38d4] text-black" placeholder="Your Name" required></div>
-                <div><input type="email" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#6b38d4] text-black" placeholder="Email Address" required></div>
-                <button type="submit" class="w-full mt-4 py-3.5 rounded-xl signature-gradient text-white font-bold shadow-lg hover:-translate-y-0.5 transition-all">Submit Request</button>
-            </form>
-        </div>
-    </div>
-
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        // TV 슬라이드 전용 스크립트
         var swiper = new Swiper(".tvSwiper", {
             effect: "fade",
             autoplay: { delay: 3000, disableOnInteraction: false },
             pagination: { el: ".swiper-pagination", clickable: true },
         });
 
-        // 사진 확대(라이트박스) 스크립트
         function openLightbox(imageSrc) {
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightbox-img');
             lightboxImg.src = imageSrc;
             lightbox.classList.remove('hidden');
-            void lightbox.offsetWidth; // Reflow
+            void lightbox.offsetWidth;
             lightbox.classList.remove('opacity-0');
             lightboxImg.classList.remove('scale-95');
         }
@@ -259,9 +241,6 @@
             setTimeout(() => lightbox.classList.add('hidden'), 300);
         }
 
-        // 데모 팝업 및 스크롤 애니메이션
-        function openDemoModal() { const m = document.getElementById('demoModal'), c = document.getElementById('demoModalContent'); m.classList.remove('hidden'); void m.offsetWidth; m.classList.remove('opacity-0'); c.classList.remove('scale-95'); }
-        function closeDemoModal() { const m = document.getElementById('demoModal'), c = document.getElementById('demoModalContent'); m.classList.add('opacity-0'); c.classList.add('scale-95'); setTimeout(() => m.classList.add('hidden'), 300); }
         function reveal() { var reveals = document.querySelectorAll(".reveal"); for (var i = 0; i < reveals.length; i++) { var windowHeight = window.innerHeight; var elementTop = reveals[i].getBoundingClientRect().top; if (elementTop < windowHeight - 50) reveals[i].classList.add("active"); } }
         window.addEventListener("scroll", reveal, { passive: true }); reveal();
     </script>

@@ -9,22 +9,25 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css"/>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <style>
-        html { scroll-behavior: smooth; }
-        /* 🚀 모바일 가로 스크롤 떨림 방지를 위해 overflow-x-hidden 추가 */
-        body { font-family: 'Inter', sans-serif; top: 0 !important; overflow-x: hidden; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        /* 🚀 해결 포인트: body에 있던 overflow-x 속성을 제거하여 모바일 브라우저의 스크롤 마비 버그 해결 */
+        body { font-family: 'Inter', sans-serif; top: 0 !important; width: 100%; position: relative; overflow-x: hidden; }
         .signature-gradient { background: linear-gradient(135deg, #cbd5e1 0%, #6b38d4 50%, #4b41e1 100%); }
         .signature-text-gradient { background: linear-gradient(135deg, #94a3b8 0%, #6b38d4 50%, #4b41e1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .glass-nav { backdrop-filter: blur(20px); border-bottom: 1px solid rgba(199, 196, 215, 0.1); }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .neon-purple-shadow { box-shadow: 0 0 20px rgba(107, 56, 212, 0.4); }
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1); will-change: opacity, transform; }
+        
+        /* 🚀 애니메이션 CSS 안정화 */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); will-change: opacity, transform; }
         .reveal.active { opacity: 1; transform: translateY(0); }
+        
         .dropdown-menu { display: none; opacity: 0; transition: opacity 0.2s ease-in-out; }
         .group:hover .dropdown-menu { display: block; opacity: 1; }
         .skiptranslate { display: none !important; }
     </style>
 </head>
-<body id="top" class="bg-[#fbf9f8] text-[#1b1c1c] selection:bg-[#4b41e1]/20 w-full">
+<body id="top" class="bg-[#fbf9f8] text-[#1b1c1c] selection:bg-[#4b41e1]/20">
     
     <nav class="fixed top-0 w-full z-50 glass-nav bg-white/90">
         <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex justify-between items-center">
@@ -68,8 +71,8 @@
         </div>
     </nav>
 
-    <main class="pt-20 md:pt-24">
-        <section class="max-w-7xl mx-auto px-4 md:px-6 pt-10 md:pt-16 pb-16 md:pb-24 text-center">
+    <main class="pt-20 md:pt-24 overflow-hidden">
+        <section class="max-w-7xl mx-auto px-4 md:px-6 pt-10 md:pt-16 pb-16 md:pb-24 text-center reveal active">
             <h1 class="text-4xl sm:text-6xl md:text-8xl font-extrabold tracking-tighter mb-6 md:mb-8 leading-[1.1] md:leading-[0.9]">
                 The API-First <br/>
                 <span class="signature-text-gradient">Hospitality ERP</span>
@@ -257,24 +260,42 @@
     <script type="text/javascript" async src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script>
         function changeLanguage(langCode, flagClass, googleCode) {
-            // 브라우저에 선택한 국기와 언어를 저장
             localStorage.setItem('orbit_lang_code', langCode);
             localStorage.setItem('orbit_flag_class', flagClass);
-            
-            // 구글 번역 명령
             document.cookie = "googtrans=/en/" + googleCode + "; path=/; domain=" + window.location.hostname;
             document.cookie = "googtrans=/en/" + googleCode + "; path=/;";
             window.location.reload(); 
         }
 
+        // 🚀 스크롤 감지 로직 강화 (모바일 터치 이동까지 감지)
         function reveal() { 
             var reveals = document.querySelectorAll(".reveal"); 
             for (var i = 0; i < reveals.length; i++) { 
                 var windowHeight = window.innerHeight; 
                 var elementTop = reveals[i].getBoundingClientRect().top; 
-                if (elementTop < windowHeight - 50) reveals[i].classList.add("active"); 
+                if (elementTop < windowHeight + 50) reveals[i].classList.add("active"); 
             } 
         }
         
         document.addEventListener("DOMContentLoaded", function() {
-            // 🚀 페이지가 로딩될 때, 기억해둔 국기
+            const savedLang = localStorage.getItem('orbit_lang_code');
+            const savedFlag = localStorage.getItem('orbit_flag_class');
+            if (savedLang && savedFlag) {
+                const langText = document.getElementById('current-lang-text');
+                if(langText) langText.innerText = savedLang;
+                const langFlag = document.getElementById('current-lang-flag');
+                if(langFlag) langFlag.className = 'fi ' + savedFlag + ' rounded-sm text-base md:text-lg';
+                
+                const items = document.querySelectorAll('.dropdown-menu li');
+                items.forEach(item => { item.classList.remove('text-[#6b38d4]', 'font-bold'); item.classList.add('text-gray-600', 'font-medium'); });
+            }
+            
+            // 초기 1회 실행 및 이벤트 리스너 다중 부착 (모바일 웹뷰 대응)
+            setTimeout(reveal, 100);
+            window.addEventListener("scroll", reveal, { passive: true });
+            window.addEventListener("touchmove", reveal, { passive: true });
+            window.addEventListener("resize", reveal, { passive: true });
+        });
+    </script>
+</body>
+</html>

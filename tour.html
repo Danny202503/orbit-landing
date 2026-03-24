@@ -3,24 +3,31 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Inside ORBIT | Product Tour | API-First Hospitality ERP</title>
+    <title>Inside ORBIT | 17-Image Deep Dive</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <style>
         html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; background-color: #0f1115; color: #ffffff; }
+        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #ffffff; }
         .glass-nav { backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
         .signature-gradient { background: linear-gradient(135deg, #cbd5e1 0%, #6b38d4 50%, #4b41e1 100%); }
         .text-gradient { background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .bento-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 2rem; transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); overflow: hidden; }
+        .bento-card:hover { border-color: rgba(107, 56, 212, 0.5); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
         .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); will-change: opacity, transform; }
         .reveal.active { opacity: 1; transform: translateY(0); }
+        /* Swiper TV Style */
+        .swiper-slide { opacity: 0 !important; transition: opacity 0.8s ease; }
+        .swiper-slide-active { opacity: 1 !important; }
+        .swiper-pagination-bullet { background: rgba(255, 255, 255, 0.3); }
+        .swiper-pagination-bullet-active { background: #a855f7; }
     </style>
 </head>
 <body id="top" class="selection:bg-[#6b38d4]/30">
 
-    <nav class="fixed top-0 w-full z-50 glass-nav bg-[#0f1115]/80">
+    <nav class="fixed top-0 w-full z-50 glass-nav bg-[#050505]/80">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-10">
                 <a href="index.html" class="flex items-center gap-3 transition-transform duration-300 hover:scale-105 group">
@@ -31,174 +38,161 @@
                     <a href="restaurant.html" class="text-sm font-bold text-gray-400 hover:text-white transition-colors tracking-wide">Restaurant POS</a>
                 </div>
             </div>
-            
-            <div class="flex items-center gap-6">
-                <div class="relative group cursor-pointer py-2">
-                    <div class="flex items-center gap-2 text-sm font-bold text-gray-400 hover:text-white transition-colors">
-                        <span id="current-lang-flag" class="fi fi-us rounded-sm text-lg"></span>
-                        <span id="current-lang-text">EN</span>
-                        <span class="material-symbols-outlined text-[16px]">expand_more</span>
-                    </div>
-                </div>
-                <div class="hidden sm:block w-px h-5 bg-white/10"></div>
-                <button onclick="openDemoModal()" class="signature-gradient text-white px-6 py-2.5 rounded-2xl text-sm font-bold shadow-lg hover:-translate-y-0.5 transition-all">Request Demo</button>
-            </div>
+            <button onclick="openDemoModal()" class="signature-gradient text-white px-6 py-2.5 rounded-2xl text-sm font-bold shadow-lg hover:-translate-y-0.5 transition-all">Request Demo</button>
         </div>
     </nav>
 
     <main class="pt-32 pb-24">
         
         <section class="max-w-7xl mx-auto px-6 mb-32 reveal text-center">
-            <h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter mb-8 leading-[0.9]">
-                Experience <br/>
-                <span class="text-gradient">The Flow</span>
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter mb-6 leading-[1.1]">
+                The Flow of <br/>
+                <span class="text-gradient">Hospitality.</span>
             </h1>
-            <p class="max-w-3xl mx-auto text-gray-400 text-xl md:text-2xl leading-relaxed mb-16 font-medium">
-                A deep dive into the meticulously crafted ecosystem of ORBIT Hospitality ERP. From booking to check-out, see absolute visibility and total financial control in action.
+            <p class="max-w-3xl mx-auto text-gray-400 text-lg md:text-xl leading-relaxed mb-12">
+                A visual journey through the API-First Hospitality ERP. 17 exclusive insights into perfection.
             </p>
-            <div class="relative w-full aspect-[21/9] rounded-3xl bg-black/10 shadow-[0_0_60px_rgba(107,56,212,0.3)] overflow-hidden flex items-center justify-center border border-white/5 group">
-                <video id="hero-video" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" autoplay loop muted playsinline>
-                    <source src="hotel-pms-video.mp4" type="video/mp4"/>
+            <div class="relative w-full aspect-[21/9] rounded-[2rem] bg-black shadow-[0_0_80px_rgba(107,56,212,0.2)] overflow-hidden border border-white/10">
+                <video class="w-full h-full object-cover opacity-90" autoplay loop muted playsinline>
+                    <source src="hotel-video-v2.mp4?v=ultimate" type="video/mp4"/>
                 </video>
-            </div>
-        </section>
-
-        <section class="max-w-5xl mx-auto px-6 mb-24 reveal border-b border-white/10 pb-6">
-            <div class="flex justify-center whitespace-nowrap gap-12 text-sm font-bold">
-                <button class="flex items-center gap-3 text-white">
-                    <span class="material-symbols-outlined text-[#a855f7]">hotel_class</span>
-                    <span>PMS Product Tour</span>
-                </button>
-                <button onclick="window.location.href='restaurant.html'" class="flex items-center gap-3 text-gray-500 hover:text-white transition-colors">
-                    <span class="material-symbols-outlined">restaurant_menu</span>
-                    <span>POS Product Tour</span>
-                </button>
             </div>
         </section>
 
         <section class="max-w-7xl mx-auto px-6 space-y-40 mb-32">
             
-            <div class="space-y-16">
-                <div class="text-center mb-16 reveal">
-                    <span class="text-[#a855f7] font-bold tracking-widest text-xs uppercase mb-4 block">Chapter 01</span>
-                    <h2 class="text-4xl md:text-6xl font-black text-white">The Front Desk Revolution</h2>
+            <div class="space-y-10 reveal">
+                <div class="text-center mb-12">
+                    <span class="text-blue-500 font-bold tracking-widest text-xs uppercase mb-3 block">Chapter 01</span>
+                    <h2 class="text-4xl font-black text-white">Booking to Cloud in 0.1s.</h2>
                 </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center reveal">
-                    <div class="bg-white/5 border border-white/10 rounded-3xl p-4 overflow-hidden">
-                        <img src="screencapture-hotel-pms-frontend-swww-vercel-app-front-2026-03-22-01_50_50.png" alt="Card View UI" class="w-full rounded-2xl shadow-2xl border border-white/5">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                    <div class="bento-card md:col-span-8 p-4 group">
+                        <img src="c1-1.jpg" alt="Booking UI" class="w-full h-full object-cover rounded-xl group-hover:scale-[1.02] transition-transform duration-700">
                     </div>
-                    <div>
-                        <h3 class="text-2xl font-bold text-white mb-4">Smart Room Board (Card View)</h3>
-                        <p class="text-gray-400 leading-relaxed mb-6">
-                            We completely rethought the traditional, chaotic Tetris chart. ORBIT introduces the highly intuitive **Card-Based UI**. Room cards (e.g., 501, 502) provide immediate, large-format visibility into statuses like 'Vacant' or 'Occupied', reducing front desk friction to absolute zero.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center reveal">
-                    <div class="order-2 md:order-1">
-                        <h3 class="text-2xl font-bold text-white mb-4">Live OTA Sync & Popups</h3>
-                        <p class="text-gray-400 leading-relaxed mb-6">
-                            This is the true power of our Cloud-Native SPA architecture. The exact moment an external OTA booking (like Agoda) is confirmed, a sleek **Live OTA Reservations** popup instantly materializes dead-center on the screen. True zero overbookings, zero refresh required.
-                        </p>
-                    </div>
-                    <div class="bg-white/5 border border-white/10 rounded-3xl p-4 overflow-hidden order-1 md:order-2">
-                        <img src="screencapture-hotel-pms-frontend-swww-vercel-app-front-2026-03-22-01_51_50.png" alt="OTA Popup UI" class="w-full rounded-2xl shadow-2xl border border-white/5">
-                    </div>
-                </div>
-            </div>
-            
-            <div class="space-y-16">
-                <div class="text-center mb-16 reveal">
-                    <span class="text-[#a855f7] font-bold tracking-widest text-xs uppercase mb-4 block">Chapter 02</span>
-                    <h2 class="text-4xl md:text-6xl font-black text-white">The Ultimate CFO Dashboard</h2>
-                </div>
-                
-                <div class="bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12 mb-16 text-center reveal">
-                    <h3 class="text-2xl font-bold text-white mb-4">Dynamic Receipt Preview</h3>
-                    <p class="text-gray-400 leading-relaxed max-w-2xl mx-auto mb-12">
-                        Input your VAT and Service Charge settings on the left, and watch the exact POS receipt render in real-time on the right. An obsessive attention to detail for hotel finance teams.
-                    </p>
-                    <img src="screencapture-hotel-pms-frontend-swww-vercel-app-admin-2026-03-22-01_47_33.png" alt="Receipt Settings" class="w-full max-w-4xl mx-auto rounded-xl shadow-2xl border border-white/5">
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start reveal">
-                    <div class="bg-white/5 border border-white/10 rounded-3xl p-6">
-                        <h4 class="text-xl font-bold text-white mb-3">TV-to-POS Routing</h4>
-                        <p class="text-sm text-gray-400 mb-6">Meticulous operational flow. Map your 'In-Room Dining' TV button directly to specific Restaurant POS terminals and manage operating hours effortlessly.</p>
-                        <img src="screencapture-hotel-pms-frontend-swww-vercel-app-admin-2026-03-22-01_47_58.png" alt="TV Routing" class="w-full rounded-lg border border-white/5">
-                    </div>
-                    <div class="bg-white/5 border border-white/10 rounded-3xl p-6">
-                        <h4 class="text-xl font-bold text-white mb-3">Built-in Website Builder</h4>
-                        <p class="text-sm text-gray-400 mb-6">A complete premium website builder embedded inside your PMS. Drag, drop, and publish beautiful hotel landing pages instantly without any code.</p>
-                        <img src="screencapture-hotel-pms-frontend-swww-vercel-app-admin-2026-03-22-01_42_06.png" alt="Website Builder" class="w-full rounded-lg object-cover h-64 border border-white/5">
-                    </div>
-                </div>
-            </div>
-            
-            <div class="space-y-16">
-                <div class="text-center mb-16 reveal">
-                    <span class="text-[#a855f7] font-bold tracking-widest text-xs uppercase mb-4 block">Chapter 03</span>
-                    <h2 class="text-4xl md:text-6xl font-black text-white">Absolute Operational Sync</h2>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center reveal border-t border-white/10 pt-16">
-                    <div class="bg-white/5 border border-white/10 rounded-3xl p-4 overflow-hidden">
-                        <img src="screencapture-hotel-pms-frontend-swww-vercel-app-housekeeping-2026-03-22-01_54_30.png" alt="Housekeeping Status" class="w-full rounded-2xl shadow-2xl border border-white/5">
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold text-white mb-4">Zero-Training Housekeeping KDS</h3>
-                        <p class="text-gray-400 leading-relaxed mb-6">
-                            Eliminate the walkie-talkie chaos. Housekeepers instantly update room statuses on a tailored KDS. The front desk smart board updates in real-time. We even added beautiful confirmations like **"All rooms are clean!"** for gamified operations.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center reveal border-t border-white/10 pt-16">
-                    <div class="order-2 md:order-1">
-                        <h3 class="text-2xl font-bold text-white mb-4">Main Kitchen Display System</h3>
-                        <p class="text-gray-400 leading-relaxed mb-6">
-                            Direct PMS-to-POS-to-KDS routing. Orders from Smart TVs or Restaurant POS flow instantly to the correct kitchen station screen, ensuring frictionless F&B operations without any manual data entry.
-                        </p>
-                    </div>
-                    <div class="bg-white/5 border border-white/10 rounded-3xl p-4 overflow-hidden order-1 md:order-2">
-                        <img src="screencapture-hotel-pms-frontend-swww-vercel-app-kitchen-1-2026-03-22-01_59_28.png" alt="Kitchen KDS UI" class="w-full rounded-2xl shadow-2xl border border-white/5">
+                    <div class="md:col-span-4 flex flex-col gap-6">
+                        <div class="bento-card p-4 flex-1 group bg-blue-900/10">
+                            <p class="text-xs font-bold text-blue-400 mb-2">Live OTA Popup</p>
+                            <img src="c1-2.jpg" alt="OTA Sync" class="w-full rounded-lg group-hover:-translate-y-1 transition-transform duration-500">
+                        </div>
+                        <div class="bento-card p-4 flex-1 group">
+                            <p class="text-xs font-bold text-gray-400 mb-2">Instant Dashboard Sync</p>
+                            <img src="c1-3.jpg" alt="Dashboard Sync" class="w-full rounded-lg group-hover:-translate-y-1 transition-transform duration-500">
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="space-y-16">
-                <div class="text-center mb-16 reveal">
-                    <span class="text-[#a855f7] font-bold tracking-widest text-xs uppercase mb-4 block">Chapter 04</span>
-                    <h2 class="text-4xl md:text-6xl font-black text-white">Frictionless Guest Ecosystem</h2>
+            <div class="space-y-10 reveal pt-10 border-t border-white/5">
+                <div class="text-center mb-12">
+                    <span class="text-[#a855f7] font-bold tracking-widest text-xs uppercase mb-3 block">Chapter 02</span>
+                    <h2 class="text-4xl font-black text-white">The Front Desk Revolution.</h2>
                 </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal">
-                    <div class="md:col-span-1 bg-white/5 border border-white/10 rounded-3xl p-6 flex flex-col items-center text-center">
-                        <h3 class="text-xl font-bold text-white mb-3">Mobile QR Check-in</h3>
-                        <p class="text-sm text-gray-400 mb-8">Scan and go. Supporting Chinese (CN) and Japanese (JP) out of the box for international guests.</p>
-                        <img src="screencapture-hotel-pms-frontend-swww-vercel-app-self-checkin-2026-03-22-01_54_05.png" alt="QR Checkin" class="w-48 rounded-2xl shadow-lg border border-white/5">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bento-card p-6 group">
+                        <h3 class="text-lg font-bold text-white mb-4">Smart Room Board</h3>
+                        <img src="c2-1.jpg" alt="Card View" class="w-full rounded-xl group-hover:scale-105 transition-transform duration-500">
                     </div>
-                    <div class="md:col-span-2 bg-white/5 border border-white/10 rounded-3xl p-6 flex flex-col items-center">
-                        <h3 class="text-xl font-bold text-white mb-3 text-center">The Smartest In-Room Hub</h3>
-                        <p class="text-sm text-gray-400 mb-8 text-center max-w-lg">In-Room Dining, Spa Bookings, Local Guides, and Morning Calls—all wrapped in a stunning UI right on the guest's Smart TV.</p>
-                        <img src="screencapture-hotel-pms-frontend-swww-vercel-app-tv-501-2026-03-22-01_55_36.png" alt="Smart TV Interface" class="w-full rounded-xl shadow-2xl border border-white/5">
+                    <div class="bento-card p-6 group">
+                        <h3 class="text-lg font-bold text-white mb-4">Deep Guest Profiles</h3>
+                        <img src="c2-2.jpg" alt="Guest Profile" class="w-full rounded-xl group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="bento-card p-6 group bg-purple-900/10">
+                        <h3 class="text-lg font-bold text-[#a855f7] mb-4">QR Self Check-in</h3>
+                        <img src="c2-3.jpg" alt="QR Check-in" class="w-full rounded-xl group-hover:scale-105 transition-transform duration-500">
                     </div>
                 </div>
             </div>
+
+            <div class="space-y-10 reveal pt-10 border-t border-white/5">
+                <div class="text-center mb-12">
+                    <span class="text-pink-500 font-bold tracking-widest text-xs uppercase mb-3 block">Chapter 03</span>
+                    <h2 class="text-4xl font-black text-white">The Smartest In-Room Hub.</h2>
+                </div>
+                <div class="bento-card p-4 md:p-8 bg-black group relative shadow-[0_0_40px_rgba(236,72,153,0.15)]">
+                    <div class="swiper tvSwiper w-full aspect-[16/8] md:aspect-[21/9] rounded-2xl overflow-hidden">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="c3-1.jpg" class="w-full h-full object-cover"></div>
+                            <div class="swiper-slide"><img src="c3-2.jpg" class="w-full h-full object-cover"></div>
+                            <div class="swiper-slide"><img src="c3-3.jpg" class="w-full h-full object-cover"></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-10 reveal pt-10 border-t border-white/5">
+                <div class="text-center mb-12">
+                    <span class="text-orange-500 font-bold tracking-widest text-xs uppercase mb-3 block">Chapter 04</span>
+                    <h2 class="text-4xl font-black text-white">Absolute Operational Sync.</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                    <div class="md:col-span-4 flex flex-col gap-6">
+                        <div class="bento-card p-4 flex-1 group">
+                            <p class="text-xs font-bold text-gray-400 mb-2">Order Details</p>
+                            <img src="c4-1.jpg" alt="Order Details" class="w-full rounded-lg group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="bento-card p-4 flex-1 group bg-orange-900/10">
+                            <p class="text-xs font-bold text-orange-400 mb-2">Housekeeping Tablet</p>
+                            <img src="c4-2.jpg" alt="Housekeeping" class="w-full rounded-lg group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                    </div>
+                    <div class="bento-card md:col-span-8 p-6 group">
+                        <h3 class="text-xl font-bold text-white mb-4">Main Kitchen Display System (KDS)</h3>
+                        <img src="c4-3.jpg" alt="Kitchen KDS" class="w-full h-full object-cover rounded-xl group-hover:scale-[1.02] transition-transform duration-700">
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-6 reveal pt-10 border-t border-white/5">
+                <div class="text-center mb-12">
+                    <span class="text-green-500 font-bold tracking-widest text-xs uppercase mb-3 block">Chapter 05</span>
+                    <h2 class="text-4xl font-black text-white">The Ultimate CFO Dashboard.</h2>
+                </div>
+                <div class="bento-card p-4 md:p-8 group bg-green-900/5">
+                    <img src="c5-1.jpg" alt="Finance Dashboard" class="w-full rounded-2xl group-hover:scale-[1.01] transition-transform duration-700">
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bento-card p-6 group">
+                        <h3 class="text-sm font-bold text-gray-400 mb-4">Dynamic Receipt Preview</h3>
+                        <img src="c5-2.jpg" alt="Receipt Preview" class="w-full rounded-xl group-hover:-translate-y-2 transition-transform duration-500">
+                    </div>
+                    <div class="bento-card p-6 group">
+                        <h3 class="text-sm font-bold text-gray-400 mb-4">Tax & Service Charge Configuration</h3>
+                        <img src="c5-3.jpg" alt="Tax Settings" class="w-full rounded-xl group-hover:-translate-y-2 transition-transform duration-500">
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-10 reveal pt-10 border-t border-white/5">
+                <div class="text-center mb-12">
+                    <span class="text-indigo-400 font-bold tracking-widest text-xs uppercase mb-3 block">Chapter 06</span>
+                    <h2 class="text-4xl font-black text-white">Say Yes to Every Guest.</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="bento-card p-8 group bg-indigo-900/10">
+                        <h3 class="text-lg font-bold text-indigo-300 mb-4">AQWIRE Integration</h3>
+                        <img src="c6-1.jpg" alt="Aqwire Integration" class="w-full rounded-xl group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="bento-card p-8 group">
+                        <h3 class="text-lg font-bold text-gray-400 mb-4">Instant Success Validation</h3>
+                        <img src="c6-2.jpg" alt="Payment Success" class="w-full rounded-xl group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                </div>
+            </div>
+
         </section>
 
-        <section class="max-w-4xl mx-auto px-6 text-center reveal border-t border-white/10 pt-24 mt-24">
-            <h2 class="text-4xl font-extrabold text-white mb-6">Ready to Upgrade?</h2>
-            <p class="text-xl text-gray-400 mb-10">Experience the difference of an API-first, fully synchronized Hospitality ERP. Discover the perfect system for 5-star properties.</p>
-            <button onclick="openDemoModal()" class="text-lg px-10 py-4 rounded-2xl signature-gradient text-white font-bold shadow-[0_0_60px_rgba(107,56,212,0.5)] hover:-translate-y-1 transition-all whitespace-nowrap">
-                Request a Full Demo
+        <section class="max-w-4xl mx-auto px-6 text-center reveal pt-12 mt-24">
+            <h2 class="text-4xl font-extrabold text-white mb-6">Experience ORBITOS Live.</h2>
+            <p class="text-xl text-gray-400 mb-10">Stop managing software. Start managing hospitality.</p>
+            <button onclick="openDemoModal()" class="text-lg px-12 py-4 rounded-2xl signature-gradient text-white font-bold shadow-[0_0_60px_rgba(107,56,212,0.4)] hover:-translate-y-1 transition-all whitespace-nowrap">
+                Request a Free Demo
             </button>
         </section>
     </main>
 
-    <footer class="bg-[#0f1115] w-full py-12 px-6 border-t border-white/5">
+    <footer class="bg-[#050505] w-full py-12 px-6 border-t border-white/5 mt-24">
         <div class="max-w-7xl mx-auto text-center">
             <p class="text-[11px] text-gray-600 font-bold tracking-[0.2em] uppercase">© 2026 ORBIT Operating System. All Rights Reserved.</p>
         </div>
@@ -209,21 +203,25 @@
         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-white rounded-3xl shadow-2xl p-8 transform scale-95 transition-transform duration-300" id="demoModalContent">
             <div class="flex justify-between items-center mb-6">
                 <h3 class="text-2xl font-black text-gray-900">Request a Demo</h3>
-                <button onclick="closeDemoModal()" class="text-gray-400 hover:text-red-500 transition-colors">
-                    <span class="material-symbols-outlined">close</span>
-                </button>
+                <button onclick="closeDemoModal()" class="text-gray-400 hover:text-red-500 transition-colors"><span class="material-symbols-outlined">close</span></button>
             </div>
-            <p class="text-sm text-gray-500 mb-6">Discover how ORBIT can transform your hotel operations. Leave your details and our team will contact you shortly.</p>
             <form class="space-y-4" onsubmit="event.preventDefault(); alert('Thank you! Demo request submitted.'); closeDemoModal();">
                 <div><input type="text" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#6b38d4] text-black" placeholder="Hotel Name" required></div>
                 <div><input type="text" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#6b38d4] text-black" placeholder="Your Name" required></div>
                 <div><input type="email" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#6b38d4] text-black" placeholder="Email Address" required></div>
-                <button type="submit" class="w-full mt-4 py-3.5 rounded-xl signature-gradient text-white font-bold shadow-lg hover:shadow-xl transition-all">Submit Request</button>
+                <button type="submit" class="w-full mt-4 py-3.5 rounded-xl signature-gradient text-white font-bold shadow-lg hover:-translate-y-0.5 transition-all">Submit Request</button>
             </form>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
+        var swiper = new Swiper(".tvSwiper", {
+            effect: "fade",
+            autoplay: { delay: 3000, disableOnInteraction: false },
+            pagination: { el: ".swiper-pagination", clickable: true },
+        });
+
         function openDemoModal() { const m = document.getElementById('demoModal'), c = document.getElementById('demoModalContent'); m.classList.remove('hidden'); void m.offsetWidth; m.classList.remove('opacity-0'); c.classList.remove('scale-95'); }
         function closeDemoModal() { const m = document.getElementById('demoModal'), c = document.getElementById('demoModalContent'); m.classList.add('opacity-0'); c.classList.add('scale-95'); setTimeout(() => m.classList.add('hidden'), 300); }
         function reveal() { var reveals = document.querySelectorAll(".reveal"); for (var i = 0; i < reveals.length; i++) { var windowHeight = window.innerHeight; var elementTop = reveals[i].getBoundingClientRect().top; if (elementTop < windowHeight - 50) reveals[i].classList.add("active"); } }

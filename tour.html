@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <style>
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #ffffff; top: 0 !important; overflow-x: hidden; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #ffffff; top: 0 !important; overflow-x: hidden; width: 100%; position: relative;}
         .glass-nav { backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
         .signature-gradient { background: linear-gradient(135deg, #cbd5e1 0%, #6b38d4 50%, #4b41e1 100%); }
         .text-gradient { background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -34,7 +34,7 @@
 <body id="top" class="selection:bg-[#6b38d4]/30 w-full">
 
     <nav class="fixed top-0 w-full z-50 glass-nav bg-[#050505]/80">
-        <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex justify-between items-center">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex justify-between items-center relative">
             <div class="flex items-center gap-4 md:gap-10">
                 <a href="index.html" class="flex items-center gap-2 transition-transform duration-300 hover:scale-105 group">
                     <span class="text-xl md:text-2xl font-black tracking-widest text-white">ORBIT<span class="text-[#6b38d4]">.</span></span>
@@ -66,13 +66,27 @@
                     </div>
                 </div>
                 <button onclick="window.location.href='demo.html'" class="signature-gradient text-white px-4 py-2 md:px-6 md:py-2.5 rounded-xl md:rounded-2xl text-xs md:text-sm font-bold shadow-lg hover:-translate-y-0.5 transition-all whitespace-nowrap">Demo</button>
+                
+                <button id="mobile-menu-btn-tour" class="block md:hidden text-white ml-1 hover:text-[#a855f7] transition-colors">
+                    <span class="material-symbols-outlined text-[28px]">menu</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu-tour" class="hidden absolute top-full left-0 w-full bg-[#050505] shadow-2xl border-t border-gray-800 md:hidden z-50">
+            <div class="flex flex-col px-6 py-6 space-y-6">
+                <a href="index.html" class="text-base font-bold text-gray-300">PMS Home</a>
+                <a href="restaurant.html" class="text-base font-bold text-gray-300">Restaurant POS</a>
+                <div class="flex items-center gap-2 text-base font-bold text-[#a855f7]">
+                    <span class="material-symbols-outlined text-[20px]">travel_explore</span> Product Tour
+                </div>
             </div>
         </div>
     </nav>
 
-    <main class="pt-20 md:pt-32 pb-16 md:pb-24">
+    <main class="pt-20 md:pt-32 pb-16 md:pb-24 overflow-hidden">
         
-        <section class="max-w-7xl mx-auto px-4 md:px-6 mb-20 md:mb-32 reveal text-center">
+        <section class="max-w-7xl mx-auto px-4 md:px-6 mb-20 md:mb-32 reveal text-center active">
             <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tighter mb-4 md:mb-6 leading-[1.1]">
                 The Flow of <br/>
                 <span class="text-gradient">Hospitality.</span>
@@ -120,7 +134,7 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
                     <div class="bento-card p-4 md:p-6 group overflow-hidden">
-                        <h3 class="text-sm md:text-lg font-bold text-white mb-3 md:mb-4">Smart Room Board (Card View)</h3>
+                        <h3 class="text-sm md:text-lg font-bold text-white mb-3 md:mb-4">Smart Room Board</h3>
                         <img src="c2-1.jpg" class="zoomable w-full rounded-xl" loading="lazy" onclick="openLightbox(this.src)">
                     </div>
                     <div class="bento-card p-4 md:p-6 group overflow-hidden">
@@ -180,7 +194,7 @@
                 <div class="text-center mb-8 md:mb-12">
                     <span class="text-green-500 font-bold tracking-widest text-[10px] md:text-xs uppercase mb-2 md:mb-3 block">Chapter 05</span>
                     <h2 class="text-3xl md:text-4xl font-black text-white mb-4 md:mb-6">The Ultimate CFO Dashboard.</h2>
-                    <p class="max-w-3xl mx-auto text-gray-400 text-sm md:text-base leading-relaxed px-2">Maintain total command over revenue streams. Adjust Tax and Service Charge settings globally, verify visual outputs using Dynamic Receipt Preview, and close your day with Automated Night Audit.</p>
+                    <p class="max-w-3xl mx-auto text-gray-400 text-sm md:text-base leading-relaxed px-2">Maintain total command over revenue streams. Adjust Tax and Service Charge settings globally, verify visual outputs using Dynamic Receipt Preview.</p>
                 </div>
                 <div class="bento-card p-3 md:p-8 group bg-green-900/5 overflow-hidden">
                     <img src="c5-1.jpg" class="zoomable w-full rounded-xl md:rounded-2xl" loading="lazy" onclick="openLightbox(this.src)">
@@ -201,7 +215,7 @@
                 <div class="text-center mb-8 md:mb-12">
                     <span class="text-indigo-400 font-bold tracking-widest text-[10px] md:text-xs uppercase mb-2 md:mb-3 block">Chapter 06</span>
                     <h2 class="text-3xl md:text-4xl font-black text-white mb-4 md:mb-6">Say Yes to Every Guest.</h2>
-                    <p class="max-w-3xl mx-auto text-gray-400 text-sm md:text-base leading-relaxed px-2">ORBIT OS is natively integrated with AQWIRE Payments. Securely accept over 150 international currencies, major credit cards, and local e-wallets. Instant validation, zero friction.</p>
+                    <p class="max-w-3xl mx-auto text-gray-400 text-sm md:text-base leading-relaxed px-2">ORBIT OS is natively integrated with AQWIRE Payments. Securely accept over 150 international currencies, major credit cards, and local e-wallets.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 max-w-4xl mx-auto">
                     <div class="bento-card p-5 md:p-8 group bg-indigo-900/10 overflow-hidden">
@@ -246,10 +260,8 @@
     <script type="text/javascript" async src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        // Swiper
         var swiper = new Swiper(".tvSwiper", { effect: "fade", autoplay: { delay: 3000, disableOnInteraction: false }, pagination: { el: ".swiper-pagination", clickable: true } });
 
-        // Lightbox
         function openLightbox(imageSrc) {
             const lightbox = document.getElementById('lightbox'); const lightboxImg = document.getElementById('lightbox-img');
             lightboxImg.src = imageSrc; lightbox.classList.remove('hidden'); void lightbox.offsetWidth;
@@ -261,7 +273,6 @@
             setTimeout(() => lightbox.classList.add('hidden'), 300);
         }
 
-        // Translation
         function changeLanguage(langCode, flagClass, googleCode) {
             localStorage.setItem('orbit_lang_code', langCode); localStorage.setItem('orbit_flag_class', flagClass);
             document.cookie = "googtrans=/en/" + googleCode + "; path=/; domain=" + window.location.hostname;
@@ -269,13 +280,12 @@
             window.location.reload(); 
         }
 
-        // Scroll Animation & Language Restore
         function reveal() { 
             var reveals = document.querySelectorAll(".reveal"); 
             for (var i = 0; i < reveals.length; i++) { 
                 var windowHeight = window.innerHeight; 
                 var elementTop = reveals[i].getBoundingClientRect().top; 
-                if (elementTop < windowHeight - 50) reveals[i].classList.add("active"); 
+                if (elementTop < windowHeight + 50) reveals[i].classList.add("active"); 
             } 
         }
         
@@ -291,8 +301,20 @@
                 const items = document.querySelectorAll('.dropdown-menu li');
                 items.forEach(item => { item.classList.remove('text-[#a855f7]', 'font-bold'); item.classList.add('text-gray-300', 'font-medium'); });
             }
-            reveal();
+            
+            // 🚀 모바일 햄버거 메뉴 토글 로직
+            const menuBtnTour = document.getElementById('mobile-menu-btn-tour');
+            const mobileMenuTour = document.getElementById('mobile-menu-tour');
+            if(menuBtnTour && mobileMenuTour) {
+                menuBtnTour.addEventListener('click', () => {
+                    mobileMenuTour.classList.toggle('hidden');
+                });
+            }
+
+            setTimeout(reveal, 100);
             window.addEventListener("scroll", reveal, { passive: true });
+            window.addEventListener("touchmove", reveal, { passive: true });
+            window.addEventListener("resize", reveal, { passive: true });
         });
     </script>
 </body>

@@ -20,6 +20,9 @@
         .reveal.active { opacity: 1; transform: translateY(0); }
         .dropdown-menu { display: none; opacity: 0; transition: opacity 0.2s ease-in-out; }
         .group:hover .dropdown-menu { display: block; opacity: 1; }
+        /* 구글 번역기 기본 UI 숨기기 */
+        body { top: 0 !important; }
+        .skiptranslate { display: none !important; }
     </style>
 </head>
 <body id="top" class="bg-[#fbf9f8] text-[#1b1c1c] selection:bg-[#4b41e1]/20">
@@ -47,13 +50,16 @@
                         <span id="current-lang-text">EN</span>
                         <span class="material-symbols-outlined text-[16px]">expand_more</span>
                     </div>
-                    <div class="dropdown-menu absolute right-0 mt-2 w-32 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50">
+                    <div class="dropdown-menu absolute right-0 mt-2 w-40 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50">
                         <ul class="py-2 flex flex-col">
-                            <li onclick="changeLanguage('EN', 'fi-us')" class="px-4 py-2 hover:bg-gray-50 text-sm font-bold text-[#6b38d4] flex items-center gap-3 transition-colors"><span class="fi fi-us rounded-sm"></span> English</li>
-                            <li onclick="changeLanguage('TL', 'fi-ph')" class="px-4 py-2 hover:bg-gray-50 text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors"><span class="fi fi-ph rounded-sm"></span> Tagalog</li>
-                            <li onclick="changeLanguage('KOR', 'fi-kr')" class="px-4 py-2 hover:bg-gray-50 text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors"><span class="fi fi-kr rounded-sm"></span> 한국어</li>
-                            <li onclick="changeLanguage('JPN', 'fi-jp')" class="px-4 py-2 hover:bg-gray-50 text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors"><span class="fi fi-jp rounded-sm"></span> 日本語</li>
-                            <li onclick="changeLanguage('ESP', 'fi-es')" class="px-4 py-2 hover:bg-gray-50 text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors"><span class="fi fi-es rounded-sm"></span> Español</li>
+                            <li onclick="changeLanguage('EN', 'fi-us', 'en')" class="px-4 py-2 hover:bg-gray-50 text-sm font-bold text-[#6b38d4] flex items-center gap-3 transition-colors cursor-pointer"><span class="fi fi-us rounded-sm"></span> English</li>
+                            <li onclick="changeLanguage('KOR', 'fi-kr', 'ko')" class="px-4 py-2 hover:bg-gray-50 text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors cursor-pointer"><span class="fi fi-kr rounded-sm"></span> 한국어</li>
+                            <li onclick="changeLanguage('JPN', 'fi-jp', 'ja')" class="px-4 py-2 hover:bg-gray-50 text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors cursor-pointer"><span class="fi fi-jp rounded-sm"></span> 日本語</li>
+                            <li onclick="changeLanguage('CN', 'fi-cn', 'zh-CN')" class="px-4 py-2 hover:bg-gray-50 text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors cursor-pointer"><span class="fi fi-cn rounded-sm"></span> 中文 (简体)</li>
+                            <li onclick="changeLanguage('TW', 'fi-tw', 'zh-TW')" class="px-4 py-2 hover:bg-gray-50 text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors cursor-pointer"><span class="fi fi-tw rounded-sm"></span> 中文 (繁體)</li>
+                            <li onclick="changeLanguage('DE', 'fi-de', 'de')" class="px-4 py-2 hover:bg-gray-50 text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors cursor-pointer"><span class="fi fi-de rounded-sm"></span> Deutsch</li>
+                            <li onclick="changeLanguage('TL', 'fi-ph', 'tl')" class="px-4 py-2 hover:bg-gray-50 text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors cursor-pointer"><span class="fi fi-ph rounded-sm"></span> Tagalog</li>
+                            <li onclick="changeLanguage('ESP', 'fi-es', 'es')" class="px-4 py-2 hover:bg-gray-50 text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors cursor-pointer"><span class="fi fi-es rounded-sm"></span> Español</li>
                         </ul>
                     </div>
                 </div>
@@ -202,130 +208,4 @@
                             <div class="flex flex-wrap gap-2">
                                 <span class="px-3 py-1.5 rounded-lg bg-white/10 text-white text-xs font-bold border border-white/10">VISA / Mastercard</span>
                                 <span class="px-3 py-1.5 rounded-lg bg-white/10 text-white text-xs font-bold border border-white/10">JCB / Amex</span>
-                                <span class="px-3 py-1.5 rounded-lg bg-[#0052E0]/20 text-[#0052E0] text-xs font-bold border border-[#0052E0]/50">GCash</span>
-                                <span class="px-3 py-1.5 rounded-lg bg-[#00B14F]/20 text-[#00B14F] text-xs font-bold border border-[#00B14F]/50">Maya</span>
-                                <span class="px-3 py-1.5 rounded-lg bg-[#E31837]/20 text-[#E31837] text-xs font-bold border border-[#E31837]/50">QRPh</span>
-                                <span class="px-3 py-1.5 rounded-lg bg-white/10 text-white text-xs font-bold border border-white/10">BDO / BPI</span>
-                            </div>
-                        </div>
-                        <ul class="space-y-4">
-                            <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-[#6b38d4] text-xl">public</span>
-                                <div>
-                                    <span class="font-bold text-gray-200 block">150+ Currencies Supported</span>
-                                    <span class="text-sm text-gray-500">Cross-border settlements with absolute security.</span>
-                                </div>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-[#6b38d4] text-xl">point_of_sale</span>
-                                <div>
-                                    <span class="font-bold text-gray-200 block">All-in-One PTS Terminal</span>
-                                    <span class="text-sm text-gray-500">Tap cards or scan QR codes in a single hardware device.</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="flex-1 flex justify-center w-full mt-10 lg:mt-0">
-                        <div class="relative w-full max-w-md">
-                            <div class="bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-[2rem] shadow-2xl relative z-10 transform transition-transform hover:-translate-y-2 duration-500 scroll-mt-32">
-                                <div class="flex justify-between items-center mb-6 border-b border-white/10 pb-4">
-                                    <h3 class="text-xl font-black text-white tracking-wide">Enterprise Dashboard</h3>
-                                    <span class="px-3 py-1 rounded-full bg-green-500/20 text-green-400 text-[10px] font-bold tracking-widest uppercase border border-green-500/30">Live Sync</span>
-                                </div>
-                                <div class="space-y-4">
-                                    <div class="flex justify-between items-center">
-                                        <span class="text-sm text-gray-400">Total Revenue (PHP)</span>
-                                        <span class="text-lg font-bold text-white">₱ 1,245,000</span>
-                                    </div>
-                                    <div class="flex justify-between items-center">
-                                        <span class="text-sm text-gray-400">Online Bookings</span>
-                                        <span class="text-sm font-bold text-gray-200">Visa / Mastercard</span>
-                                    </div>
-                                    <div class="flex justify-between items-center">
-                                        <span class="text-sm text-gray-400">Walk-in / Restaurant (PTS)</span>
-                                        <span class="text-sm font-bold text-gray-200">GCash / QRPh</span>
-                                    </div>
-                                </div>
-                                <div class="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
-                                    <div class="flex items-center gap-2">
-                                        <img src="aqwire payments logo vertical.jpg" alt="Aqwire Payments" class="h-10 object-contain rounded">
-                                    </div>
-                                    <span class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Trusted by 100k+ Users</span>
-                                </div>
-                            </div>
-                            <div class="absolute -bottom-10 -right-10 w-48 h-48 bg-gradient-to-tr from-[#6b38d4] to-[#4facfe] rounded-3xl opacity-20 blur-xl"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="pricing-section" class="max-w-7xl mx-auto px-6 mb-32 reveal scroll-mt-32">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-extrabold mb-4">Scale Without Limits</h2>
-                <p class="text-gray-500 font-medium text-lg">Transparent architecture for properties and platform partners.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-                <div class="bg-white p-10 rounded-[2.5rem] border border-gray-200 shadow-sm hover:shadow-xl transition-shadow duration-300">
-                    <h3 class="text-sm font-bold text-gray-500 mb-2">PMS Core</h3>
-                    <p class="text-xs text-gray-400 mb-6 leading-relaxed">Perfect for independent boutique hotels.</p>
-                    <h4 class="text-4xl font-black mb-8">Custom</h4>
-                    <ul class="space-y-4 mb-10 text-sm font-bold text-gray-700">
-                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-green-500 text-xl">check_circle</span> Smart Room Board</li>
-                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-green-500 text-xl">check_circle</span> Basic API Access</li>
-                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-green-500 text-xl">check_circle</span> AQWIRE Integration</li>
-                    </ul>
-                    <button onclick="window.location.href='demo.html'" class="w-full py-4 rounded-2xl border-2 border-gray-200 text-gray-700 font-bold hover:border-[#6b38d4] hover:text-[#6b38d4] transition-all">Request Quote</button>
-                </div>
-                
-                <div class="bg-white p-10 rounded-[2.5rem] border-2 border-[#6b38d4] shadow-2xl relative transform md:-translate-y-4">
-                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#6b38d4] text-white px-5 py-1.5 rounded-full text-xs font-black tracking-widest uppercase shadow-md">Most Popular</div>
-                    <h3 class="text-sm font-bold text-[#6b38d4] mb-2">Unified Hospitality ERP</h3>
-                    <p class="text-xs text-gray-500 mb-6 leading-relaxed">The complete digital suite for hotels with F&B outlets.</p>
-                    <div class="flex items-baseline gap-1 mb-8">
-                        <h4 class="text-5xl font-black text-gray-900">₱ 9,999</h4><span class="text-gray-400 font-bold">/ mo</span>
-                    </div>
-                    <ul class="space-y-4 mb-10 text-sm font-bold text-gray-800">
-                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-[#6b38d4] text-xl">check_circle</span> Smart TV Ordering</li>
-                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-[#6b38d4] text-xl">check_circle</span> Deep PMS & POS Sync</li>
-                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-[#6b38d4] text-xl">check_circle</span> Automated Night Audit</li>
-                    </ul>
-                    <button onclick="window.location.href='demo.html'" class="w-full py-4 rounded-2xl signature-gradient text-white font-bold shadow-lg hover:shadow-xl hover:shadow-[#6b38d4]/40 hover:-translate-y-1 transition-all">Deploy Now</button>
-                </div>
-                
-                <div class="bg-white p-10 rounded-[2.5rem] border border-gray-200 shadow-sm hover:shadow-xl transition-shadow duration-300">
-                    <h3 class="text-sm font-bold text-gray-500 mb-2">Enterprise Solutions</h3>
-                    <p class="text-xs text-gray-400 mb-6 leading-relaxed">Built for hotel groups and platform aggregators.</p>
-                    <h4 class="text-4xl font-black mb-8">Contact Us</h4>
-                    <ul class="space-y-4 mb-10 text-sm font-bold text-gray-700">
-                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-gray-400 text-xl">check_circle</span> Multi-Property Dashboard</li>
-                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-gray-400 text-xl">check_circle</span> Dedicated API Architecture</li>
-                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-gray-400 text-xl">check_circle</span> Dedicated Success Manager</li>
-                    </ul>
-                    <button onclick="window.location.href='demo.html'" class="w-full py-4 rounded-2xl border-2 border-gray-200 text-gray-700 font-bold hover:border-[#6b38d4] hover:text-[#6b38d4] transition-all">Talk to Sales</button>
-                </div>
-            </div>
-        </section>
-        
-        <footer class="bg-white w-full py-12 px-6 border-t border-gray-200">
-            <div class="max-w-7xl mx-auto text-center">
-                <p class="text-[11px] text-gray-400 font-bold tracking-[0.2em] uppercase">© 2026 ORBIT Operating System. All Rights Reserved.</p>
-            </div>
-        </footer>
-    </main>
-
-    <script>
-        function changeLanguage(langCode, flagClass) {
-            document.getElementById('current-lang-text').innerText = langCode;
-            document.getElementById('current-lang-flag').className = 'fi ' + flagClass + ' rounded-sm text-lg';
-            const items = document.querySelectorAll('.dropdown-menu li');
-            items.forEach(item => { item.classList.remove('text-[#6b38d4]', 'font-bold'); item.classList.add('text-gray-600', 'font-medium'); });
-            event.currentTarget.classList.remove('text-gray-600', 'font-medium');
-            event.currentTarget.classList.add('text-[#6b38d4]', 'font-bold');
-        }
-        function reveal() { var reveals = document.querySelectorAll(".reveal"); for (var i = 0; i < reveals.length; i++) { var windowHeight = window.innerHeight; var elementTop = reveals[i].getBoundingClientRect().top; if (elementTop < windowHeight - 50) reveals[i].classList.add("active"); } }
-        window.addEventListener("scroll", reveal, { passive: true }); reveal();
-    </script>
-</body>
-</html>
+                                <span class="px-3 py-1.5 rounded-lg bg-[#0052E0]/20 text-[#0052E0] text-xs font-bold border border-[#0052E0]/50">GCash

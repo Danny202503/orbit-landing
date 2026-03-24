@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Inside ORBIT | 17-Image Deep Dive</title>
+    <title>Inside ORBIT | The Editorial Tour</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
@@ -15,7 +15,7 @@
         .signature-gradient { background: linear-gradient(135deg, #cbd5e1 0%, #6b38d4 50%, #4b41e1 100%); }
         .text-gradient { background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .bento-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 2rem; transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); overflow: hidden; }
-        .bento-card:hover { border-color: rgba(107, 56, 212, 0.5); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        .bento-card:hover { border-color: rgba(107, 56, 212, 0.5); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
         .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); will-change: opacity, transform; }
         .reveal.active { opacity: 1; transform: translateY(0); }
         /* Swiper TV Style */
@@ -23,6 +23,9 @@
         .swiper-slide-active { opacity: 1 !important; }
         .swiper-pagination-bullet { background: rgba(255, 255, 255, 0.3); }
         .swiper-pagination-bullet-active { background: #a855f7; }
+        /* Lightbox & Image Hover Style */
+        .zoomable { cursor: zoom-in; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); }
+        .bento-card:hover .zoomable { transform: scale(1.05); }
     </style>
 </head>
 <body id="top" class="selection:bg-[#6b38d4]/30">
@@ -50,11 +53,12 @@
                 <span class="text-gradient">Hospitality.</span>
             </h1>
             <p class="max-w-3xl mx-auto text-gray-400 text-lg md:text-xl leading-relaxed mb-12">
-                A visual journey through the API-First Hospitality ERP. 17 exclusive insights into perfection.
+                A visual journey through the API-First Hospitality ERP. Press play to experience the seamless flow of data across a 5-star property, backed by 17 exclusive editorial insights.
             </p>
-            <div class="relative w-full aspect-[21/9] rounded-[2rem] bg-black shadow-[0_0_80px_rgba(107,56,212,0.2)] overflow-hidden border border-white/10">
-                <video class="w-full h-full object-cover opacity-90" autoplay loop muted playsinline>
-                    <source src="hotel-video-v2.mp4?v=ultimate" type="video/mp4"/>
+            <div class="relative w-full aspect-[21/9] rounded-[2rem] bg-black shadow-[0_0_80px_rgba(107,56,212,0.3)] overflow-hidden border border-white/10 group">
+                <video class="w-full h-full object-cover opacity-90 transition-opacity hover:opacity-100" controls preload="metadata" poster="c1-1.jpg">
+                    <source src="hotel-video-v2.mp4?v=controls" type="video/mp4"/>
+                    Your browser does not support the video tag.
                 </video>
             </div>
         </section>
@@ -64,20 +68,21 @@
             <div class="space-y-10 reveal">
                 <div class="text-center mb-12">
                     <span class="text-blue-500 font-bold tracking-widest text-xs uppercase mb-3 block">Chapter 01</span>
-                    <h2 class="text-4xl font-black text-white">Booking to Cloud in 0.1s.</h2>
+                    <h2 class="text-4xl font-black text-white mb-6">Booking to Cloud in 0.1s.</h2>
+                    <p class="max-w-3xl mx-auto text-gray-400 leading-relaxed">The journey begins long before the guest arrives. The exact moment a booking is confirmed on a smartphone or through global OTAs like Agoda and Booking.com, ORBIT's cloud-native architecture springs into action. Data flows seamlessly, completely bypassing manual entry.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-                    <div class="bento-card md:col-span-8 p-4 group">
-                        <img src="c1-1.jpg" alt="Booking UI" class="w-full h-full object-cover rounded-xl group-hover:scale-[1.02] transition-transform duration-700">
+                    <div class="bento-card md:col-span-8 p-4 group overflow-hidden">
+                        <img src="c1-1.jpg" alt="Mobile Booking" class="zoomable w-full h-full object-cover rounded-xl" loading="lazy" onclick="openLightbox(this.src)">
                     </div>
                     <div class="md:col-span-4 flex flex-col gap-6">
-                        <div class="bento-card p-4 flex-1 group bg-blue-900/10">
-                            <p class="text-xs font-bold text-blue-400 mb-2">Live OTA Popup</p>
-                            <img src="c1-2.jpg" alt="OTA Sync" class="w-full rounded-lg group-hover:-translate-y-1 transition-transform duration-500">
+                        <div class="bento-card p-4 flex-1 group bg-blue-900/10 overflow-hidden">
+                            <p class="text-xs font-bold text-blue-400 mb-2">Live OTA Popup Alert</p>
+                            <img src="c1-2.jpg" alt="OTA Sync" class="zoomable w-full rounded-lg" loading="lazy" onclick="openLightbox(this.src)">
                         </div>
-                        <div class="bento-card p-4 flex-1 group">
-                            <p class="text-xs font-bold text-gray-400 mb-2">Instant Dashboard Sync</p>
-                            <img src="c1-3.jpg" alt="Dashboard Sync" class="w-full rounded-lg group-hover:-translate-y-1 transition-transform duration-500">
+                        <div class="bento-card p-4 flex-1 group overflow-hidden">
+                            <p class="text-xs font-bold text-gray-400 mb-2">Instant Front Desk Sync</p>
+                            <img src="c1-3.jpg" alt="Dashboard Sync" class="zoomable w-full rounded-lg" loading="lazy" onclick="openLightbox(this.src)">
                         </div>
                     </div>
                 </div>
@@ -86,20 +91,21 @@
             <div class="space-y-10 reveal pt-10 border-t border-white/5">
                 <div class="text-center mb-12">
                     <span class="text-[#a855f7] font-bold tracking-widest text-xs uppercase mb-3 block">Chapter 02</span>
-                    <h2 class="text-4xl font-black text-white">The Front Desk Revolution.</h2>
+                    <h2 class="text-4xl font-black text-white mb-6">The Front Desk Revolution.</h2>
+                    <p class="max-w-3xl mx-auto text-gray-400 leading-relaxed">First impressions matter. We eliminated the chaotic, outdated Tetris-style reservation charts that slow down check-ins. ORBIT introduces a highly intuitive, card-based 'Smart Room Board' that new staff can master in 30 minutes. Combined with deep guest profiling and mobile QR self-check-in, the lobby experience becomes frictionless.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bento-card p-6 group">
-                        <h3 class="text-lg font-bold text-white mb-4">Smart Room Board</h3>
-                        <img src="c2-1.jpg" alt="Card View" class="w-full rounded-xl group-hover:scale-105 transition-transform duration-500">
+                    <div class="bento-card p-6 group overflow-hidden">
+                        <h3 class="text-lg font-bold text-white mb-4">Smart Room Board (Card View)</h3>
+                        <img src="c2-1.jpg" alt="Card View" class="zoomable w-full rounded-xl" loading="lazy" onclick="openLightbox(this.src)">
                     </div>
-                    <div class="bento-card p-6 group">
+                    <div class="bento-card p-6 group overflow-hidden">
                         <h3 class="text-lg font-bold text-white mb-4">Deep Guest Profiles</h3>
-                        <img src="c2-2.jpg" alt="Guest Profile" class="w-full rounded-xl group-hover:scale-105 transition-transform duration-500">
+                        <img src="c2-2.jpg" alt="Guest Profile" class="zoomable w-full rounded-xl" loading="lazy" onclick="openLightbox(this.src)">
                     </div>
-                    <div class="bento-card p-6 group bg-purple-900/10">
-                        <h3 class="text-lg font-bold text-[#a855f7] mb-4">QR Self Check-in</h3>
-                        <img src="c2-3.jpg" alt="QR Check-in" class="w-full rounded-xl group-hover:scale-105 transition-transform duration-500">
+                    <div class="bento-card p-6 group bg-purple-900/10 overflow-hidden">
+                        <h3 class="text-lg font-bold text-[#a855f7] mb-4">QR Self Check-in Hub</h3>
+                        <img src="c2-3.jpg" alt="QR Check-in" class="zoomable w-full rounded-xl" loading="lazy" onclick="openLightbox(this.src)">
                     </div>
                 </div>
             </div>
@@ -107,14 +113,15 @@
             <div class="space-y-10 reveal pt-10 border-t border-white/5">
                 <div class="text-center mb-12">
                     <span class="text-pink-500 font-bold tracking-widest text-xs uppercase mb-3 block">Chapter 03</span>
-                    <h2 class="text-4xl font-black text-white">The Smartest In-Room Hub.</h2>
+                    <h2 class="text-4xl font-black text-white mb-6">The Smartest In-Room Hub.</h2>
+                    <p class="max-w-3xl mx-auto text-gray-400 leading-relaxed">Turn the massive screen in your luxury suites into a multilingual digital concierge. Whether a guest speaks English, Japanese, or Chinese, they can comfortably browse In-Room Dining menus, book Spa treatments, and explore Local Guides straight from their bed using a standard TV remote. It drives ancillary revenue without increasing operational labor.</p>
                 </div>
-                <div class="bento-card p-4 md:p-8 bg-black group relative shadow-[0_0_40px_rgba(236,72,153,0.15)]">
-                    <div class="swiper tvSwiper w-full aspect-[16/8] md:aspect-[21/9] rounded-2xl overflow-hidden">
+                <div class="bento-card p-4 md:p-8 bg-black group relative shadow-[0_0_40px_rgba(236,72,153,0.15)] overflow-hidden">
+                    <div class="swiper tvSwiper w-full aspect-[16/8] md:aspect-[21/9] rounded-2xl overflow-hidden cursor-zoom-in">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="c3-1.jpg" class="w-full h-full object-cover"></div>
-                            <div class="swiper-slide"><img src="c3-2.jpg" class="w-full h-full object-cover"></div>
-                            <div class="swiper-slide"><img src="c3-3.jpg" class="w-full h-full object-cover"></div>
+                            <div class="swiper-slide" onclick="openLightbox('c3-1.jpg')"><img src="c3-1.jpg" class="w-full h-full object-cover" loading="lazy"></div>
+                            <div class="swiper-slide" onclick="openLightbox('c3-2.jpg')"><img src="c3-2.jpg" class="w-full h-full object-cover" loading="lazy"></div>
+                            <div class="swiper-slide" onclick="openLightbox('c3-3.jpg')"><img src="c3-3.jpg" class="w-full h-full object-cover" loading="lazy"></div>
                         </div>
                         <div class="swiper-pagination"></div>
                     </div>
@@ -124,22 +131,23 @@
             <div class="space-y-10 reveal pt-10 border-t border-white/5">
                 <div class="text-center mb-12">
                     <span class="text-orange-500 font-bold tracking-widest text-xs uppercase mb-3 block">Chapter 04</span>
-                    <h2 class="text-4xl font-black text-white">Absolute Operational Sync.</h2>
+                    <h2 class="text-4xl font-black text-white mb-6">Absolute Operational Sync.</h2>
+                    <p class="max-w-3xl mx-auto text-gray-400 leading-relaxed">The magic happens behind the scenes. When a guest orders a steak via the Smart TV, the data routes directly to the Main Kitchen Display System (KDS), eliminating paper tickets and walkie-talkie chaos. Simultaneously, Housekeepers use a tailored mobile app to instantly update room statuses to 'Clean', allowing the front desk to check in VIPs faster than ever.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
                     <div class="md:col-span-4 flex flex-col gap-6">
-                        <div class="bento-card p-4 flex-1 group">
-                            <p class="text-xs font-bold text-gray-400 mb-2">Order Details</p>
-                            <img src="c4-1.jpg" alt="Order Details" class="w-full rounded-lg group-hover:scale-105 transition-transform duration-500">
+                        <div class="bento-card p-4 flex-1 group overflow-hidden bg-orange-900/10">
+                            <p class="text-xs font-bold text-orange-400 mb-2">Main Kitchen KDS</p>
+                            <img src="c4-1.jpg" alt="Kitchen KDS" class="zoomable w-full rounded-lg" loading="lazy" onclick="openLightbox(this.src)">
                         </div>
-                        <div class="bento-card p-4 flex-1 group bg-orange-900/10">
-                            <p class="text-xs font-bold text-orange-400 mb-2">Housekeeping Tablet</p>
-                            <img src="c4-2.jpg" alt="Housekeeping" class="w-full rounded-lg group-hover:scale-105 transition-transform duration-500">
+                        <div class="bento-card p-4 flex-1 group overflow-hidden">
+                            <p class="text-xs font-bold text-gray-400 mb-2">Order Details Routing</p>
+                            <img src="c4-2.jpg" alt="Order Details" class="zoomable w-full rounded-lg" loading="lazy" onclick="openLightbox(this.src)">
                         </div>
                     </div>
-                    <div class="bento-card md:col-span-8 p-6 group">
-                        <h3 class="text-xl font-bold text-white mb-4">Main Kitchen Display System (KDS)</h3>
-                        <img src="c4-3.jpg" alt="Kitchen KDS" class="w-full h-full object-cover rounded-xl group-hover:scale-[1.02] transition-transform duration-700">
+                    <div class="bento-card md:col-span-8 p-6 group overflow-hidden">
+                        <h3 class="text-xl font-bold text-white mb-4">Zero-Training Housekeeping System</h3>
+                        <img src="c4-3.jpg" alt="Housekeeping" class="zoomable w-full h-full object-cover rounded-xl" loading="lazy" onclick="openLightbox(this.src)">
                     </div>
                 </div>
             </div>
@@ -147,19 +155,20 @@
             <div class="space-y-6 reveal pt-10 border-t border-white/5">
                 <div class="text-center mb-12">
                     <span class="text-green-500 font-bold tracking-widest text-xs uppercase mb-3 block">Chapter 05</span>
-                    <h2 class="text-4xl font-black text-white">The Ultimate CFO Dashboard.</h2>
+                    <h2 class="text-4xl font-black text-white mb-6">The Ultimate CFO Dashboard.</h2>
+                    <p class="max-w-3xl mx-auto text-gray-400 leading-relaxed">Designed specifically for hotel ownership and finance teams. Maintain total command over your revenue streams with an expansive executive dashboard. Adjust complex Tax and Service Charge settings globally, and verify the exact visual output using our Dynamic Receipt Preview. Finally, close out your day effortlessly with a one-click Automated Night Audit.</p>
                 </div>
-                <div class="bento-card p-4 md:p-8 group bg-green-900/5">
-                    <img src="c5-1.jpg" alt="Finance Dashboard" class="w-full rounded-2xl group-hover:scale-[1.01] transition-transform duration-700">
+                <div class="bento-card p-4 md:p-8 group bg-green-900/5 overflow-hidden">
+                    <img src="c5-1.jpg" alt="Finance Dashboard" class="zoomable w-full rounded-2xl" loading="lazy" onclick="openLightbox(this.src)">
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bento-card p-6 group">
+                    <div class="bento-card p-6 group overflow-hidden">
                         <h3 class="text-sm font-bold text-gray-400 mb-4">Dynamic Receipt Preview</h3>
-                        <img src="c5-2.jpg" alt="Receipt Preview" class="w-full rounded-xl group-hover:-translate-y-2 transition-transform duration-500">
+                        <img src="c5-2.jpg" alt="Receipt Preview" class="zoomable w-full rounded-xl" loading="lazy" onclick="openLightbox(this.src)">
                     </div>
-                    <div class="bento-card p-6 group">
-                        <h3 class="text-sm font-bold text-gray-400 mb-4">Tax & Service Charge Configuration</h3>
-                        <img src="c5-3.jpg" alt="Tax Settings" class="w-full rounded-xl group-hover:-translate-y-2 transition-transform duration-500">
+                    <div class="bento-card p-6 group overflow-hidden">
+                        <h3 class="text-sm font-bold text-gray-400 mb-4">Global Tax & Service Charge Config</h3>
+                        <img src="c5-3.jpg" alt="Tax Settings" class="zoomable w-full rounded-xl" loading="lazy" onclick="openLightbox(this.src)">
                     </div>
                 </div>
             </div>
@@ -167,16 +176,17 @@
             <div class="space-y-10 reveal pt-10 border-t border-white/5">
                 <div class="text-center mb-12">
                     <span class="text-indigo-400 font-bold tracking-widest text-xs uppercase mb-3 block">Chapter 06</span>
-                    <h2 class="text-4xl font-black text-white">Say Yes to Every Guest.</h2>
+                    <h2 class="text-4xl font-black text-white mb-6">Say Yes to Every Guest.</h2>
+                    <p class="max-w-3xl mx-auto text-gray-400 leading-relaxed">A global 5-star property requires a global payment solution. ORBIT OS is natively integrated with AQWIRE Payments. Whether it's an online room booking or a table-side restaurant checkout, you can securely accept over 150 international currencies, major credit cards, and local e-wallets. Instant validation, zero friction.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <div class="bento-card p-8 group bg-indigo-900/10">
-                        <h3 class="text-lg font-bold text-indigo-300 mb-4">AQWIRE Integration</h3>
-                        <img src="c6-1.jpg" alt="Aqwire Integration" class="w-full rounded-xl group-hover:scale-105 transition-transform duration-500">
+                    <div class="bento-card p-8 group bg-indigo-900/10 overflow-hidden">
+                        <h3 class="text-lg font-bold text-indigo-300 mb-4">Native AQWIRE Integration</h3>
+                        <img src="c6-1.jpg" alt="Aqwire Integration" class="zoomable w-full rounded-xl" loading="lazy" onclick="openLightbox(this.src)">
                     </div>
-                    <div class="bento-card p-8 group">
+                    <div class="bento-card p-8 group overflow-hidden">
                         <h3 class="text-lg font-bold text-gray-400 mb-4">Instant Success Validation</h3>
-                        <img src="c6-2.jpg" alt="Payment Success" class="w-full rounded-xl group-hover:scale-105 transition-transform duration-500">
+                        <img src="c6-2.jpg" alt="Payment Success" class="zoomable w-full rounded-xl" loading="lazy" onclick="openLightbox(this.src)">
                     </div>
                 </div>
             </div>
@@ -198,6 +208,13 @@
         </div>
     </footer>
 
+    <div id="lightbox" class="fixed inset-0 z-[200] hidden bg-black/95 backdrop-blur-md flex items-center justify-center opacity-0 transition-opacity duration-300" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" class="max-w-[95%] max-h-[95vh] rounded-2xl shadow-2xl transform scale-95 transition-transform duration-300 object-contain">
+        <button class="absolute top-6 right-6 text-white hover:text-red-500 transition-colors bg-white/10 p-2 rounded-full backdrop-blur-sm">
+            <span class="material-symbols-outlined text-3xl block">close</span>
+        </button>
+    </div>
+
     <div id="demoModal" class="fixed inset-0 z-[100] hidden opacity-0 transition-opacity duration-300">
         <div class="absolute inset-0 bg-black/80 backdrop-blur-md" onclick="closeDemoModal()"></div>
         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-white rounded-3xl shadow-2xl p-8 transform scale-95 transition-transform duration-300" id="demoModalContent">
@@ -216,12 +233,33 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
+        // TV 슬라이드 전용 스크립트
         var swiper = new Swiper(".tvSwiper", {
             effect: "fade",
             autoplay: { delay: 3000, disableOnInteraction: false },
             pagination: { el: ".swiper-pagination", clickable: true },
         });
 
+        // 사진 확대(라이트박스) 스크립트
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = imageSrc;
+            lightbox.classList.remove('hidden');
+            void lightbox.offsetWidth; // Reflow
+            lightbox.classList.remove('opacity-0');
+            lightboxImg.classList.remove('scale-95');
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightbox.classList.add('opacity-0');
+            lightboxImg.classList.add('scale-95');
+            setTimeout(() => lightbox.classList.add('hidden'), 300);
+        }
+
+        // 데모 팝업 및 스크롤 애니메이션
         function openDemoModal() { const m = document.getElementById('demoModal'), c = document.getElementById('demoModalContent'); m.classList.remove('hidden'); void m.offsetWidth; m.classList.remove('opacity-0'); c.classList.remove('scale-95'); }
         function closeDemoModal() { const m = document.getElementById('demoModal'), c = document.getElementById('demoModalContent'); m.classList.add('opacity-0'); c.classList.add('scale-95'); setTimeout(() => m.classList.add('hidden'), 300); }
         function reveal() { var reveals = document.querySelectorAll(".reveal"); for (var i = 0; i < reveals.length; i++) { var windowHeight = window.innerHeight; var elementTop = reveals[i].getBoundingClientRect().top; if (elementTop < windowHeight - 50) reveals[i].classList.add("active"); } }

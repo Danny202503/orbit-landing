@@ -3,136 +3,220 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>JJ's POS | Penta-Core F&B Ecosystem</title>
+    <title>JJ's POS | ORBIT Restaurant ERP</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css"/>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <style>
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; top: 0 !important; width: 100%; position: relative; overflow-x: hidden; background-color: #f8fafc; }
         .signature-gradient { background: linear-gradient(135deg, #cbd5e1 0%, #6b38d4 50%, #4b41e1 100%); }
-        .signature-text-gradient { background: linear-gradient(135deg, #94a3b8 0%, #6b38d4 50%, #4b41e1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .signature-text-gradient { background: linear-gradient(135deg, #f43f5e 0%, #fb923c 50%, #f59e0b 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .glass-nav { backdrop-filter: blur(20px); border-bottom: 1px solid rgba(199, 196, 215, 0.1); }
         .no-scrollbar::-webkit-scrollbar { display: none; }
-        .neon-purple-shadow { box-shadow: 0 0 20px rgba(107, 56, 212, 0.4); }
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1); will-change: opacity, transform; }
+        .neon-orange-shadow { box-shadow: 0 0 30px rgba(249, 115, 22, 0.2); }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); will-change: opacity, transform; }
         .reveal.active { opacity: 1; transform: translateY(0); }
+        .dropdown-menu { display: none; opacity: 0; transition: opacity 0.2s ease-in-out; }
+        .group:hover .dropdown-menu { display: block; opacity: 1; }
+        .skiptranslate { display: none !important; }
     </style>
 </head>
-<body class="bg-[#fbf9f8] text-[#1b1c1c] selection:bg-[#4b41e1]/20">
+<body id="top" class="text-[#1b1c1c] selection:bg-[#fb923c]/20">
+    
     <nav class="fixed top-0 w-full z-50 glass-nav bg-white/90">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-10">
-                <a href="index.html" class="flex items-center gap-3 transition-transform duration-300 hover:scale-105 active:scale-95 group">
-                     <img src="image_6.png.jpg" alt="ORBIT Logo" class="h-10 md:h-12 w-auto object-contain group-hover:brightness-110" onerror="this.src='https://via.placeholder.com/150x50/ffffff/6b38d4?text=ORBIT'">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex justify-between items-center relative">
+            <div class="flex items-center gap-4 md:gap-10">
+                <a href="index.html" class="flex items-center gap-2 transition-transform duration-300 hover:scale-105 active:scale-95 group">
+                     <span class="text-xl md:text-2xl font-black tracking-widest text-[#1b1c1c]">ORBIT<span class="text-[#fb923c]">.</span></span>
                 </a>
                 <div class="hidden md:flex items-center gap-8">
                     <a href="index.html" class="text-sm font-bold text-gray-500 hover:text-[#6b38d4] transition-colors tracking-wide">Hotel PMS</a>
-                    <a href="restaurant.html" class="text-sm font-bold text-[#6b38d4] tracking-wide">Restaurant POS</a>
+                    <a href="#top" class="text-sm font-bold text-[#fb923c] tracking-wide">Restaurant POS</a>
+                    <a href="tour.html" class="flex items-center gap-1 text-sm font-bold text-gray-500 hover:text-[#6b38d4] transition-colors tracking-wide">
+                        <span class="material-symbols-outlined text-[16px]">travel_explore</span> Product Tour
+                    </a>
                 </div>
             </div>
-            <div class="flex items-center gap-6">
-                <button onclick="window.location.href='./login.html'" class="font-inter text-sm font-bold tracking-tight text-slate-600 hover:text-indigo-600 transition-colors">Sign In</button>
-                <button onclick="window.location.href='https://visionary-monstera-f0b44c.netlify.app'" class="signature-gradient text-white px-6 py-2.5 rounded-2xl text-sm font-bold shadow-lg hover:-translate-y-0.5 transition-all">Enter POS</button>
+            
+            <div class="flex items-center gap-3 md:gap-6">
+                <div class="relative group cursor-pointer py-2">
+                    <div class="flex items-center gap-1 md:gap-2 text-xs md:text-sm font-bold text-gray-600 hover:text-[#fb923c] transition-colors">
+                        <span id="current-lang-flag" class="fi fi-us rounded-sm text-base md:text-lg"></span>
+                        <span id="current-lang-text" class="hidden sm:inline-block">EN</span>
+                        <span class="material-symbols-outlined text-[14px] md:text-[16px]">expand_more</span>
+                    </div>
+                    <div class="dropdown-menu absolute right-0 mt-2 w-36 md:w-40 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50">
+                        <ul class="py-2 flex flex-col">
+                            <li onclick="changeLanguage('EN', 'fi-us', 'en')" class="px-4 py-2 hover:bg-gray-50 text-xs md:text-sm font-bold text-[#fb923c] flex items-center gap-3 transition-colors cursor-pointer"><span class="fi fi-us rounded-sm"></span> English</li>
+                            <li onclick="changeLanguage('KOR', 'fi-kr', 'ko')" class="px-4 py-2 hover:bg-gray-50 text-xs md:text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors cursor-pointer"><span class="fi fi-kr rounded-sm"></span> 한국어</li>
+                            <li onclick="changeLanguage('JPN', 'fi-jp', 'ja')" class="px-4 py-2 hover:bg-gray-50 text-xs md:text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors cursor-pointer"><span class="fi fi-jp rounded-sm"></span> 日本語</li>
+                            <li onclick="changeLanguage('CN', 'fi-cn', 'zh-CN')" class="px-4 py-2 hover:bg-gray-50 text-xs md:text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors cursor-pointer"><span class="fi fi-cn rounded-sm"></span> 中文 (简体)</li>
+                            <li onclick="changeLanguage('TW', 'fi-tw', 'zh-TW')" class="px-4 py-2 hover:bg-gray-50 text-xs md:text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors cursor-pointer"><span class="fi fi-tw rounded-sm"></span> 中文 (繁體)</li>
+                            <li onclick="changeLanguage('DE', 'fi-de', 'de')" class="px-4 py-2 hover:bg-gray-50 text-xs md:text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors cursor-pointer"><span class="fi fi-de rounded-sm"></span> Deutsch</li>
+                            <li onclick="changeLanguage('TL', 'fi-ph', 'tl')" class="px-4 py-2 hover:bg-gray-50 text-xs md:text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors cursor-pointer"><span class="fi fi-ph rounded-sm"></span> Tagalog</li>
+                            <li onclick="changeLanguage('ESP', 'fi-es', 'es')" class="px-4 py-2 hover:bg-gray-50 text-xs md:text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors cursor-pointer"><span class="fi fi-es rounded-sm"></span> Español</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="hidden sm:block w-px h-4 md:h-5 bg-gray-200"></div>
+                <button onclick="window.location.href='demo.html'" class="signature-gradient text-white px-4 py-2 md:px-6 md:py-2.5 rounded-xl md:rounded-2xl text-xs md:text-sm font-bold shadow-lg hover:-translate-y-0.5 transition-all whitespace-nowrap">Demo</button>
+                
+                <button id="mobile-menu-btn" class="block md:hidden text-gray-800 ml-1 hover:text-[#fb923c] transition-colors">
+                    <span class="material-symbols-outlined text-[28px]">menu</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white shadow-2xl border-t border-gray-100 md:hidden z-50">
+            <div class="flex flex-col px-6 py-6 space-y-6">
+                <a href="index.html" class="text-base font-bold text-gray-500">Hotel PMS</a>
+                <a href="#top" class="text-base font-bold text-[#fb923c]">Restaurant POS</a>
+                <a href="tour.html" class="flex items-center gap-2 text-base font-bold text-gray-700">
+                    <span class="material-symbols-outlined text-[20px]">travel_explore</span> Product Tour
+                </a>
             </div>
         </div>
     </nav>
 
-    <main class="pt-24">
-        <section class="max-w-7xl mx-auto px-6 pt-16 pb-24 text-center reveal">
-            <h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter mb-8 leading-[0.9]">
-                Penta-Core F&B <br/>
-                <span class="signature-text-gradient">Ecosystem</span>
+    <main class="pt-20 md:pt-24 overflow-hidden">
+        <section class="max-w-7xl mx-auto px-4 md:px-6 pt-10 md:pt-16 pb-16 md:pb-24 text-center reveal active">
+            <span class="inline-block py-1.5 px-4 rounded-full bg-orange-100 text-orange-600 font-black text-xs tracking-widest uppercase mb-6 border border-orange-200">JJ's POS System</span>
+            <h1 class="text-4xl sm:text-6xl md:text-8xl font-extrabold tracking-tighter mb-6 md:mb-8 leading-[1.1] md:leading-[0.9]">
+                Serve Faster. <br/>
+                <span class="signature-text-gradient">Manage Smarter.</span>
             </h1>
-            <p class="max-w-2xl mx-auto text-gray-600 text-lg md:text-xl leading-relaxed mb-12 font-medium">
-                Not just a POS. A massive 5-tier microservice architecture connecting Customers, Kitchen, Staff, Inventory, and Admin in absolute real-time.
+            <p class="max-w-2xl mx-auto text-gray-600 text-base md:text-xl leading-relaxed mb-8 md:mb-12 font-medium px-2">
+                Empower your waitstaff with tableside ordering, sync instantly with the kitchen KDS, and split bills effortlessly with AQWIRE payments.
             </p>
-            
-            <div class="relative w-full aspect-[21/9] rounded-2xl bg-black/5 shadow-2xl overflow-hidden flex items-center justify-center border border-gray-100 group neon-purple-shadow">
-                <video id="hero-video" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" autoplay muted playsinline>
-                    <source src="orbit-flow-animation.mp4" type="video/mp4"/>
-                </video>
+            <div class="relative w-full aspect-video md:aspect-[21/9] rounded-2xl bg-black/5 shadow-2xl overflow-hidden flex items-center justify-center border border-gray-100 group neon-orange-shadow">
+                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=2070&auto=format&fit=crop" alt="Luxury Restaurant POS">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div class="absolute bottom-8 left-8">
+                    <h3 class="text-white font-bold text-2xl">The 5-Star Dining Experience</h3>
+                </div>
             </div>
         </section>
 
-        <section class="max-w-5xl mx-auto px-6 mb-24 reveal">
+        <section class="max-w-5xl mx-auto px-4 md:px-6 mb-16 md:mb-24 reveal">
             <div class="flex justify-center border-b border-gray-200 overflow-x-auto no-scrollbar">
-                <div class="flex gap-12 whitespace-nowrap">
-                    <button onclick="window.location.href='index.html'" class="flex items-center gap-3 pb-6 border-b-2 border-transparent text-gray-500 hover:text-black transition-all">
-                        <span class="material-symbols-outlined">hotel_class</span>
-                        <span class="font-bold">ORBIT PMS</span>
+                <div class="flex gap-8 md:gap-12 whitespace-nowrap px-4">
+                    <button onclick="window.location.href='index.html'" class="flex items-center gap-2 md:gap-3 pb-4 md:pb-6 border-b-2 border-transparent text-gray-500 hover:text-black transition-all">
+                        <span class="material-symbols-outlined text-lg md:text-xl">hotel_class</span>
+                        <span class="font-bold text-sm md:text-base">ORBIT PMS</span>
                     </button>
-                    <button class="flex items-center gap-3 pb-6 border-b-2 border-[#4b41e1] transition-all cursor-default">
-                        <span class="material-symbols-outlined text-[#4b41e1]">restaurant_menu</span>
-                        <span class="font-bold text-gray-900">JJ's POS</span>
+                    <button class="flex items-center gap-2 md:gap-3 pb-4 md:pb-6 border-b-2 border-[#fb923c] transition-all cursor-default">
+                        <span class="material-symbols-outlined text-[#fb923c] text-lg md:text-xl">restaurant_menu</span>
+                        <span class="font-bold text-gray-900 text-sm md:text-base">JJ's POS</span>
                     </button>
                 </div>
             </div>
         </section>
 
-        <section class="max-w-7xl mx-auto px-6 space-y-32 mb-32">
-            <div class="flex flex-col md:flex-row items-center gap-16 reveal">
-                <div class="flex-1 order-2 md:order-1">
-                    <span class="text-[#4b41e1] font-bold tracking-widest text-xs uppercase mb-4 block">Microservice Architecture</span>
-                    <h2 class="text-4xl font-bold mb-6 leading-tight">4-Tier Dedicated <br/>Web Apps</h2>
-                    <p class="text-gray-600 leading-relaxed mb-8">
-                        Every user gets a tailored experience. Our system separates into dedicated Customer Ordering, Kitchen Display (KDS), Staff Mobile, and Admin Control panels to maximize speed and eliminate server bottlenecks.
-                    </p>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-[#4b41e1] text-xl">devices</span><span class="font-bold text-gray-800">QR Table Ordering & Pay</span></li>
-                        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-[#4b41e1] text-xl">kitchen</span><span class="font-bold text-gray-800">Real-time Kitchen Display (KDS)</span></li>
+        <section class="max-w-7xl mx-auto px-4 md:px-6 space-y-20 md:space-y-32 mb-20 md:mb-32">
+            
+            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16 reveal">
+                <div class="flex-1 order-2 md:order-1 text-center md:text-left">
+                    <span class="text-[#fb923c] font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 md:mb-4 block">Tableside Efficiency</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 md:mb-6 leading-tight">Mobile POS. <br class="hidden md:block"/>Never Leave the Floor.</h2>
+                    <p class="text-sm md:text-base text-gray-600 leading-relaxed mb-6 md:mb-8">Equip your waitstaff with iPad or smartphone POS terminals. Take orders, add modifiers, and send tickets directly to the kitchen without ever walking to a stationary terminal. Maximize table turnover rates.</p>
+                </div>
+                <div class="flex-1 order-1 md:order-2 bg-white p-3 md:p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden w-full">
+                    <img class="w-full aspect-video object-cover rounded-2xl" src="c6-3.jpg" onerror="this.src='https://via.placeholder.com/800x450/f8fafc/fb923c?text=Mobile+POS'" loading="lazy">
+                </div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16 reveal">
+                <div class="flex-1 bg-white p-3 md:p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden w-full">
+                    <img class="w-full aspect-video object-cover rounded-2xl" src="c4-3.jpg" onerror="this.src='https://via.placeholder.com/800x450/f8fafc/fb923c?text=Kitchen+Display+System'" loading="lazy">
+                </div>
+                <div class="flex-1 text-center md:text-left">
+                    <span class="text-[#fb923c] font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 md:mb-4 block">Kitchen Sync</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 md:mb-6 leading-tight">Smart KDS. <br class="hidden md:block"/>Zero Paper Tickets.</h2>
+                    <p class="text-sm md:text-base text-gray-600 leading-relaxed mb-6 md:mb-8">Eliminate kitchen chaos. Orders from the restaurant floor or guest room TVs flow instantly to the Kitchen Display System (KDS). Prioritize prep times and alert waiters when food is ready to serve.</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16 reveal">
+                <div class="flex-1 order-2 md:order-1 text-center md:text-left">
+                    <span class="text-[#fb923c] font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 md:mb-4 block">Frictionless Payments</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 md:mb-6 leading-tight">Split Bills & <br class="hidden md:block"/>Room Charges.</h2>
+                    <p class="text-sm md:text-base text-gray-600 leading-relaxed mb-6 md:mb-8">Handle complex payments with ease. Split the bill by item or guest count. Let hotel guests charge their dinner directly to their room, perfectly synced with the ORBIT PMS Night Audit.</p>
+                    <ul class="space-y-3 md:space-y-4 inline-block text-left">
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-[#fb923c] text-lg md:text-xl">call_split</span><span class="font-bold text-gray-800 text-sm md:text-base">Intuitive Bill Splitting</span></li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-[#fb923c] text-lg md:text-xl">room_service</span><span class="font-bold text-gray-800 text-sm md:text-base">Charge to Room (PMS Sync)</span></li>
                     </ul>
                 </div>
-                <div class="flex-1 order-1 md:order-2 bg-white p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden relative group">
-                    <img class="w-full aspect-video object-cover rounded-2xl transition-transform hover:scale-105 duration-700 relative z-0" src="restaurant-pos-mockup.jpg" alt="Restaurant POS Dashboard" loading="lazy">
-                </div>
-            </div>
-            
-            <div class="flex flex-col md:flex-row items-center gap-16 reveal">
-                <div class="flex-1 bg-white p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden relative group">
-                    <img class="w-full aspect-video object-cover rounded-2xl transition-transform hover:scale-105 duration-700 relative z-0" src="dashboard-analytics.jpg" alt="Food Cost Analytics" loading="lazy">
-                </div>
-                <div class="flex-1">
-                    <span class="text-[#4b41e1] font-bold tracking-widest text-xs uppercase mb-4 block">The 5th Core</span>
-                    <h2 class="text-4xl font-bold mb-6 leading-tight">Automated Food <br/>Inventory Sync</h2>
-                    <p class="text-gray-600 leading-relaxed mb-8">
-                        The ultimate weapon against food waste. When a dish is completed, precise ingredients are auto-deducted from your warehouse. If stock runs out, partner platforms are updated instantly to prevent refund nightmares.
-                    </p>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="p-4 bg-gray-50 rounded-2xl border border-gray-100">
-                            <span class="material-symbols-outlined text-[#4b41e1] mb-2">sync_alt</span>
-                            <p class="text-xs font-bold uppercase tracking-wide text-gray-800">Partner Platform API</p>
-                        </div>
-                        <div class="p-4 bg-gray-50 rounded-2xl border border-gray-100">
-                            <span class="material-symbols-outlined text-[#4b41e1] mb-2">trending_down</span>
-                            <p class="text-xs font-bold uppercase tracking-wide text-gray-800">Zero Food Waste</p>
-                        </div>
-                    </div>
+                <div class="flex-1 order-1 md:order-2 bg-white p-3 md:p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden w-full">
+                    <img class="w-full aspect-video object-cover rounded-2xl" src="c6-1.jpg" onerror="this.src='https://via.placeholder.com/800x450/f8fafc/fb923c?text=Split+Bills'" loading="lazy">
                 </div>
             </div>
         </section>
 
-        <footer class="bg-white w-full py-12 px-6 border-t border-gray-200">
-            <div class="max-w-7xl mx-auto text-center">
-                <p class="text-[11px] text-gray-400 font-bold tracking-[0.2em] uppercase">© 2026 ORBIT Operating System. All Rights Reserved.</p>
-            </div>
-        </footer>
+        <section class="max-w-4xl mx-auto px-4 md:px-6 text-center reveal pt-8 md:pt-12 mb-24">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-[#1b1c1c] mb-4 md:mb-6">Upgrade Your Dining Experience.</h2>
+            <p class="text-sm md:text-xl text-gray-500 mb-8 md:mb-10 font-medium">Join top luxury properties running their F&B with ORBIT.</p>
+            <button onclick="window.location.href='demo.html'" class="text-sm md:text-lg px-8 md:px-12 py-3 md:py-4 rounded-xl md:rounded-2xl signature-gradient text-white font-bold shadow-[0_0_40px_rgba(107,56,212,0.4)] hover:-translate-y-1 transition-all whitespace-nowrap">
+                Request a Free Demo
+            </button>
+        </section>
     </main>
 
-    <script>
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                if (elementTop < windowHeight - 50) reveals[i].classList.add("active");
-            }
+    <footer class="bg-white w-full py-8 md:py-12 px-6 border-t border-gray-200 text-center">
+        <p class="text-[9px] md:text-[11px] text-gray-400 font-bold tracking-[0.2em] uppercase">© 2026 ORBIT Operating System. All Rights Reserved.</p>
+    </footer>
+
+    <div id="google_translate_element" style="display:none;"></div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en', autoDisplay: false}, 'google_translate_element');
         }
-        window.addEventListener("scroll", reveal, { passive: true });
-        reveal();
-        document.getElementById('hero-video').addEventListener('ended', function() {
-            this.style.transition = 'filter 2s ease-out';
-            this.style.filter = 'brightness(0.8)'; 
+    </script>
+    <script type="text/javascript" async src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+        function changeLanguage(langCode, flagClass, googleCode) {
+            localStorage.setItem('orbit_lang_code', langCode);
+            localStorage.setItem('orbit_flag_class', flagClass);
+            document.cookie = "googtrans=/en/" + googleCode + "; path=/; domain=" + window.location.hostname;
+            document.cookie = "googtrans=/en/" + googleCode + "; path=/;";
+            window.location.reload(); 
+        }
+
+        function reveal() { 
+            var reveals = document.querySelectorAll(".reveal"); 
+            for (var i = 0; i < reveals.length; i++) { 
+                var windowHeight = window.innerHeight; 
+                var elementTop = reveals[i].getBoundingClientRect().top; 
+                if (elementTop < windowHeight + 50) reveals[i].classList.add("active"); 
+            } 
+        }
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            const savedLang = localStorage.getItem('orbit_lang_code');
+            const savedFlag = localStorage.getItem('orbit_flag_class');
+            if (savedLang && savedFlag) {
+                const langText = document.getElementById('current-lang-text');
+                if(langText) langText.innerText = savedLang;
+                const langFlag = document.getElementById('current-lang-flag');
+                if(langFlag) langFlag.className = 'fi ' + savedFlag + ' rounded-sm text-base md:text-lg';
+                
+                const items = document.querySelectorAll('.dropdown-menu li');
+                items.forEach(item => { item.classList.remove('text-[#fb923c]', 'font-bold'); item.classList.add('text-gray-600', 'font-medium'); });
+            }
+            
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if(menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            setTimeout(reveal, 100);
+            window.addEventListener("scroll", reveal, { passive: true });
+            window.addEventListener("touchmove", reveal, { passive: true });
+            window.addEventListener("resize", reveal, { passive: true });
         });
     </script>
 </body>

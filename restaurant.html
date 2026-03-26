@@ -11,7 +11,6 @@
     <style>
         html { scroll-behavior: smooth; overflow-x: hidden; }
         body { font-family: 'Inter', sans-serif; top: 0 !important; width: 100%; position: relative; overflow-x: hidden; }
-        /* 🚀 브랜드 컬러 보라색으로 완벽 복구 */
         .signature-gradient { background: linear-gradient(135deg, #cbd5e1 0%, #6b38d4 50%, #4b41e1 100%); } 
         .signature-text-gradient { background: linear-gradient(135deg, #94a3b8 0%, #6b38d4 50%, #4b41e1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .glass-nav { backdrop-filter: blur(20px); border-bottom: 1px solid rgba(199, 196, 215, 0.1); }
@@ -22,8 +21,11 @@
         .dropdown-menu { display: none; opacity: 0; transition: opacity 0.2s ease-in-out; }
         .group:hover .dropdown-menu { display: block; opacity: 1; }
         .skiptranslate { display: none !important; }
-        /* 🚀 독일어 등 긴 단어로 인한 레이아웃 깨짐 강제 방지 (Word-break) */
         .break-words { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto; }
+        
+        /* 🚀 사진 줌(확대) 애니메이션 추가 */
+        .zoomable { cursor: zoom-in; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); }
+        .bento-card:hover .zoomable { transform: scale(1.05); }
     </style>
 </head>
 <body id="top" class="bg-[#fbf9f8] text-[#1b1c1c] selection:bg-[#4b41e1]/20">
@@ -99,8 +101,7 @@
             </p>
             <div class="relative w-full aspect-video md:aspect-[21/9] rounded-2xl bg-black/5 shadow-2xl overflow-hidden flex items-center justify-center border border-gray-100 group neon-purple-shadow">
                 <video class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" autoplay loop muted playsinline>
-                    <source src="hotel-video-v2.mp4" type="video/mp4"/>
-                    <source src="hotel-pms-video.mp4" type="video/mp4"/>
+                    <source src="restaurant-video.mp4" type="video/mp4"/>
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -133,14 +134,14 @@
                         <li class="flex items-start gap-3"><span class="material-symbols-outlined text-[#6b38d4] text-lg md:text-xl shrink-0 mt-0.5">ads_click</span><span class="font-bold text-gray-800 text-sm md:text-base break-words">Automated Promo & Upselling UI</span></li>
                     </ul>
                 </div>
-                <div class="flex-1 order-1 md:order-2 bg-white p-3 md:p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden w-full group min-w-0">
-                    <img class="w-full aspect-video object-cover rounded-2xl group-hover:scale-105 transition-transform duration-700" src="table-menu.jpg" onerror="this.src='https://via.placeholder.com/800x450/1b1c1c/6b38d4?text=Upload+Table+Menu'" loading="lazy">
+                <div class="bento-card flex-1 order-1 md:order-2 bg-white p-3 md:p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden w-full group min-w-0">
+                    <img class="zoomable w-full aspect-video object-cover rounded-2xl" src="table-menu.jpg" onerror="this.src='https://via.placeholder.com/800x450/1b1c1c/6b38d4?text=Upload+Table+Menu'" loading="lazy" onclick="openLightbox(this.src)">
                 </div>
             </div>
             
             <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16 reveal w-full">
-                <div class="flex-1 bg-white p-3 md:p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden w-full group min-w-0">
-                    <img class="w-full aspect-video object-cover rounded-2xl group-hover:scale-105 transition-transform duration-700" src="table-cart.jpg" onerror="this.src='https://via.placeholder.com/800x450/1b1c1c/6b38d4?text=Upload+Cart+Payment'" loading="lazy">
+                <div class="bento-card flex-1 bg-white p-3 md:p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden w-full group min-w-0">
+                    <img class="zoomable w-full aspect-video object-cover rounded-2xl" src="table-cart.jpg" onerror="this.src='https://via.placeholder.com/800x450/1b1c1c/6b38d4?text=Upload+Cart+Payment'" loading="lazy" onclick="openLightbox(this.src)">
                 </div>
                 <div class="flex-1 text-center md:text-left min-w-0">
                     <span class="text-[#6b38d4] font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 md:mb-4 block break-words">Frictionless Checkout</span>
@@ -169,14 +170,14 @@
                         <li class="flex items-start gap-3"><span class="material-symbols-outlined text-[#6b38d4] text-lg md:text-xl shrink-0 mt-0.5">soup_kitchen</span><span class="font-bold text-gray-800 text-sm md:text-base break-words">Paperless Kitchen Sync</span></li>
                     </ul>
                 </div>
-                <div class="flex-1 order-1 md:order-2 bg-white p-3 md:p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden w-full group min-w-0">
-                    <img class="w-full aspect-video object-cover rounded-2xl group-hover:scale-105 transition-transform duration-700" src="kds-interface.jpg" onerror="this.src='https://via.placeholder.com/800x450/1b1c1c/6b38d4?text=Upload+KDS'" loading="lazy">
+                <div class="bento-card flex-1 order-1 md:order-2 bg-white p-3 md:p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden w-full group min-w-0">
+                    <img class="zoomable w-full aspect-video object-cover rounded-2xl" src="kds-interface.jpg" onerror="this.src='https://via.placeholder.com/800x450/1b1c1c/6b38d4?text=Upload+KDS'" loading="lazy" onclick="openLightbox(this.src)">
                 </div>
             </div>
 
             <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16 reveal w-full">
-                <div class="flex-1 bg-white p-3 md:p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden w-full group min-w-0">
-                    <img class="w-full aspect-video object-cover rounded-2xl group-hover:scale-105 transition-transform duration-700" src="admin-staff.jpg" onerror="this.src='https://via.placeholder.com/800x450/1b1c1c/6b38d4?text=Upload+Admin+Staff'" loading="lazy">
+                <div class="bento-card flex-1 bg-white p-3 md:p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden w-full group min-w-0">
+                    <img class="zoomable w-full aspect-video object-cover rounded-2xl" src="admin-staff.jpg" onerror="this.src='https://via.placeholder.com/800x450/1b1c1c/6b38d4?text=Upload+Admin+Staff'" loading="lazy" onclick="openLightbox(this.src)">
                 </div>
                 <div class="flex-1 text-center md:text-left min-w-0">
                     <span class="text-[#6b38d4] font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 md:mb-4 block break-words">Admin & Staff Web Apps</span>
@@ -214,6 +215,13 @@
         </footer>
     </main>
 
+    <div id="lightbox" class="fixed inset-0 z-[200] hidden bg-black/95 backdrop-blur-md flex items-center justify-center opacity-0 transition-opacity duration-300" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" class="max-w-[95%] max-h-[90vh] md:max-h-[95vh] rounded-xl md:rounded-2xl shadow-2xl transform scale-95 transition-transform duration-300 object-contain">
+        <button class="absolute top-4 right-4 md:top-6 md:right-6 text-white hover:text-red-500 transition-colors bg-white/10 p-2 rounded-full backdrop-blur-sm">
+            <span class="material-symbols-outlined text-2xl md:text-3xl block">close</span>
+        </button>
+    </div>
+
     <div id="google_translate_element" style="display:none;"></div>
     <script type="text/javascript">
         function googleTranslateElementInit() {
@@ -222,6 +230,19 @@
     </script>
     <script type="text/javascript" async src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script>
+        // 사진 확대 로직
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById('lightbox'); const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = imageSrc; lightbox.classList.remove('hidden'); void lightbox.offsetWidth;
+            lightbox.classList.remove('opacity-0'); lightboxImg.classList.remove('scale-95');
+        }
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox'); const lightboxImg = document.getElementById('lightbox-img');
+            lightbox.classList.add('opacity-0'); lightboxImg.classList.add('scale-95');
+            setTimeout(() => lightbox.classList.add('hidden'), 300);
+        }
+
+        // 언어 변경 로직
         function changeLanguage(langCode, flagClass, googleCode) {
             localStorage.setItem('orbit_lang_code', langCode);
             localStorage.setItem('orbit_flag_class', flagClass);
@@ -230,6 +251,7 @@
             window.location.reload(); 
         }
 
+        // 스크롤 애니메이션
         function reveal() { 
             var reveals = document.querySelectorAll(".reveal"); 
             for (var i = 0; i < reveals.length; i++) { 

@@ -12,7 +12,6 @@
         html { scroll-behavior: smooth; overflow-x: hidden; }
         body { font-family: 'Inter', sans-serif; top: 0 !important; width: 100%; position: relative; overflow-x: hidden; background-color: #fbf9f8; color: #0f172a; }
         
-        /* 🚀 ORBIT 시그니처 보라색 테마 통일 */
         .signature-gradient { background: linear-gradient(135deg, #a855f7 0%, #6b38d4 50%, #4b41e1 100%); } 
         .signature-text-gradient { background: linear-gradient(135deg, #a855f7 0%, #6b38d4 50%, #4b41e1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         
@@ -21,19 +20,14 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .neon-purple-shadow { box-shadow: 0 20px 40px rgba(107, 56, 212, 0.15); }
         
-        /* 스크롤 애니메이션 */
         .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); will-change: opacity, transform; }
         .reveal.active { opacity: 1; transform: translateY(0); }
         
-        /* 드롭다운 및 구글 번역 숨김 */
         .dropdown-menu { display: none; opacity: 0; transition: opacity 0.2s ease-in-out; }
         .group:hover .dropdown-menu { display: block; opacity: 1; }
         .skiptranslate { display: none !important; }
-        
-        /* 🚀 텍스트 레이아웃 깨짐 철통 방지 (독일어 완벽 대응) */
         .break-words { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto; }
         
-        /* 🚀 사진 마우스 오버 시 줌(Zoom) 기능 */
         .zoomable { cursor: zoom-in; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); }
         .zoom-container:hover .zoomable { transform: scale(1.04); }
     </style>
@@ -76,7 +70,7 @@
                     </div>
                 </div>
                 <div class="hidden sm:block w-px h-4 md:h-5 bg-gray-200"></div>
-                <button onclick="window.location.href='https://order-pay-get-admin.web.app'" class="hidden sm:block font-inter text-xs md:text-sm font-bold tracking-tight text-slate-600 hover:text-[#6b38d4] transition-colors">Admin Login</button>
+                <button onclick="window.location.href='https://order-pay-get-admin.web.app'" class="hidden sm:block font-inter text-xs md:text-sm font-bold tracking-tight text-slate-600 hover:text-[#6b38d4] transition-colors">Admin Demo</button>
                 <button onclick="window.location.href='demo.html'" class="signature-gradient text-white px-4 py-2 md:px-6 md:py-2.5 rounded-xl md:rounded-2xl text-xs md:text-sm font-bold shadow-lg hover:-translate-y-0.5 transition-all whitespace-nowrap">Demo</button>
                 
                 <button id="mobile-menu-btn-rest" class="block md:hidden text-gray-800 ml-1 hover:text-[#6b38d4] transition-colors shrink-0">
@@ -93,12 +87,12 @@
                     <span class="material-symbols-outlined text-[20px]">travel_explore</span> Product Tour
                 </a>
                 <div class="h-px bg-gray-100 w-full"></div>
-                <a href="https://order-pay-get-admin.web.app" class="text-base font-bold text-gray-500">Admin Login</a>
+                <a href="https://order-pay-get-admin.web.app" class="text-base font-bold text-gray-500">Admin Demo</a>
             </div>
         </div>
     </nav>
 
-    <main class="pt-20 md:pt-28 overflow-hidden">
+    <main class="pt-20 md:pt-28 overflow-hidden relative">
         
         <section class="max-w-7xl mx-auto px-4 md:px-6 pt-10 md:pt-12 pb-16 md:pb-24 text-center reveal active w-full">
             <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-purple-50 border border-purple-100 text-[#6b38d4] font-black tracking-widest text-[10px] md:text-xs uppercase rounded-full mb-6 md:mb-8 shadow-sm break-words">
@@ -227,6 +221,10 @@
             <p class="text-[10px] md:text-xs text-gray-400 font-bold tracking-[0.2em] uppercase break-words">© 2026 ORBIT Operating System. All Rights Reserved.</p>
         </footer>
     </main>
+
+    <a href="index.html" class="md:hidden fixed bottom-6 right-6 z-[150] w-14 h-14 bg-[#6b38d4] rounded-full shadow-[0_10px_20px_rgba(107,56,212,0.4)] flex items-center justify-center text-white hover:bg-[#5b2eb3] transition-transform active:scale-95">
+        <span class="material-symbols-outlined text-2xl">home</span>
+    </a>
 
     <div id="lightbox" class="fixed inset-0 z-[200] hidden bg-black/90 backdrop-blur-lg flex items-center justify-center opacity-0 transition-opacity duration-300" onclick="closeLightbox()">
         <img id="lightbox-img" src="" class="max-w-[95%] max-h-[90vh] md:max-h-[95vh] rounded-2xl md:rounded-[2rem] shadow-2xl transform scale-95 transition-transform duration-300 object-contain">

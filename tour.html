@@ -4,6 +4,12 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Inside ORBIT | The Editorial Tour</title>
+    
+    <meta property="og:title" content="Inside ORBIT | The Editorial Tour" />
+    <meta property="og:description" content="A visual journey through the API-First Hospitality ERP." />
+    <meta property="og:image" content="https://via.placeholder.com/1200x630/050505/6b38d4?text=ORBIT+Tour" />
+    <meta property="og:type" content="website" />
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css"/>
@@ -33,6 +39,7 @@
         .break-words { overflow-wrap: break-word; word-break: keep-all; }
         .dropdown-menu { display: none; opacity: 0; transition: opacity 0.2s ease-in-out; }
         .group:hover .dropdown-menu { display: block; opacity: 1; }
+        .material-symbols-outlined { font-family: 'Material Symbols Outlined' !important; }
     </style>
 </head>
 <body id="top" class="selection:bg-[#6b38d4]/30 w-full">
@@ -40,12 +47,12 @@
     <nav class="fixed top-0 w-full z-50 glass-nav bg-[#050505]/80">
         <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex justify-between items-center relative">
             <div class="flex items-center gap-4 md:gap-10">
-                <a href="index.html" class="flex items-center gap-2 transition-transform duration-300 hover:scale-105 group shrink-0">
+                <a href="index.html" class="flex items-center gap-2 transition-transform duration-300 hover:scale-105 group shrink-0" translate="no">
                     <span class="text-xl md:text-2xl font-black tracking-widest text-white">ORBIT<span class="text-[#6b38d4]">.</span></span>
                 </a>
                 <div class="hidden md:flex items-center gap-8 border-l border-white/10 pl-8">
-                    <a href="index.html" class="text-sm font-bold text-gray-400 hover:text-white transition-colors tracking-wide">PMS Home</a>
-                    <a href="restaurant.html" class="text-sm font-bold text-gray-400 hover:text-white transition-colors tracking-wide">Restaurant POS</a>
+                    <a href="index.html" class="text-sm font-bold text-gray-400 hover:text-white transition-colors tracking-wide" translate="no">PMS Home</a>
+                    <a href="restaurant.html" class="text-sm font-bold text-gray-400 hover:text-white transition-colors tracking-wide" translate="no">Restaurant POS</a>
                 </div>
             </div>
             
@@ -53,8 +60,8 @@
                 <div class="relative group cursor-pointer py-2">
                     <div class="flex items-center gap-1 md:gap-2 text-xs md:text-sm font-bold text-gray-400 hover:text-white transition-colors">
                         <span id="current-lang-flag" class="fi fi-us rounded-sm text-base md:text-lg"></span>
-                        <span id="current-lang-text" class="hidden sm:inline-block">EN</span>
-                        <span class="material-symbols-outlined text-[14px] md:text-[16px]">expand_more</span>
+                        <span id="current-lang-text" class="hidden sm:inline-block" translate="no">EN</span>
+                        <span class="material-symbols-outlined text-[14px] md:text-[16px]" translate="no">expand_more</span>
                     </div>
                     <div class="dropdown-menu absolute right-0 mt-2 w-36 md:w-40 bg-[#1b1c1c] rounded-2xl shadow-xl border border-gray-800 overflow-hidden z-50">
                         <ul class="py-2 flex flex-col">
@@ -72,17 +79,17 @@
                 <button onclick="window.location.href='demo.html'" class="signature-gradient text-white px-4 py-2 md:px-6 md:py-2.5 rounded-xl md:rounded-2xl text-xs md:text-sm font-bold shadow-lg hover:-translate-y-0.5 transition-all whitespace-nowrap">Demo</button>
                 
                 <button id="mobile-menu-btn-tour" class="block md:hidden text-white ml-1 hover:text-[#a855f7] transition-colors shrink-0">
-                    <span class="material-symbols-outlined text-[28px]">menu</span>
+                    <span class="material-symbols-outlined text-[28px]" translate="no">menu</span>
                 </button>
             </div>
         </div>
 
         <div id="mobile-menu-tour" class="hidden absolute top-full left-0 w-full bg-[#050505] shadow-2xl border-t border-gray-800 md:hidden z-50">
             <div class="flex flex-col px-6 py-6 space-y-6">
-                <a href="index.html" class="text-base font-bold text-gray-300">PMS Home</a>
-                <a href="restaurant.html" class="text-base font-bold text-gray-300">Restaurant POS</a>
+                <a href="index.html" class="text-base font-bold text-gray-300" translate="no">PMS Home</a>
+                <a href="restaurant.html" class="text-base font-bold text-gray-300" translate="no">Restaurant POS</a>
                 <div class="flex items-center gap-2 text-base font-bold text-[#a855f7]">
-                    <span class="material-symbols-outlined text-[20px]">travel_explore</span> Product Tour
+                    <span class="material-symbols-outlined text-[20px]" translate="no">travel_explore</span> Product Tour
                 </div>
             </div>
         </div>
@@ -238,7 +245,7 @@
         <section class="max-w-4xl mx-auto px-4 md:px-6 text-center reveal pt-8 md:pt-12 mt-16 md:mt-24 w-full overflow-hidden">
             <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4 md:mb-6 break-words">Experience ORBITOS Live.</h2>
             <p class="text-sm md:text-xl text-gray-400 mb-8 md:mb-10 break-words">Stop managing software. Start managing hospitality.</p>
-            <button onclick="window.location.href='demo.html'" class="text-sm md:text-lg px-8 md:px-12 py-3 md:py-4 rounded-xl md:rounded-2xl signature-gradient text-white font-bold shadow-[0_0_40px_rgba(107,56,212,0.4)] hover:-translate-y-1 transition-all whitespace-nowrap">
+            <button onclick="window.location.href='demo.html'" class="text-sm md:text-lg px-8 md:px-12 py-3 md:py-4 rounded-xl md:rounded-2xl signature-gradient text-white font-bold shadow-[0_0_40px_rgba(107,56,212,0.4)] hover:-translate-y-1 transition-all whitespace-normal break-words">
                 Request a Free Demo
             </button>
         </section>
@@ -249,13 +256,13 @@
     </footer>
 
     <a href="index.html" class="md:hidden fixed bottom-6 right-6 z-[150] w-14 h-14 bg-[#6b38d4] rounded-full shadow-[0_10px_20px_rgba(107,56,212,0.4)] flex items-center justify-center text-white hover:bg-[#5b2eb3] transition-transform active:scale-95">
-        <span class="material-symbols-outlined text-2xl">home</span>
+        <span class="material-symbols-outlined text-2xl" translate="no">home</span>
     </a>
 
     <div id="lightbox" class="fixed inset-0 z-[200] hidden bg-black/95 backdrop-blur-md flex items-center justify-center opacity-0 transition-opacity duration-300" onclick="closeLightbox()">
         <img id="lightbox-img" src="" class="max-w-[95%] max-h-[90vh] md:max-h-[95vh] rounded-xl md:rounded-2xl shadow-2xl transform scale-95 transition-transform duration-300 object-contain">
-        <button class="absolute top-4 right-4 md:top-6 md:right-6 text-white hover:text-[#a855f7] transition-colors bg-white/10 p-2 md:p-3 rounded-full backdrop-blur-sm">
-            <span class="material-symbols-outlined text-2xl md:text-3xl block">close</span>
+        <button class="absolute top-4 right-4 md:top-6 md:right-6 text-white hover:text-red-500 transition-colors bg-white/10 p-2 rounded-full backdrop-blur-sm">
+            <span class="material-symbols-outlined text-2xl md:text-3xl block" translate="no">close</span>
         </button>
     </div>
 

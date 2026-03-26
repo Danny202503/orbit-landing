@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>JJ's POS | Connected Restaurant Management</title>
+    <title>JJ's POS | 4-in-1 Restaurant Ecosystem</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css"/>
@@ -11,7 +11,7 @@
     <style>
         html { scroll-behavior: smooth; overflow-x: hidden; }
         body { font-family: 'Inter', sans-serif; top: 0 !important; width: 100%; position: relative; overflow-x: hidden; }
-        .signature-gradient { background: linear-gradient(135deg, #f97316 0%, #ea580c 50%, #c2410c 100%); } /* 레스토랑은 식욕을 돋우는 오렌지 톤 그라데이션 */
+        .signature-gradient { background: linear-gradient(135deg, #f97316 0%, #ea580c 50%, #c2410c 100%); } 
         .signature-text-gradient { background: linear-gradient(135deg, #fdba74 0%, #ea580c 50%, #9a3412 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .glass-nav { backdrop-filter: blur(20px); border-bottom: 1px solid rgba(199, 196, 215, 0.1); }
         .no-scrollbar::-webkit-scrollbar { display: none; }
@@ -61,7 +61,7 @@
                     </div>
                 </div>
                 <div class="hidden sm:block w-px h-4 md:h-5 bg-gray-200"></div>
-                <button onclick="window.location.href='https://hotel-pms-frontend-swww.vercel.app/'" class="hidden sm:block font-inter text-xs md:text-sm font-bold tracking-tight text-slate-600 hover:text-orange-600 transition-colors">Sign In</button>
+                <button onclick="window.location.href='https://order-pay-get-admin.web.app'" class="hidden sm:block font-inter text-xs md:text-sm font-bold tracking-tight text-slate-600 hover:text-orange-600 transition-colors">Admin Login</button>
                 <button onclick="window.location.href='demo.html'" class="signature-gradient text-white px-4 py-2 md:px-6 md:py-2.5 rounded-xl md:rounded-2xl text-xs md:text-sm font-bold shadow-lg hover:-translate-y-0.5 transition-all whitespace-nowrap">Demo</button>
                 
                 <button id="mobile-menu-btn-rest" class="block md:hidden text-gray-800 ml-1 hover:text-[#ea580c] transition-colors">
@@ -78,7 +78,7 @@
                     <span class="material-symbols-outlined text-[20px]">travel_explore</span> Product Tour
                 </a>
                 <div class="h-px bg-gray-100 w-full"></div>
-                <a href="https://hotel-pms-frontend-swww.vercel.app/" class="text-base font-bold text-gray-500">Sign In</a>
+                <a href="https://order-pay-get-admin.web.app" class="text-base font-bold text-gray-500">Admin Login</a>
             </div>
         </div>
     </nav>
@@ -86,16 +86,17 @@
     <main class="pt-20 md:pt-24 overflow-hidden">
         
         <section class="max-w-7xl mx-auto px-4 md:px-6 pt-10 md:pt-16 pb-16 md:pb-24 text-center reveal active">
+            <span class="text-[#ea580c] font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 block">Table • Kitchen • Staff • Admin</span>
             <h1 class="text-4xl sm:text-6xl md:text-8xl font-extrabold tracking-tighter mb-6 md:mb-8 leading-[1.1] md:leading-[0.9]">
-                The Culinary <br/>
-                <span class="signature-text-gradient">Command Center</span>
+                The 4-in-1 <br/>
+                <span class="signature-text-gradient">Culinary Ecosystem</span>
             </h1>
             <p class="max-w-2xl mx-auto text-gray-600 text-base md:text-xl leading-relaxed mb-8 md:mb-12 font-medium px-2">
-                Lightning-fast order taking, live kitchen displays, and deep PMS integration. JJ's POS turns your F&B outlets into high-margin profit centers.
+                A completely independent, fully integrated suite for modern restaurants. From multi-language table ordering to real-time kitchen displays, JJ's POS turns your F&B outlets into high-margin profit centers.
             </p>
             <div class="relative w-full aspect-video md:aspect-[21/9] rounded-2xl bg-black/5 shadow-2xl overflow-hidden flex items-center justify-center border border-gray-100 group neon-orange-shadow">
                 <video class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" autoplay loop muted playsinline>
-                    <source src="restaurant-video.mp4" type="video/mp4" onerror="this.src='hotel-video-v2.mp4'"/>
+                    <source src="restaurant-pos-video.mp4" type="video/mp4" onerror="this.src='hotel-video-v2.mp4'"/>
                 </video>
             </div>
         </section>
@@ -119,35 +120,35 @@
             
             <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16 reveal">
                 <div class="flex-1 order-2 md:order-1 text-center md:text-left">
-                    <span class="text-[#ea580c] font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 md:mb-4 block">Lightning Fast Ordering</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4 md:mb-6 leading-tight">Seamless Table <br class="hidden md:block"/>Management.</h2>
-                    <p class="text-sm md:text-base text-gray-600 leading-relaxed mb-6 md:mb-8">Built for the dinner rush. Split bills with a swipe, apply discounts instantly, and post charges directly to the guest's hotel room via ORBIT PMS deep integration.</p>
+                    <span class="text-[#ea580c] font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 md:mb-4 block">Table Order Web App</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 md:mb-6 leading-tight">No Menus. <br class="hidden md:block"/>No Language Barriers.</h2>
+                    <p class="text-sm md:text-base text-gray-600 leading-relaxed mb-6 md:mb-8">Empower your guests with a stunning digital menu tablet. Native support for English, Korean, Japanese, and Chinese means perfect orders every time. Feature your 'All Time Favorites' and 'Special Promos' to drive massive upsells without lifting a finger.</p>
                     <ul class="space-y-3 md:space-y-4 inline-block text-left">
-                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-[#ea580c] text-lg md:text-xl">room_service</span><span class="font-bold text-gray-800 text-sm md:text-base">Visual Table Layouts</span></li>
-                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-[#ea580c] text-lg md:text-xl">hotel</span><span class="font-bold text-gray-800 text-sm md:text-base">Direct 'Charge to Room'</span></li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-[#ea580c] text-lg md:text-xl">language</span><span class="font-bold text-gray-800 text-sm md:text-base">4+ Native Languages (EN, KR, CN, JP)</span></li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-[#ea580c] text-lg md:text-xl">ads_click</span><span class="font-bold text-gray-800 text-sm md:text-base">Automated Promo & Upselling UI</span></li>
                     </ul>
                 </div>
-                <div class="flex-1 order-1 md:order-2 bg-white p-3 md:p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden w-full">
-                    <img class="w-full aspect-video object-cover rounded-2xl" src="pos-main.jpg" onerror="this.src='c6-3.jpg'" loading="lazy">
+                <div class="flex-1 order-1 md:order-2 bg-white p-3 md:p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden w-full group">
+                    <img class="w-full aspect-video object-cover rounded-2xl group-hover:scale-105 transition-transform duration-700" src="table-menu.jpg" onerror="this.src='https://via.placeholder.com/800x450/1b1c1c/ea580c?text=Upload+Table+Menu+Screenshot'" loading="lazy">
                 </div>
             </div>
             
             <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16 reveal">
-                <div class="flex-1 bg-white p-3 md:p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden w-full">
-                    <img class="w-full aspect-video object-cover rounded-2xl" src="kds-main.jpg" onerror="this.src='c4-3.jpg'" loading="lazy">
+                <div class="flex-1 bg-white p-3 md:p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden w-full group">
+                    <img class="w-full aspect-video object-cover rounded-2xl group-hover:scale-105 transition-transform duration-700" src="table-cart.jpg" onerror="this.src='https://via.placeholder.com/800x450/1b1c1c/ea580c?text=Upload+Cart+Payment+Screenshot'" loading="lazy">
                 </div>
                 <div class="flex-1 text-center md:text-left">
-                    <span class="text-[#ea580c] font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 md:mb-4 block">Paperless Kitchen</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4 md:mb-6 leading-tight">Real-time Kitchen <br class="hidden md:block"/>Display (KDS).</h2>
-                    <p class="text-sm md:text-base text-gray-600 leading-relaxed mb-6 md:mb-8">No more lost paper tickets. Orders from the dining room, poolside, or Smart TVs are routed instantly to the correct kitchen stations based on preparation times.</p>
+                    <span class="text-[#ea580c] font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 md:mb-4 block">Frictionless Checkout</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 md:mb-6 leading-tight">Pay at Table, <br class="hidden md:block"/>Faster Turnover.</h2>
+                    <p class="text-sm md:text-base text-gray-600 leading-relaxed mb-6 md:mb-8">Say goodbye to lines at the counter. Guests can easily add staff tips, apply Senior/PWD discounts, and choose to pay directly via QR Scan or request staff for cash/card. Faster payments equal faster table turnovers.</p>
                     <div class="grid grid-cols-2 gap-3 md:gap-4">
                         <div class="p-3 md:p-4 bg-orange-50/50 rounded-xl md:rounded-2xl border border-orange-100">
-                            <span class="material-symbols-outlined text-[#ea580c] mb-1 md:mb-2 text-lg md:text-2xl">timer</span>
-                            <p class="text-[10px] md:text-xs font-bold uppercase tracking-wide text-gray-800">Prep Timers</p>
+                            <span class="material-symbols-outlined text-[#ea580c] mb-1 md:mb-2 text-lg md:text-2xl">qr_code_2</span>
+                            <p class="text-[10px] md:text-xs font-bold uppercase tracking-wide text-gray-800">Scan QR to Pay</p>
                         </div>
                         <div class="p-3 md:p-4 bg-orange-50/50 rounded-xl md:rounded-2xl border border-orange-100">
-                            <span class="material-symbols-outlined text-[#ea580c] mb-1 md:mb-2 text-lg md:text-2xl">soup_kitchen</span>
-                            <p class="text-[10px] md:text-xs font-bold uppercase tracking-wide text-gray-800">Station Routing</p>
+                            <span class="material-symbols-outlined text-[#ea580c] mb-1 md:mb-2 text-lg md:text-2xl">volunteer_activism</span>
+                            <p class="text-[10px] md:text-xs font-bold uppercase tracking-wide text-gray-800">Tip & Discounts</p>
                         </div>
                     </div>
                 </div>
@@ -155,35 +156,35 @@
 
             <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16 reveal">
                 <div class="flex-1 order-2 md:order-1 text-center md:text-left">
-                    <span class="text-[#ea580c] font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 md:mb-4 block">Self-Service Innovation</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4 md:mb-6 leading-tight">QR Code Table <br class="hidden md:block"/>Ordering.</h2>
-                    <p class="text-sm md:text-base text-gray-600 leading-relaxed mb-6 md:mb-8">Empower guests to scan, order, and pay directly from their smartphones. Beautifully designed digital menus increase upsells and free up your floor staff to focus on hospitality.</p>
+                    <span class="text-[#ea580c] font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 md:mb-4 block">Kitchen Display Web App</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 md:mb-6 leading-tight">Zero Lost Tickets. <br class="hidden md:block"/>Perfect Sync.</h2>
+                    <p class="text-sm md:text-base text-gray-600 leading-relaxed mb-6 md:mb-8">The exact second a guest taps "Order" on their table tablet, the ticket instantly appears on the Kitchen Display System (KDS). Chefs can track prep times, route items to specific stations, and mark them 'Ready' to alert floor staff.</p>
                     <ul class="space-y-3 md:space-y-4 inline-block text-left">
-                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-[#ea580c] text-lg md:text-xl">qr_code_scanner</span><span class="font-bold text-gray-800 text-sm md:text-base">Scan & Order Instantly</span></li>
-                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-[#ea580c] text-lg md:text-xl">payments</span><span class="font-bold text-gray-800 text-sm md:text-base">Pay at Table via AQWIRE</span></li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-[#ea580c] text-lg md:text-xl">timer</span><span class="font-bold text-gray-800 text-sm md:text-base">Real-Time Prep Tracking</span></li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-[#ea580c] text-lg md:text-xl">soup_kitchen</span><span class="font-bold text-gray-800 text-sm md:text-base">Paperless Kitchen Sync</span></li>
                     </ul>
                 </div>
-                <div class="flex-1 order-1 md:order-2 bg-white p-3 md:p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden w-full">
-                    <img class="w-full aspect-video object-cover rounded-2xl" src="qr-order.jpg" onerror="this.src='c3-1.jpg'" loading="lazy">
+                <div class="flex-1 order-1 md:order-2 bg-white p-3 md:p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden w-full group">
+                    <img class="w-full aspect-video object-cover rounded-2xl group-hover:scale-105 transition-transform duration-700" src="kds-interface.jpg" onerror="this.src='https://via.placeholder.com/800x450/1b1c1c/ea580c?text=Upload+KDS+Screenshot'" loading="lazy">
                 </div>
             </div>
 
             <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16 reveal">
-                <div class="flex-1 bg-white p-3 md:p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden w-full">
-                    <img class="w-full aspect-video object-cover rounded-2xl" src="inventory.jpg" onerror="this.src='c5-1.jpg'" loading="lazy">
+                <div class="flex-1 bg-white p-3 md:p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden w-full group">
+                    <img class="w-full aspect-video object-cover rounded-2xl group-hover:scale-105 transition-transform duration-700" src="admin-staff.jpg" onerror="this.src='https://via.placeholder.com/800x450/1b1c1c/ea580c?text=Upload+Admin+Staff+Screenshot'" loading="lazy">
                 </div>
                 <div class="flex-1 text-center md:text-left">
-                    <span class="text-[#ea580c] font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 md:mb-4 block">Cost Control Engine</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4 md:mb-6 leading-tight">Live Inventory & <br class="hidden md:block"/>Ingredient Tracking.</h2>
-                    <p class="text-sm md:text-base text-gray-600 leading-relaxed mb-6 md:mb-8">Stop guessing your food costs. Every time a dish is sold, JJ's POS automatically deducts the exact ingredients from your master inventory. Generate low-stock alerts and automated purchase orders.</p>
+                    <span class="text-[#ea580c] font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 md:mb-4 block">Admin & Staff Web Apps</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 md:mb-6 leading-tight">Total Floor Control. <br class="hidden md:block"/>Anywhere.</h2>
+                    <p class="text-sm md:text-base text-gray-600 leading-relaxed mb-6 md:mb-8">Floor staff receive instant notifications on their mobile devices when a table taps "Call Staff" or needs the bill. Meanwhile, managers use the Admin Dashboard to track live inventory, update menus, and analyze daily revenue across all apps.</p>
                     <div class="grid grid-cols-2 gap-3 md:gap-4">
                         <div class="p-3 md:p-4 bg-orange-50/50 rounded-xl md:rounded-2xl border border-orange-100">
-                            <span class="material-symbols-outlined text-[#ea580c] mb-1 md:mb-2 text-lg md:text-2xl">inventory_2</span>
-                            <p class="text-[10px] md:text-xs font-bold uppercase tracking-wide text-gray-800">Recipe Costing</p>
+                            <span class="material-symbols-outlined text-[#ea580c] mb-1 md:mb-2 text-lg md:text-2xl">notifications_active</span>
+                            <p class="text-[10px] md:text-xs font-bold uppercase tracking-wide text-gray-800">Live Staff Alerts</p>
                         </div>
                         <div class="p-3 md:p-4 bg-orange-50/50 rounded-xl md:rounded-2xl border border-orange-100">
-                            <span class="material-symbols-outlined text-[#ea580c] mb-1 md:mb-2 text-lg md:text-2xl">warning</span>
-                            <p class="text-[10px] md:text-xs font-bold uppercase tracking-wide text-gray-800">Low Stock Alerts</p>
+                            <span class="material-symbols-outlined text-[#ea580c] mb-1 md:mb-2 text-lg md:text-2xl">monitoring</span>
+                            <p class="text-[10px] md:text-xs font-bold uppercase tracking-wide text-gray-800">Master Admin Control</p>
                         </div>
                     </div>
                 </div>
@@ -191,11 +192,16 @@
         </section>
 
         <section class="max-w-4xl mx-auto px-4 md:px-6 text-center reveal pt-8 md:pt-12 mt-16 md:mt-24">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 md:mb-6">Ready to upgrade your kitchen?</h2>
-            <p class="text-sm md:text-xl text-gray-500 mb-8 md:mb-10">Connect your F&B operations with ORBIT OS today.</p>
-            <button onclick="window.location.href='demo.html'" class="text-sm md:text-lg px-8 md:px-12 py-3 md:py-4 rounded-xl md:rounded-2xl signature-gradient text-white font-bold shadow-[0_0_40px_rgba(234,88,12,0.4)] hover:-translate-y-1 transition-all whitespace-nowrap">
-                Request POS Demo
-            </button>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 md:mb-6">Deploy the Ultimate POS Ecosystem.</h2>
+            <p class="text-sm md:text-xl text-gray-500 mb-8 md:mb-10">4 Apps. 1 Seamless Operation. Get started today.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button onclick="window.location.href='demo.html'" class="text-sm md:text-lg px-8 py-3 md:py-4 rounded-xl md:rounded-2xl signature-gradient text-white font-bold shadow-[0_0_40px_rgba(234,88,12,0.4)] hover:-translate-y-1 transition-all whitespace-nowrap">
+                    Request POS Demo
+                </button>
+                <button onclick="window.open('https://order-pay-get.web.app', '_blank')" class="text-sm md:text-lg px-8 py-3 md:py-4 rounded-xl md:rounded-2xl bg-white border border-gray-200 text-gray-800 font-bold hover:border-[#ea580c] hover:text-[#ea580c] transition-all whitespace-nowrap flex items-center justify-center gap-2">
+                    Try Table App <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+                </button>
+            </div>
         </section>
         
         <footer class="bg-transparent w-full py-8 md:py-12 px-6 border-t border-gray-200 mt-16 md:mt-24 text-center">

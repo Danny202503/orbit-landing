@@ -281,4 +281,46 @@
             lightbox.classList.remove('opacity-0'); lightboxImg.classList.remove('scale-95');
         }
         function closeLightbox() {
-            const lightbox = document.getElementById('lightbox'); const lightboxImg = document.
+            const lightbox = document.getElementById('lightbox'); const lightboxImg = document.getElementById('lightbox-img');
+            lightbox.classList.add('opacity-0'); lightboxImg.classList.add('scale-95');
+            setTimeout(() => lightbox.classList.add('hidden'), 300);
+        }
+
+        function changeLanguage(langCode, flagClass, googleCode) {
+            localStorage.setItem('orbit_lang_code', langCode); localStorage.setItem('orbit_flag_class', flagClass);
+            document.cookie = "googtrans=/en/" + googleCode + "; path=/; domain=" + window.location.hostname;
+            document.cookie = "googtrans=/en/" + googleCode + "; path=/;";
+            window.location.reload(); 
+        }
+
+        function reveal() { 
+            var reveals = document.querySelectorAll(".reveal"); 
+            for (var i = 0; i < reveals.length; i++) { 
+                var windowHeight = window.innerHeight; 
+                var elementTop = reveals[i].getBoundingClientRect().top; 
+                if (elementTop < windowHeight + 50) reveals[i].classList.add("active"); 
+            } 
+        }
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            const savedLang = localStorage.getItem('orbit_lang_code');
+            const savedFlag = localStorage.getItem('orbit_flag_class');
+            if (savedLang && savedFlag) {
+                const langText = document.getElementById('current-lang-text'); if(langText) langText.innerText = savedLang;
+                const langFlag = document.getElementById('current-lang-flag'); if(langFlag) langFlag.className = 'fi ' + savedFlag + ' rounded-sm text-base md:text-lg';
+                const items = document.querySelectorAll('.dropdown-menu li');
+                items.forEach(item => { item.classList.remove('text-[#a855f7]', 'font-bold'); item.classList.add('text-gray-300', 'font-medium'); });
+            }
+            
+            const menuBtnTour = document.getElementById('mobile-menu-btn-tour');
+            const mobileMenuTour = document.getElementById('mobile-menu-tour');
+            if(menuBtnTour && mobileMenuTour) { menuBtnTour.addEventListener('click', () => { mobileMenuTour.classList.toggle('hidden'); }); }
+
+            setTimeout(reveal, 100);
+            window.addEventListener("scroll", reveal, { passive: true });
+            window.addEventListener("touchmove", reveal, { passive: true });
+            window.addEventListener("resize", reveal, { passive: true });
+        });
+    </script>
+</body>
+</html>

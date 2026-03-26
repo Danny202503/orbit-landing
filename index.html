@@ -29,7 +29,7 @@
         .dropdown-menu { display: none; opacity: 0; transition: opacity 0.2s ease-in-out; }
         .group:hover .dropdown-menu { display: block; opacity: 1; }
         
-        /* 구글 번역기 버그 방어 */
+        /* 🚀 구글 번역기 버그 방어 */
         .skiptranslate, .goog-te-banner-frame { display: none !important; }
         font { display: inline !important; letter-spacing: normal !important; }
         .break-words { overflow-wrap: break-word; word-break: keep-all; }
@@ -72,7 +72,7 @@
                     </div>
                 </div>
                 <div class="hidden sm:block w-px h-4 md:h-5 bg-gray-200"></div>
-                <button onclick="window.location.href='https://hotel-pms-frontend-swww.vercel.app/'" class="hidden sm:block font-inter text-xs md:text-sm font-bold tracking-tight text-slate-600 hover:text-[#6b38d4] transition-colors" translate="no">Sign In</button>
+                <button onclick="window.location.href='https://hotel-pms-frontend-swww.vercel.app/'" class="hidden sm:block font-inter text-xs md:text-sm font-bold tracking-tight text-slate-600 hover:text-indigo-600 transition-colors" translate="no">Sign In</button>
                 <button onclick="window.location.href='demo.html'" class="signature-gradient text-white px-4 py-2 md:px-6 md:py-2.5 rounded-xl md:rounded-2xl text-xs md:text-sm font-bold shadow-lg hover:-translate-y-0.5 transition-all whitespace-nowrap" translate="no">Demo</button>
                 
                 <button id="mobile-menu-btn-index" class="block md:hidden text-gray-800 ml-1 hover:text-[#6b38d4] transition-colors shrink-0">
@@ -200,82 +200,55 @@
         </section>
 
         <section class="max-w-7xl mx-auto px-4 md:px-6 mb-20 md:mb-32 reveal scroll-mt-20 w-full">
-            <div class="bg-[#1b1c1c] rounded-[2rem] md:rounded-[2.5rem] p-8 md:p-16 relative overflow-hidden shadow-2xl border border-gray-800">
-                <div class="absolute top-0 right-0 -mr-10 -mt-10 w-64 h-64 bg-[#6b38d4] rounded-full blur-[100px] md:blur-[120px] opacity-30"></div>
-                <div class="absolute bottom-0 left-0 -ml-10 -mb-10 w-64 h-64 bg-blue-500 rounded-full blur-[100px] md:blur-[120px] opacity-20"></div>
+            <div class="bg-[#1b1c1c] rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-12 relative overflow-hidden shadow-2xl border border-gray-800">
+                <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+                    <div class="absolute top-[-20%] right-[-10%] w-[500px] h-[500px] bg-[#6b38d4] rounded-full blur-[120px] opacity-30"></div>
+                    <div class="absolute bottom-[-20%] left-[-10%] w-[400px] h-[400px] bg-[#4facfe] rounded-full blur-[120px] opacity-20"></div>
+                </div>
 
                 <div class="relative z-10 flex flex-col lg:flex-row items-center gap-10 md:gap-16 w-full">
+                    
                     <div class="flex-1 text-center md:text-left min-w-0">
-                        <div class="flex flex-col md:flex-row items-center gap-3 md:gap-5 mb-5 border-b border-gray-800 pb-5">
-                            <img src="aqwire payments logo vertical.jpg" alt="Aqwire Payments" class="h-12 md:h-16 w-auto object-contain rounded-lg">
+                        <div class="flex flex-col md:flex-row items-center gap-3 md:gap-5 mb-6 border-b border-gray-800 pb-5">
+                            <img src="aqwire payments logo vertical.jpg" alt="Aqwire Payments" class="h-10 md:h-14 w-auto object-contain rounded-lg bg-white/5 p-1">
                             <span class="text-[#cbd5e1] font-bold tracking-widest text-[10px] md:text-xs uppercase flex items-center justify-center gap-2 break-words">
                                 <span class="material-symbols-outlined text-[16px] text-[#6b38d4] shrink-0" translate="no">verified</span> Official Payment Partner
                             </span>
                         </div>
-                        <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight break-words">
+                        
+                        <h2 class="text-4xl md:text-5xl font-black text-white mb-6 leading-tight break-words tracking-tight">
                             Say Yes to Every Guest.<br/>
-                            <span class="text-lg md:text-4xl mt-2 block font-bold">Powered by <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#6b38d4] to-[#4facfe]">AQWIRE</span></span>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#6b38d4] via-[#a855f7] to-[#4facfe] block mt-2">Powered by AQWIRE</span>
                         </h2>
-                        <p class="text-sm md:text-lg text-gray-400 leading-relaxed mb-6 font-medium break-words">
-                            ORBIT OS is natively integrated with AQWIRE Payments. Accept 150+ global currencies, international credit cards, and instant QR payments seamlessly through our All-in-One PTS Terminals and online checkout.
+                        
+                        <p class="text-sm md:text-lg text-gray-300 leading-relaxed mb-8 font-medium break-words">
+                            ORBIT OS is natively integrated to support both <strong class="text-white">POS Terminals</strong> and <strong class="text-white">Online Payment URLs</strong>. Accept 150+ global currencies, major credit cards, and local E-Wallets instantly for a frictionless checkout experience.
                         </p>
                         
                         <div class="mb-8">
-                            <p class="text-[10px] md:text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">Accepted Worldwide & Locally</p>
-                            <div class="flex flex-wrap justify-center md:justify-start gap-2">
-                                <span class="px-3 py-1.5 rounded-lg bg-white/10 text-white text-xs font-bold border border-white/10 shrink-0">VISA / Mastercard</span>
-                                <span class="px-3 py-1.5 rounded-lg bg-white/10 text-white text-xs font-bold border border-white/10 shrink-0">JCB / Amex</span>
-                                <span class="px-3 py-1.5 rounded-lg bg-[#0052E0]/20 text-[#0052E0] text-xs font-bold border border-[#0052E0]/50 shrink-0">GCash</span>
-                                <span class="px-3 py-1.5 rounded-lg bg-[#00B14F]/20 text-[#00B14F] text-xs font-bold border border-[#00B14F]/50 shrink-0">Maya</span>
-                                <span class="px-3 py-1.5 rounded-lg bg-[#E31837]/20 text-[#E31837] text-xs font-bold border border-[#E31837]/50 shrink-0">QRPh</span>
+                            <p class="text-[10px] md:text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Accepted Worldwide & Locally</p>
+                            <div class="flex flex-wrap justify-center md:justify-start gap-2 md:gap-3">
+                                <span class="px-4 py-2 rounded-xl bg-white/10 text-white text-xs font-bold border border-white/10 shadow-sm backdrop-blur-sm shrink-0">VISA / MC</span>
+                                <span class="px-4 py-2 rounded-xl bg-white/10 text-white text-xs font-bold border border-white/10 shadow-sm backdrop-blur-sm shrink-0">JCB / Amex</span>
+                                <span class="px-4 py-2 rounded-xl bg-[#0052E0]/20 text-[#4facfe] text-xs font-bold border border-[#0052E0]/30 shadow-sm backdrop-blur-sm shrink-0">GCash</span>
+                                <span class="px-4 py-2 rounded-xl bg-[#00B14F]/20 text-[#4ade80] text-xs font-bold border border-[#00B14F]/30 shadow-sm backdrop-blur-sm shrink-0">Maya</span>
+                                <span class="px-4 py-2 rounded-xl bg-[#E31837]/20 text-[#f87171] text-xs font-bold border border-[#E31837]/30 shadow-sm backdrop-blur-sm shrink-0">QRPh</span>
                             </div>
                         </div>
-
-                        <ul class="space-y-4 inline-block text-left w-full">
-                            <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-[#6b38d4] text-xl mt-0.5 shrink-0" translate="no">public</span>
-                                <div>
-                                    <span class="font-bold text-gray-200 block text-sm md:text-base">150+ Currencies Supported</span>
-                                </div>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-[#6b38d4] text-xl mt-0.5 shrink-0" translate="no">point_of_sale</span>
-                                <div>
-                                    <span class="font-bold text-gray-200 block text-sm md:text-base">All-in-One PTS Terminal</span>
-                                    <span class="text-xs md:text-sm text-gray-500">Tap cards or scan QR codes in a single device.</span>
-                                </div>
-                            </li>
-                        </ul>
                     </div>
                     
-                    <div class="flex-1 flex justify-center w-full mt-8 md:mt-0 min-w-0">
-                        <div class="bg-white/5 backdrop-blur-md border border-white/10 p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] shadow-2xl w-full max-w-sm md:max-w-md">
-                            <div class="flex justify-between items-center mb-6 border-b border-white/10 pb-4">
-                                <h3 class="text-lg md:text-xl font-black text-white tracking-wide break-words">Enterprise Dashboard</h3>
-                                <span class="px-3 py-1 rounded-full bg-green-500/20 text-green-400 text-[10px] font-bold tracking-widest uppercase border border-green-500/30 shrink-0">Live Sync</span>
-                            </div>
-                            <div class="space-y-4">
-                                <div class="flex justify-between items-center">
-                                    <span class="text-xs md:text-sm text-gray-400 break-words">Total Revenue</span>
-                                    <span class="text-base md:text-lg font-bold text-white shrink-0">₱ 1,245,000</span>
-                                </div>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-xs md:text-sm text-gray-400 break-words">Online Bookings</span>
-                                    <span class="text-xs md:text-sm font-bold text-gray-200 shrink-0">Visa / MC</span>
-                                </div>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-xs md:text-sm text-gray-400 break-words">Restaurant (PTS)</span>
-                                    <span class="text-xs md:text-sm font-bold text-gray-200 shrink-0">GCash / QRPh</span>
-                                </div>
-                            </div>
-                            <div class="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
-                                <div class="flex items-center gap-2">
-                                    <img src="aqwire payments logo vertical.jpg" alt="Aqwire" class="h-8 md:h-10 object-contain rounded">
-                                </div>
-                                <span class="text-[9px] md:text-[10px] text-gray-500 uppercase tracking-widest font-bold">Trusted Partner</span>
+                    <div class="flex-1 flex justify-center w-full mt-4 lg:mt-0 min-w-0">
+                        <div class="relative w-full aspect-square md:aspect-[4/3] rounded-[2rem] shadow-2xl overflow-hidden group border border-gray-700">
+                            <img src="payment-terminal.jpg" alt="AQWIRE PTS Terminal" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop'" loading="lazy" />
+                            
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-6 md:p-8 pointer-events-none">
+                                <span class="inline-block px-3 py-1.5 bg-white/10 backdrop-blur-md text-white font-bold tracking-widest text-[10px] md:text-xs rounded-full mb-3 border border-white/20 w-max" translate="no">All-in-One PTS</span>
+                                <h3 class="text-2xl md:text-3xl font-black text-white break-words drop-shadow-md">Tap, Swipe, or Scan.</h3>
+                                <p class="text-sm md:text-base text-gray-300 mt-2 font-medium drop-shadow-sm">Instant validation across all restaurant and hotel touchpoints.</p>
                             </div>
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </section>
@@ -302,8 +275,8 @@
                 
                 <div class="bg-white p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] border-2 border-[#6b38d4] shadow-2xl relative transform lg:-translate-y-4 text-center lg:text-left mt-4 mb-4 lg:mt-0 lg:mb-0 min-w-0">
                     <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#6b38d4] text-white px-4 md:px-5 py-1 md:py-1.5 rounded-full text-[10px] md:text-xs font-black tracking-widest uppercase shadow-md whitespace-nowrap">Most Popular</div>
-                    <h3 class="text-xs md:text-sm font-bold text-[#6b38d4] mb-2 break-words">Unified ERP</h3>
-                    <p class="text-[10px] md:text-xs text-gray-500 mb-6 leading-relaxed break-words">The complete digital suite for hotels.</p>
+                    <h3 class="text-xs md:text-sm font-bold text-[#6b38d4] mb-2 break-words">Unified Hospitality ERP</h3>
+                    <p class="text-[10px] md:text-xs text-gray-500 mb-6 leading-relaxed break-words">The complete digital suite for hotels with F&B outlets.</p>
                     <div class="flex items-baseline justify-center lg:justify-start gap-1 mb-8">
                         <h4 class="text-4xl md:text-5xl font-black text-gray-900 break-words">₱ 9,999</h4><span class="text-xs md:text-sm text-gray-400 font-bold shrink-0">/ mo</span>
                     </div>
@@ -318,8 +291,8 @@
                 </div>
                 
                 <div class="bg-white p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] border border-gray-200 shadow-sm text-center lg:text-left min-w-0">
-                    <h3 class="text-xs md:text-sm font-bold text-gray-500 mb-2 break-words">Enterprise</h3>
-                    <p class="text-[10px] md:text-xs text-gray-400 mb-6 leading-relaxed break-words">Built for hotel groups and aggregators.</p>
+                    <h3 class="text-xs md:text-sm font-bold text-gray-500 mb-2 break-words">Enterprise Solutions</h3>
+                    <p class="text-[10px] md:text-xs text-gray-400 mb-6 leading-relaxed break-words">Built for hotel groups and platform aggregators.</p>
                     <h4 class="text-3xl md:text-4xl font-black mb-8 break-words text-gray-900">Contact Us</h4>
                     <ul class="space-y-3 md:space-y-4 mb-8 md:mb-10 text-xs md:text-sm font-bold text-gray-700 text-left w-max mx-auto lg:mx-0">
                         <li class="flex items-center gap-2 md:gap-3"><span class="material-symbols-outlined text-gray-400 text-lg md:text-xl" translate="no">check_circle</span> <span class="break-words">Multi-Property Dashboard</span></li>

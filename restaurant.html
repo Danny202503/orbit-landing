@@ -11,60 +11,63 @@
     <style>
         html { scroll-behavior: smooth; overflow-x: hidden; }
         body { font-family: 'Inter', sans-serif; top: 0 !important; width: 100%; position: relative; overflow-x: hidden; }
-        .signature-gradient { background: linear-gradient(135deg, #f97316 0%, #ea580c 50%, #c2410c 100%); } 
-        .signature-text-gradient { background: linear-gradient(135deg, #fdba74 0%, #ea580c 50%, #9a3412 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        /* 🚀 브랜드 컬러 보라색으로 완벽 복구 */
+        .signature-gradient { background: linear-gradient(135deg, #cbd5e1 0%, #6b38d4 50%, #4b41e1 100%); } 
+        .signature-text-gradient { background: linear-gradient(135deg, #94a3b8 0%, #6b38d4 50%, #4b41e1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .glass-nav { backdrop-filter: blur(20px); border-bottom: 1px solid rgba(199, 196, 215, 0.1); }
         .no-scrollbar::-webkit-scrollbar { display: none; }
-        .neon-orange-shadow { box-shadow: 0 0 20px rgba(234, 88, 12, 0.4); }
+        .neon-purple-shadow { box-shadow: 0 0 20px rgba(107, 56, 212, 0.4); }
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); will-change: opacity, transform; }
         .reveal.active { opacity: 1; transform: translateY(0); }
         .dropdown-menu { display: none; opacity: 0; transition: opacity 0.2s ease-in-out; }
         .group:hover .dropdown-menu { display: block; opacity: 1; }
         .skiptranslate { display: none !important; }
+        /* 🚀 독일어 등 긴 단어로 인한 레이아웃 깨짐 강제 방지 (Word-break) */
+        .break-words { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto; }
     </style>
 </head>
-<body id="top" class="bg-[#fbf9f8] text-[#1b1c1c] selection:bg-[#ea580c]/20">
+<body id="top" class="bg-[#fbf9f8] text-[#1b1c1c] selection:bg-[#4b41e1]/20">
     
     <nav class="fixed top-0 w-full z-50 glass-nav bg-white/90">
         <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex justify-between items-center relative">
             <div class="flex items-center gap-4 md:gap-10">
-                <a href="index.html" class="flex items-center gap-2 transition-transform duration-300 hover:scale-105 active:scale-95 group">
-                     <span class="text-xl md:text-2xl font-black tracking-widest text-[#1b1c1c]">ORBIT<span class="text-[#ea580c]">.</span></span>
+                <a href="index.html" class="flex items-center gap-2 transition-transform duration-300 hover:scale-105 active:scale-95 group shrink-0">
+                     <img src="image_6.png.jpg" alt="ORBIT Logo" class="h-10 md:h-12 w-auto object-contain group-hover:brightness-110" onerror="this.src='https://via.placeholder.com/150x50/ffffff/6b38d4?text=ORBIT'">
                 </a>
                 <div class="hidden md:flex items-center gap-8">
                     <a href="index.html" class="text-sm font-bold text-gray-500 hover:text-[#6b38d4] transition-colors tracking-wide">Hotel PMS</a>
-                    <a href="#top" class="text-sm font-bold text-[#ea580c] tracking-wide">Restaurant POS</a>
+                    <a href="#top" class="text-sm font-bold text-[#6b38d4] tracking-wide">Restaurant POS</a>
                     <a href="tour.html" class="flex items-center gap-1 text-sm font-bold text-gray-500 hover:text-[#6b38d4] transition-colors tracking-wide">
                         <span class="material-symbols-outlined text-[16px]">travel_explore</span> Product Tour
                     </a>
                 </div>
             </div>
             
-            <div class="flex items-center gap-3 md:gap-6">
+            <div class="flex items-center gap-3 md:gap-6 shrink-0">
                 <div class="relative group cursor-pointer py-2">
-                    <div class="flex items-center gap-1 md:gap-2 text-xs md:text-sm font-bold text-gray-600 hover:text-[#ea580c] transition-colors">
+                    <div class="flex items-center gap-1 md:gap-2 text-xs md:text-sm font-bold text-gray-600 hover:text-[#6b38d4] transition-colors">
                         <span id="current-lang-flag" class="fi fi-us rounded-sm text-base md:text-lg"></span>
                         <span id="current-lang-text" class="hidden sm:inline-block">EN</span>
                         <span class="material-symbols-outlined text-[14px] md:text-[16px]">expand_more</span>
                     </div>
                     <div class="dropdown-menu absolute right-0 mt-2 w-36 md:w-40 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50">
                         <ul class="py-2 flex flex-col">
-                            <li onclick="changeLanguage('EN', 'fi-us', 'en')" class="px-4 py-2 hover:bg-orange-50 text-xs md:text-sm font-bold text-[#ea580c] flex items-center gap-3 transition-colors cursor-pointer"><span class="fi fi-us rounded-sm"></span> English</li>
-                            <li onclick="changeLanguage('KOR', 'fi-kr', 'ko')" class="px-4 py-2 hover:bg-orange-50 text-xs md:text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors cursor-pointer"><span class="fi fi-kr rounded-sm"></span> 한국어</li>
-                            <li onclick="changeLanguage('JPN', 'fi-jp', 'ja')" class="px-4 py-2 hover:bg-orange-50 text-xs md:text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors cursor-pointer"><span class="fi fi-jp rounded-sm"></span> 日本語</li>
-                            <li onclick="changeLanguage('CN', 'fi-cn', 'zh-CN')" class="px-4 py-2 hover:bg-orange-50 text-xs md:text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors cursor-pointer"><span class="fi fi-cn rounded-sm"></span> 中文 (简体)</li>
-                            <li onclick="changeLanguage('TW', 'fi-tw', 'zh-TW')" class="px-4 py-2 hover:bg-orange-50 text-xs md:text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors cursor-pointer"><span class="fi fi-tw rounded-sm"></span> 中文 (繁體)</li>
-                            <li onclick="changeLanguage('DE', 'fi-de', 'de')" class="px-4 py-2 hover:bg-orange-50 text-xs md:text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors cursor-pointer"><span class="fi fi-de rounded-sm"></span> Deutsch</li>
-                            <li onclick="changeLanguage('TL', 'fi-ph', 'tl')" class="px-4 py-2 hover:bg-orange-50 text-xs md:text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors cursor-pointer"><span class="fi fi-ph rounded-sm"></span> Tagalog</li>
-                            <li onclick="changeLanguage('ESP', 'fi-es', 'es')" class="px-4 py-2 hover:bg-orange-50 text-xs md:text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors cursor-pointer"><span class="fi fi-es rounded-sm"></span> Español</li>
+                            <li onclick="changeLanguage('EN', 'fi-us', 'en')" class="px-4 py-2 hover:bg-purple-50 text-xs md:text-sm font-bold text-[#6b38d4] flex items-center gap-3 transition-colors cursor-pointer"><span class="fi fi-us rounded-sm"></span> English</li>
+                            <li onclick="changeLanguage('KOR', 'fi-kr', 'ko')" class="px-4 py-2 hover:bg-purple-50 text-xs md:text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors cursor-pointer"><span class="fi fi-kr rounded-sm"></span> 한국어</li>
+                            <li onclick="changeLanguage('JPN', 'fi-jp', 'ja')" class="px-4 py-2 hover:bg-purple-50 text-xs md:text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors cursor-pointer"><span class="fi fi-jp rounded-sm"></span> 日本語</li>
+                            <li onclick="changeLanguage('CN', 'fi-cn', 'zh-CN')" class="px-4 py-2 hover:bg-purple-50 text-xs md:text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors cursor-pointer"><span class="fi fi-cn rounded-sm"></span> 中文 (简体)</li>
+                            <li onclick="changeLanguage('TW', 'fi-tw', 'zh-TW')" class="px-4 py-2 hover:bg-purple-50 text-xs md:text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors cursor-pointer"><span class="fi fi-tw rounded-sm"></span> 中文 (繁體)</li>
+                            <li onclick="changeLanguage('DE', 'fi-de', 'de')" class="px-4 py-2 hover:bg-purple-50 text-xs md:text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors cursor-pointer"><span class="fi fi-de rounded-sm"></span> Deutsch</li>
+                            <li onclick="changeLanguage('TL', 'fi-ph', 'tl')" class="px-4 py-2 hover:bg-purple-50 text-xs md:text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors cursor-pointer"><span class="fi fi-ph rounded-sm"></span> Tagalog</li>
+                            <li onclick="changeLanguage('ESP', 'fi-es', 'es')" class="px-4 py-2 hover:bg-purple-50 text-xs md:text-sm font-medium text-gray-600 flex items-center gap-3 transition-colors cursor-pointer"><span class="fi fi-es rounded-sm"></span> Español</li>
                         </ul>
                     </div>
                 </div>
                 <div class="hidden sm:block w-px h-4 md:h-5 bg-gray-200"></div>
-                <button onclick="window.location.href='https://order-pay-get-admin.web.app'" class="hidden sm:block font-inter text-xs md:text-sm font-bold tracking-tight text-slate-600 hover:text-orange-600 transition-colors">Admin Login</button>
+                <button onclick="window.location.href='https://order-pay-get-admin.web.app'" class="hidden sm:block font-inter text-xs md:text-sm font-bold tracking-tight text-slate-600 hover:text-[#6b38d4] transition-colors">Admin Login</button>
                 <button onclick="window.location.href='demo.html'" class="signature-gradient text-white px-4 py-2 md:px-6 md:py-2.5 rounded-xl md:rounded-2xl text-xs md:text-sm font-bold shadow-lg hover:-translate-y-0.5 transition-all whitespace-nowrap">Demo</button>
                 
-                <button id="mobile-menu-btn-rest" class="block md:hidden text-gray-800 ml-1 hover:text-[#ea580c] transition-colors">
+                <button id="mobile-menu-btn-rest" class="block md:hidden text-gray-800 ml-1 hover:text-[#6b38d4] transition-colors shrink-0">
                     <span class="material-symbols-outlined text-[28px]">menu</span>
                 </button>
             </div>
@@ -73,7 +76,7 @@
         <div id="mobile-menu-rest" class="hidden absolute top-full left-0 w-full bg-white shadow-2xl border-t border-gray-100 md:hidden z-50">
             <div class="flex flex-col px-6 py-6 space-y-6">
                 <a href="index.html" class="text-base font-bold text-gray-700">Hotel PMS</a>
-                <a href="#top" class="text-base font-bold text-[#ea580c]">Restaurant POS</a>
+                <a href="#top" class="text-base font-bold text-[#6b38d4]">Restaurant POS</a>
                 <a href="tour.html" class="flex items-center gap-2 text-base font-bold text-gray-700">
                     <span class="material-symbols-outlined text-[20px]">travel_explore</span> Product Tour
                 </a>
@@ -85,127 +88,129 @@
 
     <main class="pt-20 md:pt-24 overflow-hidden">
         
-        <section class="max-w-7xl mx-auto px-4 md:px-6 pt-10 md:pt-16 pb-16 md:pb-24 text-center reveal active">
-            <span class="text-[#ea580c] font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 block">Table • Kitchen • Staff • Admin</span>
-            <h1 class="text-4xl sm:text-6xl md:text-8xl font-extrabold tracking-tighter mb-6 md:mb-8 leading-[1.1] md:leading-[0.9]">
+        <section class="max-w-7xl mx-auto px-4 md:px-6 pt-10 md:pt-16 pb-16 md:pb-24 text-center reveal active w-full">
+            <span class="text-[#6b38d4] font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 block break-words">Table • Kitchen • Staff • Admin</span>
+            <h1 class="text-4xl sm:text-6xl md:text-8xl font-extrabold tracking-tighter mb-6 md:mb-8 leading-[1.1] md:leading-[0.9] break-words">
                 The 4-in-1 <br/>
                 <span class="signature-text-gradient">Culinary Ecosystem</span>
             </h1>
-            <p class="max-w-2xl mx-auto text-gray-600 text-base md:text-xl leading-relaxed mb-8 md:mb-12 font-medium px-2">
+            <p class="max-w-2xl mx-auto text-gray-600 text-base md:text-xl leading-relaxed mb-8 md:mb-12 font-medium px-2 break-words">
                 A completely independent, fully integrated suite for modern restaurants. From multi-language table ordering to real-time kitchen displays, JJ's POS turns your F&B outlets into high-margin profit centers.
             </p>
-            <div class="relative w-full aspect-video md:aspect-[21/9] rounded-2xl bg-black/5 shadow-2xl overflow-hidden flex items-center justify-center border border-gray-100 group neon-orange-shadow">
+            <div class="relative w-full aspect-video md:aspect-[21/9] rounded-2xl bg-black/5 shadow-2xl overflow-hidden flex items-center justify-center border border-gray-100 group neon-purple-shadow">
                 <video class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" autoplay loop muted playsinline>
-                    <source src="restaurant-pos-video.mp4" type="video/mp4" onerror="this.src='hotel-video-v2.mp4'"/>
+                    <source src="hotel-video-v2.mp4" type="video/mp4"/>
+                    <source src="hotel-pms-video.mp4" type="video/mp4"/>
+                    Your browser does not support the video tag.
                 </video>
             </div>
         </section>
 
-        <section class="max-w-5xl mx-auto px-4 md:px-6 mb-16 md:mb-24 reveal">
+        <section class="max-w-5xl mx-auto px-4 md:px-6 mb-16 md:mb-24 reveal w-full">
             <div class="flex justify-center border-b border-gray-200 overflow-x-auto no-scrollbar">
                 <div class="flex gap-8 md:gap-12 whitespace-nowrap px-4">
                     <button onclick="window.location.href='index.html'" class="flex items-center gap-2 md:gap-3 pb-4 md:pb-6 border-b-2 border-transparent text-gray-500 hover:text-black transition-all">
                         <span class="material-symbols-outlined text-lg md:text-xl">hotel_class</span>
-                        <span class="font-bold text-sm md:text-base">ORBIT PMS</span>
+                        <span class="font-bold text-sm md:text-base break-words">ORBIT PMS</span>
                     </button>
-                    <button class="flex items-center gap-2 md:gap-3 pb-4 md:pb-6 border-b-2 border-[#ea580c] transition-all cursor-default">
-                        <span class="material-symbols-outlined text-[#ea580c] text-lg md:text-xl">restaurant_menu</span>
-                        <span class="font-bold text-gray-900 text-sm md:text-base">JJ's POS</span>
+                    <button class="flex items-center gap-2 md:gap-3 pb-4 md:pb-6 border-b-2 border-[#6b38d4] transition-all cursor-default">
+                        <span class="material-symbols-outlined text-[#6b38d4] text-lg md:text-xl">restaurant_menu</span>
+                        <span class="font-bold text-gray-900 text-sm md:text-base break-words">JJ's POS</span>
                     </button>
                 </div>
             </div>
         </section>
 
-        <section class="max-w-7xl mx-auto px-4 md:px-6 space-y-20 md:space-y-32 mb-20 md:mb-32">
+        <section class="max-w-7xl mx-auto px-4 md:px-6 space-y-20 md:space-y-32 mb-20 md:mb-32 w-full overflow-hidden">
             
-            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16 reveal">
-                <div class="flex-1 order-2 md:order-1 text-center md:text-left">
-                    <span class="text-[#ea580c] font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 md:mb-4 block">Table Order Web App</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4 md:mb-6 leading-tight">No Menus. <br class="hidden md:block"/>No Language Barriers.</h2>
-                    <p class="text-sm md:text-base text-gray-600 leading-relaxed mb-6 md:mb-8">Empower your guests with a stunning digital menu tablet. Native support for English, Korean, Japanese, and Chinese means perfect orders every time. Feature your 'All Time Favorites' and 'Special Promos' to drive massive upsells without lifting a finger.</p>
-                    <ul class="space-y-3 md:space-y-4 inline-block text-left">
-                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-[#ea580c] text-lg md:text-xl">language</span><span class="font-bold text-gray-800 text-sm md:text-base">4+ Native Languages (EN, KR, CN, JP)</span></li>
-                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-[#ea580c] text-lg md:text-xl">ads_click</span><span class="font-bold text-gray-800 text-sm md:text-base">Automated Promo & Upselling UI</span></li>
+            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16 reveal w-full">
+                <div class="flex-1 order-2 md:order-1 text-center md:text-left min-w-0">
+                    <span class="text-[#6b38d4] font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 md:mb-4 block break-words">Table Order Web App</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 md:mb-6 leading-tight break-words">No Menus. <br class="hidden md:block"/>No Language Barriers.</h2>
+                    <p class="text-sm md:text-base text-gray-600 leading-relaxed mb-6 md:mb-8 break-words">Empower your guests with a stunning digital menu tablet. Native support for English, Korean, Japanese, and Chinese means perfect orders every time. Feature your 'All Time Favorites' to drive massive upsells.</p>
+                    <ul class="space-y-3 md:space-y-4 inline-block text-left w-full">
+                        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-[#6b38d4] text-lg md:text-xl shrink-0 mt-0.5">language</span><span class="font-bold text-gray-800 text-sm md:text-base break-words">4+ Native Languages (EN, KR, CN, JP)</span></li>
+                        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-[#6b38d4] text-lg md:text-xl shrink-0 mt-0.5">ads_click</span><span class="font-bold text-gray-800 text-sm md:text-base break-words">Automated Promo & Upselling UI</span></li>
                     </ul>
                 </div>
-                <div class="flex-1 order-1 md:order-2 bg-white p-3 md:p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden w-full group">
-                    <img class="w-full aspect-video object-cover rounded-2xl group-hover:scale-105 transition-transform duration-700" src="table-menu.jpg" onerror="this.src='https://via.placeholder.com/800x450/1b1c1c/ea580c?text=Upload+Table+Menu+Screenshot'" loading="lazy">
+                <div class="flex-1 order-1 md:order-2 bg-white p-3 md:p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden w-full group min-w-0">
+                    <img class="w-full aspect-video object-cover rounded-2xl group-hover:scale-105 transition-transform duration-700" src="table-menu.jpg" onerror="this.src='https://via.placeholder.com/800x450/1b1c1c/6b38d4?text=Upload+Table+Menu'" loading="lazy">
                 </div>
             </div>
             
-            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16 reveal">
-                <div class="flex-1 bg-white p-3 md:p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden w-full group">
-                    <img class="w-full aspect-video object-cover rounded-2xl group-hover:scale-105 transition-transform duration-700" src="table-cart.jpg" onerror="this.src='https://via.placeholder.com/800x450/1b1c1c/ea580c?text=Upload+Cart+Payment+Screenshot'" loading="lazy">
+            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16 reveal w-full">
+                <div class="flex-1 bg-white p-3 md:p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden w-full group min-w-0">
+                    <img class="w-full aspect-video object-cover rounded-2xl group-hover:scale-105 transition-transform duration-700" src="table-cart.jpg" onerror="this.src='https://via.placeholder.com/800x450/1b1c1c/6b38d4?text=Upload+Cart+Payment'" loading="lazy">
                 </div>
-                <div class="flex-1 text-center md:text-left">
-                    <span class="text-[#ea580c] font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 md:mb-4 block">Frictionless Checkout</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4 md:mb-6 leading-tight">Pay at Table, <br class="hidden md:block"/>Faster Turnover.</h2>
-                    <p class="text-sm md:text-base text-gray-600 leading-relaxed mb-6 md:mb-8">Say goodbye to lines at the counter. Guests can easily add staff tips, apply Senior/PWD discounts, and choose to pay directly via QR Scan or request staff for cash/card. Faster payments equal faster table turnovers.</p>
-                    <div class="grid grid-cols-2 gap-3 md:gap-4">
-                        <div class="p-3 md:p-4 bg-orange-50/50 rounded-xl md:rounded-2xl border border-orange-100">
-                            <span class="material-symbols-outlined text-[#ea580c] mb-1 md:mb-2 text-lg md:text-2xl">qr_code_2</span>
-                            <p class="text-[10px] md:text-xs font-bold uppercase tracking-wide text-gray-800">Scan QR to Pay</p>
+                <div class="flex-1 text-center md:text-left min-w-0">
+                    <span class="text-[#6b38d4] font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 md:mb-4 block break-words">Frictionless Checkout</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 md:mb-6 leading-tight break-words">Pay at Table, <br class="hidden md:block"/>Faster Turnover.</h2>
+                    <p class="text-sm md:text-base text-gray-600 leading-relaxed mb-6 md:mb-8 break-words">Say goodbye to lines at the counter. Guests can easily add staff tips, apply Senior/PWD discounts, and choose to pay directly via QR Scan or request staff for cash/card. Faster payments equal faster turnovers.</p>
+                    <div class="grid grid-cols-2 gap-3 md:gap-4 w-full">
+                        <div class="p-3 md:p-4 bg-purple-50/50 rounded-xl md:rounded-2xl border border-purple-100 flex flex-col h-full overflow-hidden">
+                            <span class="material-symbols-outlined text-[#6b38d4] mb-1 md:mb-2 text-lg md:text-2xl shrink-0">qr_code_2</span>
+                            <p class="text-[10px] md:text-xs font-bold uppercase tracking-wide text-gray-800 break-words mt-auto">Scan QR to Pay</p>
                         </div>
-                        <div class="p-3 md:p-4 bg-orange-50/50 rounded-xl md:rounded-2xl border border-orange-100">
-                            <span class="material-symbols-outlined text-[#ea580c] mb-1 md:mb-2 text-lg md:text-2xl">volunteer_activism</span>
-                            <p class="text-[10px] md:text-xs font-bold uppercase tracking-wide text-gray-800">Tip & Discounts</p>
+                        <div class="p-3 md:p-4 bg-purple-50/50 rounded-xl md:rounded-2xl border border-purple-100 flex flex-col h-full overflow-hidden">
+                            <span class="material-symbols-outlined text-[#6b38d4] mb-1 md:mb-2 text-lg md:text-2xl shrink-0">volunteer_activism</span>
+                            <p class="text-[10px] md:text-xs font-bold uppercase tracking-wide text-gray-800 break-words mt-auto">Tip & Discounts</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16 reveal">
-                <div class="flex-1 order-2 md:order-1 text-center md:text-left">
-                    <span class="text-[#ea580c] font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 md:mb-4 block">Kitchen Display Web App</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4 md:mb-6 leading-tight">Zero Lost Tickets. <br class="hidden md:block"/>Perfect Sync.</h2>
-                    <p class="text-sm md:text-base text-gray-600 leading-relaxed mb-6 md:mb-8">The exact second a guest taps "Order" on their table tablet, the ticket instantly appears on the Kitchen Display System (KDS). Chefs can track prep times, route items to specific stations, and mark them 'Ready' to alert floor staff.</p>
-                    <ul class="space-y-3 md:space-y-4 inline-block text-left">
-                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-[#ea580c] text-lg md:text-xl">timer</span><span class="font-bold text-gray-800 text-sm md:text-base">Real-Time Prep Tracking</span></li>
-                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-[#ea580c] text-lg md:text-xl">soup_kitchen</span><span class="font-bold text-gray-800 text-sm md:text-base">Paperless Kitchen Sync</span></li>
+            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16 reveal w-full">
+                <div class="flex-1 order-2 md:order-1 text-center md:text-left min-w-0">
+                    <span class="text-[#6b38d4] font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 md:mb-4 block break-words">Kitchen Display Web App</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 md:mb-6 leading-tight break-words">Zero Lost Tickets. <br class="hidden md:block"/>Perfect Sync.</h2>
+                    <p class="text-sm md:text-base text-gray-600 leading-relaxed mb-6 md:mb-8 break-words">The exact second a guest taps "Order" on their table tablet, the ticket instantly appears on the Kitchen Display System (KDS). Chefs can track prep times and route items to specific stations.</p>
+                    <ul class="space-y-3 md:space-y-4 inline-block text-left w-full">
+                        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-[#6b38d4] text-lg md:text-xl shrink-0 mt-0.5">timer</span><span class="font-bold text-gray-800 text-sm md:text-base break-words">Real-Time Prep Tracking</span></li>
+                        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-[#6b38d4] text-lg md:text-xl shrink-0 mt-0.5">soup_kitchen</span><span class="font-bold text-gray-800 text-sm md:text-base break-words">Paperless Kitchen Sync</span></li>
                     </ul>
                 </div>
-                <div class="flex-1 order-1 md:order-2 bg-white p-3 md:p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden w-full group">
-                    <img class="w-full aspect-video object-cover rounded-2xl group-hover:scale-105 transition-transform duration-700" src="kds-interface.jpg" onerror="this.src='https://via.placeholder.com/800x450/1b1c1c/ea580c?text=Upload+KDS+Screenshot'" loading="lazy">
+                <div class="flex-1 order-1 md:order-2 bg-white p-3 md:p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden w-full group min-w-0">
+                    <img class="w-full aspect-video object-cover rounded-2xl group-hover:scale-105 transition-transform duration-700" src="kds-interface.jpg" onerror="this.src='https://via.placeholder.com/800x450/1b1c1c/6b38d4?text=Upload+KDS'" loading="lazy">
                 </div>
             </div>
 
-            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16 reveal">
-                <div class="flex-1 bg-white p-3 md:p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden w-full group">
-                    <img class="w-full aspect-video object-cover rounded-2xl group-hover:scale-105 transition-transform duration-700" src="admin-staff.jpg" onerror="this.src='https://via.placeholder.com/800x450/1b1c1c/ea580c?text=Upload+Admin+Staff+Screenshot'" loading="lazy">
+            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16 reveal w-full">
+                <div class="flex-1 bg-white p-3 md:p-4 rounded-3xl border border-gray-100 shadow-xl overflow-hidden w-full group min-w-0">
+                    <img class="w-full aspect-video object-cover rounded-2xl group-hover:scale-105 transition-transform duration-700" src="admin-staff.jpg" onerror="this.src='https://via.placeholder.com/800x450/1b1c1c/6b38d4?text=Upload+Admin+Staff'" loading="lazy">
                 </div>
-                <div class="flex-1 text-center md:text-left">
-                    <span class="text-[#ea580c] font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 md:mb-4 block">Admin & Staff Web Apps</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4 md:mb-6 leading-tight">Total Floor Control. <br class="hidden md:block"/>Anywhere.</h2>
-                    <p class="text-sm md:text-base text-gray-600 leading-relaxed mb-6 md:mb-8">Floor staff receive instant notifications on their mobile devices when a table taps "Call Staff" or needs the bill. Meanwhile, managers use the Admin Dashboard to track live inventory, update menus, and analyze daily revenue across all apps.</p>
-                    <div class="grid grid-cols-2 gap-3 md:gap-4">
-                        <div class="p-3 md:p-4 bg-orange-50/50 rounded-xl md:rounded-2xl border border-orange-100">
-                            <span class="material-symbols-outlined text-[#ea580c] mb-1 md:mb-2 text-lg md:text-2xl">notifications_active</span>
-                            <p class="text-[10px] md:text-xs font-bold uppercase tracking-wide text-gray-800">Live Staff Alerts</p>
+                <div class="flex-1 text-center md:text-left min-w-0">
+                    <span class="text-[#6b38d4] font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 md:mb-4 block break-words">Admin & Staff Web Apps</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 md:mb-6 leading-tight break-words">Total Floor Control. <br class="hidden md:block"/>Anywhere.</h2>
+                    <p class="text-sm md:text-base text-gray-600 leading-relaxed mb-6 md:mb-8 break-words">Floor staff receive instant notifications on their mobile devices when a table needs the bill. Meanwhile, managers use the Admin Dashboard to track live inventory and analyze daily revenue.</p>
+                    <div class="grid grid-cols-2 gap-3 md:gap-4 w-full">
+                        <div class="p-3 md:p-4 bg-purple-50/50 rounded-xl md:rounded-2xl border border-purple-100 flex flex-col h-full overflow-hidden">
+                            <span class="material-symbols-outlined text-[#6b38d4] mb-1 md:mb-2 text-lg md:text-2xl shrink-0">notifications_active</span>
+                            <p class="text-[10px] md:text-xs font-bold uppercase tracking-wide text-gray-800 break-words mt-auto">Live Staff Alerts</p>
                         </div>
-                        <div class="p-3 md:p-4 bg-orange-50/50 rounded-xl md:rounded-2xl border border-orange-100">
-                            <span class="material-symbols-outlined text-[#ea580c] mb-1 md:mb-2 text-lg md:text-2xl">monitoring</span>
-                            <p class="text-[10px] md:text-xs font-bold uppercase tracking-wide text-gray-800">Master Admin Control</p>
+                        <div class="p-3 md:p-4 bg-purple-50/50 rounded-xl md:rounded-2xl border border-purple-100 flex flex-col h-full overflow-hidden">
+                            <span class="material-symbols-outlined text-[#6b38d4] mb-1 md:mb-2 text-lg md:text-2xl shrink-0">monitoring</span>
+                            <p class="text-[10px] md:text-xs font-bold uppercase tracking-wide text-gray-800 break-words mt-auto">Master Admin Control</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="max-w-4xl mx-auto px-4 md:px-6 text-center reveal pt-8 md:pt-12 mt-16 md:mt-24">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 md:mb-6">Deploy the Ultimate POS Ecosystem.</h2>
-            <p class="text-sm md:text-xl text-gray-500 mb-8 md:mb-10">4 Apps. 1 Seamless Operation. Get started today.</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <button onclick="window.location.href='demo.html'" class="text-sm md:text-lg px-8 py-3 md:py-4 rounded-xl md:rounded-2xl signature-gradient text-white font-bold shadow-[0_0_40px_rgba(234,88,12,0.4)] hover:-translate-y-1 transition-all whitespace-nowrap">
+        <section class="max-w-4xl mx-auto px-4 md:px-6 text-center reveal pt-8 md:pt-12 mt-16 md:mt-24 w-full overflow-hidden">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 md:mb-6 break-words">Deploy the Ultimate POS Ecosystem.</h2>
+            <p class="text-sm md:text-xl text-gray-500 mb-8 md:mb-10 break-words">4 Apps. 1 Seamless Operation. Get started today.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 w-full px-4">
+                <button onclick="window.location.href='demo.html'" class="text-sm md:text-lg px-8 py-3 md:py-4 rounded-xl md:rounded-2xl signature-gradient text-white font-bold shadow-[0_0_40px_rgba(107,56,212,0.4)] hover:-translate-y-1 transition-all whitespace-normal break-words">
                     Request POS Demo
                 </button>
-                <button onclick="window.open('https://order-pay-get.web.app', '_blank')" class="text-sm md:text-lg px-8 py-3 md:py-4 rounded-xl md:rounded-2xl bg-white border border-gray-200 text-gray-800 font-bold hover:border-[#ea580c] hover:text-[#ea580c] transition-all whitespace-nowrap flex items-center justify-center gap-2">
-                    Try Table App <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+                <button onclick="window.open('https://order-pay-get.web.app', '_blank')" class="text-sm md:text-lg px-8 py-3 md:py-4 rounded-xl md:rounded-2xl bg-white border border-gray-200 text-gray-800 font-bold hover:border-[#6b38d4] hover:text-[#6b38d4] transition-all whitespace-normal break-words flex items-center justify-center gap-2">
+                    Try Table App <span class="material-symbols-outlined text-[18px] shrink-0">open_in_new</span>
                 </button>
             </div>
         </section>
         
         <footer class="bg-transparent w-full py-8 md:py-12 px-6 border-t border-gray-200 mt-16 md:mt-24 text-center">
-            <p class="text-[9px] md:text-[11px] text-gray-400 font-bold tracking-[0.2em] uppercase">© 2026 ORBIT Operating System. All Rights Reserved.</p>
+            <p class="text-[9px] md:text-[11px] text-gray-400 font-bold tracking-[0.2em] uppercase break-words">© 2026 ORBIT Operating System. All Rights Reserved.</p>
         </footer>
     </main>
 
@@ -244,10 +249,9 @@
                 if(langFlag) langFlag.className = 'fi ' + savedFlag + ' rounded-sm text-base md:text-lg';
                 
                 const items = document.querySelectorAll('.dropdown-menu li');
-                items.forEach(item => { item.classList.remove('text-[#ea580c]', 'font-bold'); item.classList.add('text-gray-600', 'font-medium'); });
+                items.forEach(item => { item.classList.remove('text-[#6b38d4]', 'font-bold'); item.classList.add('text-gray-600', 'font-medium'); });
             }
             
-            // 🚀 모바일 햄버거 메뉴 토글 로직
             const menuBtnRest = document.getElementById('mobile-menu-btn-rest');
             const mobileMenuRest = document.getElementById('mobile-menu-rest');
             if(menuBtnRest && mobileMenuRest) {
